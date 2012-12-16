@@ -1,0 +1,2313 @@
+(:id 0
+ :name 结云斗笠
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 1
+ :def-max 21
+ :holes 0
+ :skills ((71 2) (94 2) (51 2) ))
+(:id 1
+ :name 皮革头盔
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 1
+ :def-max 21
+ :holes 1
+ :skills ((93 2) (92 2) (94 3) ))
+(:id 2
+ :name 锁链头盔
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 2
+ :def-max 22
+ :holes 1
+ :skills ((0 2) (96 4) (97 1) ))
+(:id 3
+ :name 猎人头盔
+ :rare 1
+ :weapon saber
+ :gender both
+ :def-min 6
+ :def-max 25
+ :holes 1
+ :skills ((79 2) (76 2) (88 3) (9 -2) ))
+(:id 4
+ :name 猎人战帽
+ :rare 1
+ :weapon archer
+ :gender both
+ :def-min 3
+ :def-max 16
+ :holes 1
+ :skills ((79 4) (76 4) (88 2) (9 -1) ))
+(:id 5
+ :name 骨制头盔
+ :rare 1
+ :weapon saber
+ :gender both
+ :def-min 8
+ :def-max 27
+ :holes 1
+ :skills ((63 1) (92 3) (59 2) (11 -3) ))
+(:id 6
+ :name 骨制战帽
+ :rare 1
+ :weapon archer
+ :gender both
+ :def-min 4
+ :def-max 17
+ :holes 1
+ :skills ((63 3) (92 3) (59 4) (11 -1) ))
+(:id 7
+ :name 合金头盔
+ :rare 1
+ :weapon saber
+ :gender both
+ :def-min 8
+ :def-max 27
+ :holes 1
+ :skills ((15 2) (51 1) (27 3) (92 -3) ))
+(:id 8
+ :name 合金战帽
+ :rare 1
+ :weapon archer
+ :gender both
+ :def-min 4
+ :def-max 17
+ :holes 1
+ :skills ((34 3) (29 3) (37 3) (92 -2) ))
+(:id 9
+ :name 飞虫礼帽
+ :rare 2
+ :weapon saber
+ :gender both
+ :def-min 10
+ :def-max 29
+ :holes 1
+ :skills ((52 1) (50 1) (73 4) (1 -3) ))
+(:id 10
+ :name 飞虫头饰
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 5
+ :def-max 18
+ :holes 1
+ :skills ((52 3) (50 3) (73 4) (1 -1) ))
+(:id 11
+ :name 草食龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 29
+ :holes 1
+ :skills ((85 2) (64 1) (13 3) (6 -3) ))
+(:id 12
+ :name 草食龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 5
+ :def-max 18
+ :holes 1
+ :skills ((85 4) (64 2) (31 4) (6 -1) ))
+(:id 13
+ :name 狗龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 31
+ :holes 1
+ :skills ((1 2) (77 2) (84 2) (87 -3) ))
+(:id 14
+ :name 狗龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 6
+ :def-max 19
+ :holes 1
+ :skills ((1 3) (77 3) (84 4) (87 -1) ))
+(:id 15
+ :name 青熊头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 31
+ :holes 1
+ :skills ((91 1) (2 2) (12 3) (10 -3) ))
+(:id 16
+ :name 青熊战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 6
+ :def-max 19
+ :holes 1
+ :skills ((91 3) (2 3) (12 3) (10 -2) ))
+(:id 17
+ :name 毒狗龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 33
+ :holes 1
+ :skills ((72 2) (77 2) (9 2) (12 -3) ))
+(:id 18
+ :name 毒狗龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 7
+ :def-max 20
+ :holes 1
+ :skills ((72 4) (77 4) (9 2) (12 -1) ))
+(:id 19
+ :name 白兔头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 33
+ :holes 1
+ :skills ((48 2) (6 4) (82 2) (81 -3) ))
+(:id 20
+ :name 白兔战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 7
+ :def-max 20
+ :holes 1
+ :skills ((48 4) (6 4) (82 4) (81 -1) ))
+(:id 21
+ :name 彩鸟头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 31
+ :holes 1
+ :skills ((86 1) (83 3) (89 -3) (63 2) ))
+(:id 22
+ :name 彩鸟战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 6
+ :def-max 19
+ :holes 1
+ :skills ((86 4) (83 4) (89 -1) (63 2) ))
+(:id 23
+ :name 水兽头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 33
+ :holes 1
+ :skills ((47 2) (90 3) (66 1) (5 -3) ))
+(:id 24
+ :name 水兽战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 7
+ :def-max 20
+ :holes 1
+ :skills ((47 4) (90 3) (66 3) (5 -1) ))
+(:id 25
+ :name 土砂龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 16
+ :def-max 35
+ :holes 1
+ :skills ((25 3) (59 2) (2 1) (72 -3) ))
+(:id 26
+ :name 土砂龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 8
+ :def-max 21
+ :holes 1
+ :skills ((32 3) (31 3) (2 3) (72 -2) ))
+(:id 27
+ :name 高合金头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 39
+ :holes 1
+ :skills ((15 2) (67 2) (27 2) (94 -3) ))
+(:id 28
+ :name 高合金战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 23
+ :holes 1
+ :skills ())
+(:id 29
+ :name 眠狗龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 16
+ :def-max 35
+ :holes 1
+ :skills ((1 1) (68 2) (84 3) (3 -3) ))
+(:id 30
+ :name 眠狗龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 8
+ :def-max 21
+ :holes 1
+ :skills ((1 4) (68 2) (84 4) (3 -1) ))
+(:id 31
+ :name 赤甲兽头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 16
+ :def-max 35
+ :holes 1
+ :skills ((48 3) (3 1) (81 2) (82 -3) ))
+(:id 32
+ :name 赤甲兽战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 8
+ :def-max 21
+ :holes 1
+ :skills ((48 5) (3 2) (81 3) (82 -1) ))
+(:id 33
+ :name 雌火龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((0 4) (71 1) (65 1) (84 -3) ))
+(:id 34
+ :name 雌火龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((0 5) (71 3) (65 2) (84 -1) ))
+(:id 35
+ :name 潜口龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((89 2) (66 4) (91 2) (90 -3) ))
+(:id 36
+ :name 潜口龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((89 4) (66 3) (91 4) (90 -2) ))
+(:id 37
+ :name 毒怪龙头盔
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((52 3) (5 2) (12 1) (0 -3) ))
+(:id 38
+ :name 毒怪龙战帽
+ :rare 2
+ :weapon both
+ :gender both
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((52 4) (5 2) (12 4) (0 -1) ))
+(:id 39
+ :name 迅龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 39
+ :holes 1
+ :skills ((49 2) (85 2) (73 2) (1 -3) ))
+(:id 40
+ :name 迅龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 23
+ :holes 1
+ :skills ((49 4) (85 3) (73 2) (1 -2) ))
+(:id 41
+ :name 冰牙龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 39
+ :holes 1
+ :skills ((47 2) (72 1) (68 3) (85 -3) ))
+(:id 42
+ :name 冰牙龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 23
+ :holes 1
+ :skills ((47 4) (72 5) (68 1) (85 -1) ))
+(:id 43
+ :name 雄火龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 1
+ :skills ((53 1) (1 4) (65 1) (83 -3) ))
+(:id 44
+ :name 雄火龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 11
+ :def-max 24
+ :holes 1
+ :skills ((53 3) (1 2) (65 5) (83 -1) ))
+(:id 45
+ :name 爆锤龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 1
+ :skills ((23 3) (2 1) (3 3) (4 -2) ))
+(:id 46
+ :name 爆锤龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 11
+ :def-max 24
+ :holes 1
+ :skills ((33 4) (2 5) (3 1) (4 -1) ))
+(:id 47
+ :name 雷狼龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 2
+ :skills ((58 1) (67 1) (21 3) (73 -2) ))
+(:id 48
+ :name 雷狼龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 11
+ :def-max 24
+ :holes 2
+ :skills ((58 2) (67 2) (21 3) (73 -2) ))
+(:id 49
+ :name 角龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((22 3) (60 2) (14 1) (52 -3) ))
+(:id 50
+ :name 角龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 25
+ :holes 1
+ :skills ((33 3) (35 4) (60 2) (52 -2) ))
+(:id 51
+ :name 轰龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 0
+ :skills ((18 1) (76 2) (91 6) (71 -2) ))
+(:id 52
+ :name 轰龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 25
+ :holes 0
+ :skills ((18 3) (76 5) (91 4) (71 -1) ))
+(:id 53
+ :name 炎戈龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((25 2) (21 3) (51 2) (61 -2) ))
+(:id 54
+ :name 炎戈龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 25
+ :holes 1
+ :skills ((32 2) (36 4) (31 3) (61 -2) ))
+(:id 55
+ :name 尾槌龙头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((55 1) (61 2) (1 3) (51 -3) ))
+(:id 56
+ :name 尾槌龙战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 25
+ :holes 1
+ :skills ((55 3) (61 2) (1 4) (51 -2) ))
+(:id 57
+ :name 工会精英头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 39
+ :holes 2
+ :skills ((78 1) (77 2) (86 1) (75 -3) ))
+(:id 58
+ :name 工会精英战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 23
+ :holes 2
+ :skills ((78 4) (77 1) (86 2) (75 -2) ))
+(:id 59
+ :name 店员头饰
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 39
+ :holes 2
+ :skills ((78 1) (77 2) (86 1) (75 -3) ))
+(:id 60
+ :name 店员贝雷帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 23
+ :holes 2
+ :skills ((78 4) (77 1) (86 2) (75 -2) ))
+(:id 61
+ :name 南瓜帽
+ :rare 3
+ :weapon saber
+ :gender male
+ :def-min 16
+ :def-max 35
+ :holes 2
+ :skills ((57 1) (87 2) (88 1) (25 -3) ))
+(:id 62
+ :name 南瓜帽
+ :rare 3
+ :weapon saber
+ :gender female
+ :def-min 16
+ :def-max 35
+ :holes 2
+ :skills ((57 1) (87 2) (88 1) (25 -3) ))
+(:id 63
+ :name 南瓜花帽
+ :rare 3
+ :weapon archer
+ :gender male
+ :def-min 8
+ :def-max 21
+ :holes 2
+ :skills ((57 3) (87 2) (88 3) (25 -1) ))
+(:id 64
+ :name 南瓜花帽
+ :rare 3
+ :weapon archer
+ :gender female
+ :def-min 8
+ :def-max 21
+ :holes 2
+ :skills ((57 3) (87 2) (88 3) (25 -1) ))
+(:id 65
+ :name 轻皮头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 33
+ :holes 1
+ :skills ((21 2) (84 1) (4 4) (27 -2) ))
+(:id 66
+ :name 轻皮战帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 7
+ :def-max 20
+ :holes 1
+ :skills ((32 2) (84 3) (4 4) (29 -2) ))
+(:id 67
+ :name 昆虫头盔
+ :rare 3
+ :weapon saber
+ :gender male
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((18 2) (51 1) (5 3) (71 -3) ))
+(:id 68
+ :name 昆虫战帽
+ :rare 3
+ :weapon archer
+ :gender male
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((18 3) (51 5) (5 1) (71 -2) ))
+(:id 69
+ :name 蝴蝶头盔
+ :rare 3
+ :weapon both
+ :gender female
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((18 2) (51 1) (5 3) (71 -3) ))
+(:id 70
+ :name 蝴蝶战帽
+ :rare 3
+ :weapon both
+ :gender female
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((18 2) (51 1) (5 3) (71 -3) ))
+(:id 71
+ :name 飞虫头盔
+ :rare 3
+ :weapon both
+ :gender male
+ :def-min 18
+ :def-max 37
+ :holes 1
+ :skills ((18 2) (51 1) (5 3) (71 -3) ))
+(:id 72
+ :name 飞虫战帽
+ :rare 3
+ :weapon both
+ :gender male
+ :def-min 9
+ :def-max 22
+ :holes 1
+ :skills ((18 3) (51 5) (5 1) (71 -2) ))
+(:id 73
+ :name 大和【兜】
+ :rare 3
+ :weapon both
+ :gender male
+ :def-min 26
+ :def-max 45
+ :holes 0
+ :skills ((19 4) (57 1) (51 3) (21 -3) ))
+(:id 74
+ :name 陆奥【乌帽子】
+ :rare 3
+ :weapon both
+ :gender male
+ :def-min 13
+ :def-max 26
+ :holes 0
+ :skills ((56 4) (57 2) (51 4) (30 -3) ))
+(:id 75
+ :name 日向【钵金】
+ :rare 3
+ :weapon both
+ :gender female
+ :def-min 26
+ :def-max 45
+ :holes 0
+ :skills ((19 4) (57 1) (51 3) (21 -3) ))
+(:id 76
+ :name 天城【钵金】
+ :rare 3
+ :weapon both
+ :gender female
+ :def-min 13
+ :def-max 26
+ :holes 0
+ :skills ((56 4) (57 2) (51 4) (30 -3) ))
+(:id 77
+ :name 丸鸟伪装头
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 8
+ :def-max 28
+ :holes 0
+ :skills ((96 10) ))
+(:id 78
+ :name 垂皮头罩
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 32
+ :holes 0
+ :skills ((0 5) (4 6) ))
+(:id 79
+ :name 垂皮兜帽
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 6
+ :def-max 19
+ :holes 0
+ :skills ((0 5) (4 8) ))
+(:id 80
+ :name 狗龙伪装头
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 30
+ :holes 0
+ :skills ((93 10) ))
+(:id 81
+ :name 大野猪伪装头
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 9
+ :def-max 29
+ :holes 0
+ :skills ((90 10) ))
+(:id 82
+ :name 骷髅头
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 30
+ :holes 0
+ :skills ((98 1) ))
+(:id 83
+ :name 温泉头巾
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 8
+ :def-max 28
+ :holes 1
+ :skills ((75 3) (87 3) (1 -3) ))
+(:id 84
+ :name 橡实头盔
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 12
+ :def-max 32
+ :holes 0
+ :skills ((62 8) (64 3) ))
+(:id 85
+ :name 二眼耳环
+ :rare 3
+ :weapon both
+ :gender both
+ :def-min 9
+ :def-max 29
+ :holes 2
+ :skills ())
+(:id 86
+ :name 结云斗笠·天
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 60
+ :holes 2
+ :skills ((71 1) (94 4) (83 1) (27 3) ))
+(:id 87
+ :name 结云斗笠·地
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 35
+ :holes 2
+ :skills ((71 2) (94 4) (83 2) (31 3) ))
+(:id 88
+ :name 皮革S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 60
+ :holes 0
+ :skills ((93 1) (92 4) (94 4) (90 4) ))
+(:id 89
+ :name 皮革S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 35
+ :holes 0
+ :skills ((93 1) (92 4) (94 4) (90 4) ))
+(:id 90
+ :name 锁链S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 60
+ :holes 1
+ :skills ((0 3) (60 4) (97 4) ))
+(:id 91
+ :name 锁链S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 35
+ :holes 1
+ :skills ((0 4) (35 4) (97 5) ))
+(:id 92
+ :name 猎人S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 62
+ :holes 1
+ :skills ((79 2) (76 3) (88 4) (9 -2) ))
+(:id 93
+ :name 猎人S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 15
+ :def-max 36
+ :holes 1
+ :skills ((79 3) (76 4) (88 4) (9 -2) ))
+(:id 94
+ :name 骨制S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 62
+ :holes 1
+ :skills ((83 4) (92 2) (59 2) (11 -3) ))
+(:id 95
+ :name 骨制S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 15
+ :def-max 36
+ :holes 1
+ :skills ((83 4) (92 4) (59 4) (11 -1) ))
+(:id 96
+ :name 合金S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 62
+ :holes 2
+ :skills ((15 2) (51 1) (27 3) (92 -3) ))
+(:id 97
+ :name 合金S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 15
+ :def-max 36
+ :holes 2
+ :skills ((34 4) (37 4) (51 2) (92 -1) ))
+(:id 98
+ :name 飞虫S礼帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 64
+ :holes 2
+ :skills ((52 1) (20 3) (10 2) (1 -3) ))
+(:id 99
+ :name 飞虫S头饰
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 16
+ :def-max 37
+ :holes 2
+ :skills ((52 3) (29 4) (10 3) (1 -1) ))
+(:id 100
+ :name 草食龙S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 64
+ :holes 2
+ :skills ((85 2) (64 2) (13 2) (12 -3) ))
+(:id 101
+ :name 草食龙S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 16
+ :def-max 37
+ :holes 2
+ :skills ((85 3) (64 3) (31 4) (12 -1) ))
+(:id 102
+ :name 狗龙S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 35
+ :def-max 67
+ :holes 1
+ :skills ((1 3) (51 1) (84 4) (87 -3) ))
+(:id 103
+ :name 狗龙S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 1
+ :skills ((1 5) (51 3) (84 4) (87 -1) ))
+(:id 104
+ :name 青熊S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 35
+ :def-max 67
+ :holes 1
+ :skills ((71 2) (2 3) (12 3) (10 -3) ))
+(:id 105
+ :name 青熊S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 1
+ :skills ((71 4) (2 4) (12 4) (10 -1) ))
+(:id 106
+ :name 毒狗龙S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((72 2) (89 2) (9 2) (2 -3) ))
+(:id 107
+ :name 毒狗龙S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 2
+ :skills ((72 4) (89 4) (9 2) (2 -1) ))
+(:id 108
+ :name 白兔S头盔
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((48 2) (6 3) (1 1) (3 -3) ))
+(:id 109
+ :name 白兔S战帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 2
+ :skills ((48 4) (6 2) (1 4) (3 -1) ))
+(:id 110
+ :name 彩鸟S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 35
+ :def-max 67
+ :holes 2
+ :skills ((86 3) (76 2) (65 1) (6 -3) ))
+(:id 111
+ :name 彩鸟S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 2
+ :skills ((86 5) (76 4) (65 1) (6 -1) ))
+(:id 112
+ :name 水兽S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((47 2) (66 2) (12 2) (67 -3) ))
+(:id 113
+ :name 水兽S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 2
+ :skills ((47 4) (66 1) (12 5) (67 -1) ))
+(:id 114
+ :name 土砂龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 41
+ :def-max 71
+ :holes 0
+ :skills ((25 3) (72 3) (61 4) (90 -3) ))
+(:id 115
+ :name 土砂龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 0
+ :skills ((32 3) (30 4) (61 6) (90 -2) ))
+(:id 116
+ :name 高合金S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 77
+ :holes 1
+ :skills ((15 2) (51 3) (27 3) (94 -3) ))
+(:id 117
+ :name 高合金S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 45
+ :holes 1
+ :skills ((34 3) (37 4) (29 4) (94 -2) ))
+(:id 118
+ :name 眠狗龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 41
+ :def-max 71
+ :holes 1
+ :skills ((1 3) (84 3) (83 2) (3 -3) ))
+(:id 119
+ :name 眠狗龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 1
+ :skills ((1 5) (84 5) (83 2) (3 -1) ))
+(:id 120
+ :name 赤甲兽S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 41
+ :def-max 71
+ :holes 1
+ :skills ((48 3) (14 1) (3 4) (4 -3) ))
+(:id 121
+ :name 赤甲兽S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 1
+ :skills ((48 5) (35 1) (3 6) (4 -1) ))
+(:id 122
+ :name 雌火龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 2
+ :skills ((0 2) (65 2) (84 2) (66 -3) ))
+(:id 123
+ :name 雌火龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 2
+ :skills ((0 4) (65 2) (84 3) (66 -2) ))
+(:id 124
+ :name 潜口龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 3
+ :skills ((89 1) (50 1) (67 3) (91 -2) ))
+(:id 125
+ :name 潜口龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 3
+ :skills ((89 2) (50 3) (67 2) (91 -2) ))
+(:id 126
+ :name 毒怪龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 2
+ :skills ((52 1) (5 2) (21 3) (96 -3) ))
+(:id 127
+ :name 毒怪龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 2
+ :skills ((52 1) (5 2) (36 3) (96 -3) ))
+(:id 128
+ :name 迅龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 77
+ :holes 2
+ :skills ((49 2) (48 1) (73 3) (47 -3) ))
+(:id 129
+ :name 迅龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 45
+ :holes 2
+ :skills ((49 4) (48 3) (73 3) (47 -1) ))
+(:id 130
+ :name 冰牙龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 77
+ :holes 2
+ :skills ((48 1) (72 3) (68 2) (85 -3) ))
+(:id 131
+ :name 冰牙龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 45
+ :holes 2
+ :skills ((48 5) (72 4) (68 1) (85 -1) ))
+(:id 132
+ :name 雄火龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 50
+ :def-max 80
+ :holes 1
+ :skills ((53 1) (1 4) (27 3) (83 -3) ))
+(:id 133
+ :name 雄火龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 47
+ :holes 1
+ :skills ((53 2) (1 5) (28 4) (83 -2) ))
+(:id 134
+ :name 爆锤龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 50
+ :def-max 80
+ :holes 0
+ :skills ((23 3) (22 4) (2 3) (4 -3) ))
+(:id 135
+ :name 爆锤龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 47
+ :holes 0
+ :skills ((33 4) (30 5) (2 4) (4 -2) ))
+(:id 136
+ :name 远古龙骨头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 50
+ :def-max 80
+ :holes 0
+ :skills ((85 3) (69 3) (48 4) (90 -3) ))
+(:id 137
+ :name 远古龙骨战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 47
+ :holes 0
+ :skills ((85 3) (69 3) (48 4) (90 -3) ))
+(:id 138
+ :name 雷狼龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 2
+ :skills ((58 2) (67 1) (49 3) (73 -3) ))
+(:id 139
+ :name 雷狼龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 2
+ :skills ((58 4) (67 1) (49 4) (73 -2) ))
+(:id 140
+ :name 角龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 2
+ :skills ((22 3) (50 1) (14 2) (52 -3) ))
+(:id 141
+ :name 角龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 2
+ :skills ((33 3) (35 3) (50 3) (52 -2) ))
+(:id 142
+ :name 轰龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 2
+ :skills ((18 2) (47 1) (91 3) (71 -3) ))
+(:id 143
+ :name 轰龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 2
+ :skills ((18 2) (47 1) (91 3) (71 -3) ))
+(:id 144
+ :name 炎戈龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 1
+ :skills ((72 1) (21 4) (65 4) (66 -2) ))
+(:id 145
+ :name 炎戈龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 1
+ :skills ((32 4) (65 5) (31 2) (66 -2) ))
+(:id 146
+ :name 尾槌龙S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 1
+ :skills ((55 1) (61 4) (1 3) (51 -3) ))
+(:id 147
+ :name 尾槌龙S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 1
+ :skills ((55 3) (61 3) (1 5) (51 -2) ))
+(:id 148
+ :name 彩鸟U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((86 2) (89 3) (67 1) (68 -3) ))
+(:id 149
+ :name 彩鸟U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((86 2) (89 3) (67 1) (68 -3) ))
+(:id 150
+ :name 水兽U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 41
+ :def-max 71
+ :holes 1
+ :skills ((47 1) (4 4) (5 3) (60 -3) ))
+(:id 151
+ :name 水兽U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 1
+ :skills ((47 3) (4 5) (5 2) (60 -3) ))
+(:id 152
+ :name 冰碎龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 2
+ :skills ((59 1) (2 4) (65 3) (60 -1) ))
+(:id 153
+ :name 冰碎龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 2
+ :skills ((33 3) (68 1) (2 5) (65 -2) ))
+(:id 154
+ :name 电怪龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 77
+ :holes 0
+ :skills ((57 2) (67 5) (60 4) (68 -2) ))
+(:id 155
+ :name 电怪龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 45
+ :holes 0
+ :skills ((57 5) (67 4) (60 4) (68 -2) ))
+(:id 156
+ :name 绿迅龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 50
+ :def-max 80
+ :holes 3
+ :skills ((47 1) (85 2) (77 1) (72 -3) ))
+(:id 157
+ :name 绿迅龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 47
+ :holes 3
+ :skills ((47 2) (85 2) (77 3) (72 -2) ))
+(:id 158
+ :name 风牙龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 50
+ :def-max 80
+ :holes 1
+ :skills ((49 2) (72 3) (73 3) (48 -3) ))
+(:id 159
+ :name 风牙龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 47
+ :holes 1
+ :skills ((49 5) (72 3) (73 4) (48 -1) ))
+(:id 160
+ :name 钢锤龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 53
+ :def-max 81
+ :holes 3
+ :skills ((25 2) (85 1) (62 1) (7 -3) ))
+(:id 161
+ :name 钢锤龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 30
+ :def-max 47
+ :holes 3
+ :skills ((34 2) (85 4) (62 1) (7 -2) ))
+(:id 162
+ :name 黑角龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 56
+ :def-max 84
+ :holes 1
+ :skills ((23 2) (59 3) (60 4) (69 -2) ))
+(:id 163
+ :name 黑角龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 49
+ :holes 1
+ :skills ((30 4) (29 4) (35 1) (69 -4) ))
+(:id 164
+ :name 黑轰龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 56
+ :def-max 84
+ :holes 0
+ :skills ((18 2) (57 3) (76 5) (71 -3) ))
+(:id 165
+ :name 黑轰龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 49
+ :holes 0
+ :skills ((18 4) (57 4) (76 4) (71 -3) ))
+(:id 166
+ :name 冻戈龙U头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 56
+ :def-max 84
+ :holes 1
+ :skills ((25 3) (26 5) (68 2) (65 -1) ))
+(:id 167
+ :name 冻戈龙U战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 49
+ :holes 1
+ :skills ((29 4) (68 2) (36 6) (65 -1) ))
+(:id 168
+ :name 金火龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 56
+ :def-max 84
+ :holes 3
+ :skills ((55 2) (71 1) (75 1) (5 -3) ))
+(:id 169
+ :name 金火龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 49
+ :holes 3
+ :skills ((55 3) (71 1) (75 3) (5 -2) ))
+(:id 170
+ :name 银火龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 56
+ :def-max 84
+ :holes 0
+ :skills ((53 2) (21 3) (1 5) (0 -3) ))
+(:id 171
+ :name 银火龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 49
+ :holes 0
+ :skills ((53 3) (32 4) (1 5) (0 -3) ))
+(:id 172
+ :name 恐暴龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 59
+ :def-max 86
+ :holes 1
+ :skills ((19 5) (89 2) (6 1) (21 -3) ))
+(:id 173
+ :name 恐暴龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 34
+ :def-max 50
+ :holes 1
+ :skills ((56 5) (89 4) (6 1) (30 -3) ))
+(:id 174
+ :name 城塞游击队【刃笠】
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 77
+ :holes 3
+ :skills ((95 2) (51 1) (83 3) (75 -3) ))
+(:id 175
+ :name 城塞弓击队【面隐】
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 45
+ :holes 3
+ :skills ((95 3) (51 3) (83 1) (75 -3) ))
+(:id 176
+ :name 工会精英头盔S
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 1
+ :skills ((78 2) (77 3) (86 3) (75 -3) ))
+(:id 177
+ :name 工会精英战帽S
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((78 4) (77 3) (86 5) (75 -1) ))
+(:id 178
+ :name 店员S头巾
+ :rare 5
+ :weapon saber
+ :gender female
+ :def-min 44
+ :def-max 74
+ :holes 1
+ :skills ((78 2) (77 3) (86 3) (75 -3) ))
+(:id 179
+ :name 店员S贝雷帽
+ :rare 5
+ :weapon archer
+ :gender female
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((78 4) (77 3) (86 5) (75 -1) ))
+(:id 180
+ :name 南瓜S帽
+ :rare 5
+ :weapon saber
+ :gender male
+ :def-min 32
+ :def-max 64
+ :holes 2
+ :skills ((57 1) (48 2) (88 3) (25 -3) ))
+(:id 181
+ :name 南瓜S帽
+ :rare 5
+ :weapon saber
+ :gender female
+ :def-min 32
+ :def-max 64
+ :holes 2
+ :skills ((57 1) (48 2) (88 3) (25 -3) ))
+(:id 182
+ :name 南瓜S花帽
+ :rare 5
+ :weapon archer
+ :gender male
+ :def-min 16
+ :def-max 37
+ :holes 2
+ :skills ((57 3) (48 4) (88 3) (31 -1) ))
+(:id 183
+ :name 南瓜S花帽
+ :rare 5
+ :weapon archer
+ :gender female
+ :def-min 16
+ :def-max 37
+ :holes 2
+ :skills ((57 3) (48 4) (88 3) (31 -1) ))
+(:id 184
+ :name 轻皮S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 2
+ :skills ((21 3) (50 3) (66 1) (27 -2) ))
+(:id 185
+ :name 轻皮S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 2
+ :skills ((32 3) (50 4) (66 2) (29 -2) ))
+(:id 186
+ :name 昆虫S头盔
+ :rare 5
+ :weapon saber
+ :gender male
+ :def-min 44
+ :def-max 74
+ :holes 0
+ :skills ((18 2) (51 4) (5 3) (71 -4) ))
+(:id 187
+ :name 昆虫S战帽
+ :rare 5
+ :weapon archer
+ :gender male
+ :def-min 24
+ :def-max 43
+ :holes 0
+ :skills ((18 4) (51 5) (5 3) (71 -3) ))
+(:id 188
+ :name 蝴蝶S头盔
+ :rare 5
+ :weapon saber
+ :gender female
+ :def-min 44
+ :def-max 74
+ :holes 0
+ :skills ((18 4) (51 5) (5 3) (71 -3) ))
+(:id 189
+ :name 蝴蝶S战帽
+ :rare 5
+ :weapon archer
+ :gender female
+ :def-min 24
+ :def-max 43
+ :holes 0
+ :skills ((18 4) (51 5) (5 3) (71 -3) ))
+(:id 190
+ :name 抚子【布冠】
+ :rare 5
+ :weapon saber
+ :gender female
+ :def-min 38
+ :def-max 70
+ :holes 1
+ :skills ((86 5) (76 3) (77 1) (9 -2) ))
+(:id 191
+ :name 桔梗【布冠】
+ :rare 5
+ :weapon archer
+ :gender female
+ :def-min 20
+ :def-max 41
+ :holes 1
+ :skills ((86 5) (76 3) (77 1) (9 -2) ))
+(:id 192
+ :name 金属镶嵌头盔
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 59
+ :def-max 86
+ :holes 2
+ :skills ((19 1) (67 1) (27 2) (21 -2) ))
+(:id 193
+ :name 金属镶嵌战帽
+ :rare 6
+ :weapon both
+ :gender both
+ :def-min 34
+ :def-max 50
+ :holes 2
+ :skills ((56 4) (34 3) (67 2) (30 -2) ))
+(:id 194
+ :name 大和·霸【兜】
+ :rare 7
+ :weapon saber
+ :gender male
+ :def-min 59
+ :def-max 86
+ :holes 3
+ :skills ((57 1) (20 2) (51 1) (84 -3) ))
+(:id 195
+ :name 陆奥·霸【乌帽子】
+ :rare 7
+ :weapon archer
+ :gender male
+ :def-min 34
+ :def-max 50
+ :holes 3
+ :skills ((57 3) (33 4) (51 1) (84 -1) ))
+(:id 196
+ :name 日向·霸【钵金】
+ :rare 7
+ :weapon saber
+ :gender female
+ :def-min 59
+ :def-max 86
+ :holes 3
+ :skills ((57 1) (20 2) (51 1) (84 -3) ))
+(:id 197
+ :name 天城·霸【钵金】
+ :rare 7
+ :weapon archer
+ :gender female
+ :def-min 34
+ :def-max 50
+ :holes 3
+ :skills ((57 3) (20 4) (51 1) (84 -1) ))
+(:id 198
+ :name 霸龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 62
+ :def-max 89
+ :holes 2
+ :skills ((55 2) (18 3) (65 1) (71 -3) ))
+(:id 199
+ :name 霸龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 36
+ :def-max 52
+ :holes 2
+ :skills ((55 3) (18 4) (65 1) (71 -3) ))
+(:id 200
+ :name 崩龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 62
+ :def-max 89
+ :holes 2
+ :skills ((53 1) (20 4) (68 1) (57 -3) ))
+(:id 201
+ :name 崩龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 36
+ :def-max 52
+ :holes 2
+ :skills ((53 4) (20 5) (68 1) (57 -1) ))
+(:id 202
+ :name 煌黑龙头盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 62
+ :def-max 89
+ :holes 0
+ :skills ((70 2) (8 5) (49 3) (61 -3) ))
+(:id 203
+ :name 煌黑龙战帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 36
+ :def-max 52
+ :holes 0
+ :skills ((70 4) (8 4) (49 4) (61 -3) ))
+(:id 204
+ :name 荒天【冠】
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 62
+ :def-max 89
+ :holes 3
+ :skills ((58 1) (19 2) (66 1) (89 -3) ))
+(:id 205
+ :name 苍天【冠】
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 36
+ :def-max 52
+ :holes 3
+ :skills ((58 1) (19 2) (66 1) (89 -3) ))
+(:id 206
+ :name 丸鸟S头盔
+ :rare 5
+ :weapon saber
+ :gender both
+ :def-min 32
+ :def-max 64
+ :holes 0
+ :skills ((96 15) ))
+(:id 207
+ :name 丸鸟S战帽
+ :rare 5
+ :weapon archer
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 0
+ :skills ((96 15) ))
+(:id 208
+ :name 垂皮S头罩
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 32
+ :def-max 64
+ :holes 1
+ :skills ((0 7) (4 4) ))
+(:id 209
+ :name 垂皮S头帽
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 1
+ :skills ((0 7) (4 4) ))
+(:id 210
+ :name 狗龙S面具
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 35
+ :def-max 67
+ :holes 1
+ :skills ((1 3) (51 1) (84 4) (87 -3) ))
+(:id 211
+ :name 狗龙S伪装头
+ :rare 4
+ :weapon both
+ :gender both
+ :def-min 18
+ :def-max 39
+ :holes 1
+ :skills ((1 5) (51 3) (84 4) (87 -1) ))
+(:id 212
+ :name 大野猪S伪装头
+ :rare 5
+ :weapon saber
+ :gender both
+ :def-min 38
+ :def-max 70
+ :holes 0
+ :skills ((90 15) ))
+(:id 213
+ :name 大野猪S伪装头
+ :rare 5
+ :weapon archer
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 0
+ :skills ((90 15) ))
+(:id 214
+ :name 骷髅S面具
+ :rare 5
+ :weapon saber
+ :gender both
+ :def-min 41
+ :def-max 71
+ :holes 0
+ :skills ((98 0) ))
+(:id 215
+ :name 骷髅S头
+ :rare 5
+ :weapon archer
+ :gender both
+ :def-min 22
+ :def-max 41
+ :holes 0
+ :skills ((98 0) ))
+(:id 216
+ :name 龙王的独眼
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 28
+ :def-max 51
+ :holes 0
+ :skills ((76 15) ))
+(:id 217
+ :name 高级温泉头巾
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 47
+ :holes 2
+ :skills ((75 3) (87 3) (1 -3) ))
+(:id 218
+ :name 橡实S头盔
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 44
+ :def-max 74
+ :holes 1
+ :skills ((62 8) (64 3) ))
+(:id 219
+ :name 橡实S战帽
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 24
+ :def-max 43
+ :holes 1
+ :skills ((62 9) (64 4) ))
+(:id 220
+ :name 三眼耳环
+ :rare 5
+ :weapon both
+ :gender both
+ :def-min 14
+ :def-max 37
+ :holes 3
+ :skills ())
+(:id 221
+ :name 黑暗之眼
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 20
+ :def-max 41
+ :holes 0
+ :skills ((86 20) ))
+(:id 222
+ :name 大海贼J皮盔
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 56
+ :holes 1
+ :skills ((95 3) (75 2) (78 2) (71 -4) ))
+(:id 223
+ :name 大海贼J皮帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 13
+ :def-max 32
+ :holes 1
+ :skills ((95 3) (75 2) (78 2) (71 -4) ))
+(:id 224
+ :name Snake面具
+ :rare 7
+ :weapon saber
+ :gender male
+ :def-min 47
+ :def-max 82
+ :holes 2
+ :skills ((57 2) (72 3) (88 2) (90 -2) ))
+(:id 225
+ :name Snake假面
+ :rare 7
+ :weapon archer
+ :gender male
+ :def-min 26
+ :def-max 49
+ :holes 1
+ :skills ((56 3) (31 3) (88 4) (90 -3) ))
+(:id 226
+ :name The·Boss面具
+ :rare 7
+ :weapon saber
+ :gender female
+ :def-min 47
+ :def-max 82
+ :holes 2
+ :skills ((73 2) (57 2) (76 3) (70 -2) ))
+(:id 227
+ :name The·Boss假面
+ :rare 7
+ :weapon archer
+ :gender female
+ :def-min 26
+ :def-max 49
+ :holes 2
+ :skills ((73 3) (57 3) (76 4) (70 -1) ))
+(:id 228
+ :name 优衣库帽
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 47
+ :def-max 82
+ :holes 2
+ :skills ((18 2) (49 3) (82 2) (89 -2) ))
+(:id 229
+ :name 优衣库耳机
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 26
+ :def-max 49
+ :holes 2
+ :skills ((18 3) (49 3) (82 3) (89 -2) ))
+(:id 230
+ :name 剑圣耳环
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 30
+ :holes 0
+ :skills ((20 10) ))
+(:id 231
+ :name 増弹耳环
+ :rare 7
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 27
+ :holes 0
+ :skills ((56 15) ))
+(:id 232
+ :name 爆碎耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((62 10) ))
+(:id 233
+ :name 慈爱耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((86 20) ))
+(:id 234
+ :name 抜刀耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((22 10) ))
+(:id 235
+ :name 静寂耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((18 15) ))
+(:id 236
+ :name 跳跃耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((49 15) ))
+(:id 237
+ :name 短缩耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((57 10) ))
+(:id 238
+ :name 强走耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((47 10) ))
+(:id 239
+ :name 魔刃耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((19 15) ))
+(:id 240
+ :name 痛击耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((53 10) ))
+(:id 241
+ :name 重击耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((55 10) ))
+(:id 242
+ :name KO耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((59 10) ))
+(:id 243
+ :name 认真耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((58 10) ))
+(:id 244
+ :name 真剑耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((58 15) ))
+(:id 245
+ :name 早气耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((85 10) ))
+(:id 246
+ :name 早填耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((29 15) ))
+(:id 247
+ :name 速填耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((29 20) ))
+(:id 248
+ :name 速纳耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((50 10) ))
+(:id 249
+ :name 夺气耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((60 10) ))
+(:id 250
+ :name 铳器耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((64 10) ))
+(:id 251
+ :name 大炮耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((64 15) ))
+(:id 252
+ :name 探求耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((96 15) ))
+(:id 253
+ :name 愤怒耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((61 15) ))
+(:id 254
+ :name 迅食耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((89 15) ))
+(:id 255
+ :name 幻兽耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((70 10) ))
+(:id 256
+ :name 宿命耳环
+ :rare 1
+ :weapon both
+ :gender both
+ :def-min 10
+ :def-max 10
+ :holes 0
+ :skills ((0 15) ))
