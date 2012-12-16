@@ -1,640 +1,640 @@
 (:id 0
- :name 体力珠【1】
+ :name "体力珠【1】"
  :holes 1
  :skills ((0 2) ))
 (:id 1
- :name 早复珠【1】
+ :name "早复珠【1】"
  :holes 1
  :skills ((84 1) (89 -1) ))
 (:id 2
- :name 早复珠【2】
+ :name "早复珠【2】"
  :holes 2
  :skills ((84 3) (89 -1) ))
 (:id 3
- :name 治愈珠【1】
+ :name "治愈珠【1】"
  :holes 1
  :skills ((83 1) (84 -1) ))
 (:id 4
- :name 治愈珠【2】
+ :name "治愈珠【2】"
  :holes 2
  :skills ((83 3) (84 -1) ))
 (:id 5
- :name 强走珠【1】
+ :name "强走珠【1】"
  :holes 1
  :skills ((47 1) (90 -1) ))
 (:id 6
- :name 强走珠【3】
+ :name "强走珠【3】"
  :holes 3
  :skills ((47 4) (90 -2) ))
 (:id 7
- :name 体术珠【1】
+ :name "体术珠【1】"
  :holes 1
  :skills ((72 1) (47 -1) ))
 (:id 8
- :name 体术珠【2】
+ :name "体术珠【2】"
  :holes 2
  :skills ((72 3) (47 -1) ))
 (:id 9
- :name 早气珠【1】
+ :name "早气珠【1】"
  :holes 1
  :skills ((85 1) (48 -1) ))
 (:id 10
- :name 早气珠【2】
+ :name "早气珠【2】"
  :holes 2
  :skills ((85 3) (48 -1) ))
 (:id 11
- :name 无食珠【1】
+ :name "无食珠【1】"
  :holes 1
  :skills ((90 2) ))
 (:id 12
- :name 食汉珠【1】
+ :name "食汉珠【1】"
  :holes 1
  :skills ((91 2) ))
 (:id 13
- :name 攻击珠【1】
+ :name "攻击珠【1】"
  :holes 1
  :skills ((1 1) (2 -1) ))
 (:id 14
- :name 攻击珠【2】
+ :name "攻击珠【2】"
  :holes 2
  :skills ((1 3) (2 -1) ))
 (:id 15
- :name 攻击珠【3】
+ :name "攻击珠【3】"
  :holes 3
  :skills ((1 5) (2 -1) ))
 (:id 16
- :name 达人珠【1】
+ :name "达人珠【1】"
  :holes 1
  :skills ((51 1) (7 -1) ))
 (:id 17
- :name 达人珠【2】
+ :name "达人珠【2】"
  :holes 2
  :skills ((51 3) (7 -1) ))
 (:id 18
- :name 达人珠【3】
+ :name "达人珠【3】"
  :holes 3
  :skills ((51 5) (7 -1) ))
 (:id 19
- :name 特攻珠【1】
+ :name "特攻珠【1】"
  :holes 1
  :skills ((52 1) (70 -1) ))
 (:id 20
- :name 特攻珠【2】
+ :name "特攻珠【2】"
  :holes 2
  :skills ((52 3) (70 -1) ))
 (:id 21
- :name 属攻珠【1】
+ :name "属攻珠【1】"
  :holes 1
  :skills ((70 1) (52 -1) ))
 (:id 22
- :name 属攻珠【3】
+ :name "属攻珠【3】"
  :holes 3
  :skills ((70 4) (52 -3) ))
 (:id 23
- :name 火炎珠【1】
+ :name "火炎珠【1】"
  :holes 1
  :skills ((65 1) (66 -1) ))
 (:id 24
- :name 火炎珠【2】
+ :name "火炎珠【2】"
  :holes 2
  :skills ((65 3) (66 -1) ))
 (:id 25
- :name 流水珠【1】
+ :name "流水珠【1】"
  :holes 1
  :skills ((66 1) (67 -1) ))
 (:id 26
- :name 流水珠【2】
+ :name "流水珠【2】"
  :holes 2
  :skills ((66 3) (67 -1) ))
 (:id 27
- :name 雷光珠【1】
+ :name "雷光珠【1】"
  :holes 1
  :skills ((67 1) (68 -1) ))
 (:id 28
- :name 雷光珠【2】
+ :name "雷光珠【2】"
  :holes 2
  :skills ((67 3) (68 -1) ))
 (:id 29
- :name 冰结珠【1】
+ :name "冰结珠【1】"
  :holes 1
  :skills ((68 1) (65 -1) ))
 (:id 30
- :name 冰结珠【2】
+ :name "冰结珠【2】"
  :holes 2
  :skills ((68 3) (65 -1) ))
 (:id 31
- :name 破龙珠【1】
+ :name "破龙珠【1】"
  :holes 1
  :skills ((69 1) (52 -1) ))
 (:id 32
- :name 破龙珠【2】
+ :name "破龙珠【2】"
  :holes 2
  :skills ((69 3) (52 -1) ))
 (:id 33
- :name 痛击珠【1】
+ :name "痛击珠【1】"
  :holes 1
  :skills ((53 1) (0 -1) ))
 (:id 34
- :name 痛击珠【3】
+ :name "痛击珠【3】"
  :holes 3
  :skills ((53 4) (0 -2) ))
 (:id 35
- :name 重击珠【1】
+ :name "重击珠【1】"
  :holes 1
  :skills ((55 1) (51 -1) ))
 (:id 36
- :name 重击珠【3】
+ :name "重击珠【3】"
  :holes 3
  :skills ((55 4) (51 -2) ))
 (:id 37
- :name 装填珠【1】
+ :name "装填珠【1】"
  :holes 1
  :skills ((56 1) (29 -1) ))
 (:id 38
- :name 装填珠【3】
+ :name "装填珠【3】"
  :holes 3
  :skills ((56 4) (29 -2) ))
 (:id 39
- :name 短缩珠【1】
+ :name "短缩珠【1】"
  :holes 1
  :skills ((57 1) (72 -1) ))
 (:id 40
- :name 短缩珠【3】
+ :name "短缩珠【3】"
  :holes 3
  :skills ((57 4) (72 -2) ))
 (:id 41
- :name 全开珠【1】
+ :name "全开珠【1】"
  :holes 1
  :skills ((58 1) (73 -1) ))
 (:id 42
- :name 全开珠【2】
+ :name "全开珠【2】"
  :holes 2
  :skills ((58 3) (73 -1) ))
 (:id 43
- :name KO珠【1】
+ :name "KO珠【1】"
  :holes 1
  :skills ((59 1) (57 -1) ))
 (:id 44
- :name KO珠【2】
+ :name "KO珠【2】"
  :holes 2
  :skills ((59 3) (57 -1) ))
 (:id 45
- :name 夺气珠【1】
+ :name "夺气珠【1】"
  :holes 1
  :skills ((60 1) (47 -1) ))
 (:id 46
- :name 夺气珠【2】
+ :name "夺气珠【2】"
  :holes 2
  :skills ((60 3) (47 -1) ))
 (:id 47
- :name 底力珠【1】
+ :name "底力珠【1】"
  :holes 1
  :skills ((61 1) (71 -1) ))
 (:id 48
- :name 底力珠【2】
+ :name "底力珠【2】"
  :holes 2
  :skills ((61 3) (71 -1) ))
 (:id 49
- :name 爆师珠【1】
+ :name "爆师珠【1】"
  :holes 1
  :skills ((62 2) ))
 (:id 50
- :name 鼓笛珠【1】
+ :name "鼓笛珠【1】"
  :holes 1
  :skills ((63 2) ))
 (:id 51
- :name 炮术珠【1】
+ :name "炮术珠【1】"
  :holes 1
  :skills ((64 2) ))
 (:id 52
- :name 防御珠【1】
+ :name "防御珠【1】"
  :holes 1
  :skills ((2 1) (1 -1) ))
 (:id 53
- :name 防御珠【2】
+ :name "防御珠【2】"
  :holes 2
  :skills ((2 3) (1 -1) ))
 (:id 54
- :name 耐火珠【1】
+ :name "耐火珠【1】"
  :holes 1
  :skills ((3 1) (4 -1) ))
 (:id 55
- :name 制火珠【1】
+ :name "制火珠【1】"
  :holes 1
  :skills ((3 2) ))
 (:id 56
- :name 耐水珠【1】
+ :name "耐水珠【1】"
  :holes 1
  :skills ((4 1) (6 -1) ))
 (:id 57
- :name 制水珠【1】
+ :name "制水珠【1】"
  :holes 1
  :skills ((4 2) ))
 (:id 58
- :name 耐雷珠【1】
+ :name "耐雷珠【1】"
  :holes 1
  :skills ((5 1) (6 -1) ))
 (:id 59
- :name 制雷珠【1】
+ :name "制雷珠【1】"
  :holes 1
  :skills ((5 2) ))
 (:id 60
- :name 耐冰珠【1】
+ :name "耐冰珠【1】"
  :holes 1
  :skills ((6 1) (3 -1) ))
 (:id 61
- :name 制冰珠【1】
+ :name "制冰珠【1】"
  :holes 1
  :skills ((6 2) ))
 (:id 62
- :name 耐龙珠【1】
+ :name "耐龙珠【1】"
  :holes 1
  :skills ((7 1) (9 -1) ))
 (:id 63
- :name 制龙珠【1】
+ :name "制龙珠【1】"
  :holes 1
  :skills ((7 2) ))
 (:id 64
- :name 加护珠【1】
+ :name "加护珠【1】"
  :holes 1
  :skills ((71 1) ))
 (:id 65
- :name 神护珠【1】
+ :name "神护珠【1】"
  :holes 1
  :skills ((71 2) ))
 (:id 66
- :name 匠珠【1】
+ :name "匠珠【1】"
  :holes 1
  :skills ((19 1) (21 -1) ))
 (:id 67
- :name 匠珠【3】
+ :name "匠珠【3】"
  :holes 3
  :skills ((19 4) (21 -2) ))
 (:id 68
- :name 剑豪珠【1】
+ :name "剑豪珠【1】"
  :holes 1
  :skills ((20 1) (19 -1) ))
 (:id 69
- :name 剑豪珠【3】
+ :name "剑豪珠【3】"
  :holes 3
  :skills ((20 4) (19 -2) ))
 (:id 70
- :name 斩铁珠【1】
+ :name "斩铁珠【1】"
  :holes 1
  :skills ((21 1) (19 -1) ))
 (:id 71
- :name 斩铁珠【3】
+ :name "斩铁珠【3】"
  :holes 3
  :skills ((21 4) (19 -2) ))
 (:id 72
- :name 拔刀珠【1】
+ :name "拔刀珠【1】"
  :holes 1
  :skills ((22 1) (51 -1) ))
 (:id 73
- :name 拔刀珠【2】
+ :name "拔刀珠【2】"
  :holes 2
  :skills ((22 3) (51 -1) ))
 (:id 74
- :name 拔打珠【1】
+ :name "拔打珠【1】"
  :holes 1
  :skills ((23 1) (21 -1) ))
 (:id 75
- :name 拔打珠【3】
+ :name "拔打珠【3】"
  :holes 3
  :skills ((23 4) (21 -2) ))
 (:id 76
- :name 铁壁珠【1】
+ :name "铁壁珠【1】"
  :holes 1
  :skills ((25 1) (72 -1) ))
 (:id 77
- :name 铁壁珠【2】
+ :name "铁壁珠【2】"
  :holes 2
  :skills ((25 3) (72 -1) ))
 (:id 78
- :name 强壁珠【1】
+ :name "强壁珠【1】"
  :holes 1
  :skills ((26 1) (47 -1) ))
 (:id 79
- :name 强壁珠【2】
+ :name "强壁珠【2】"
  :holes 2
  :skills ((26 3) (47 -1) ))
 (:id 80
- :name 研磨珠【1】
+ :name "研磨珠【1】"
  :holes 1
  :skills ((27 2) ))
 (:id 81
- :name 强弹珠【1】
+ :name "强弹珠【1】"
  :holes 1
  :skills ((32 1) (30 -1) ))
 (:id 82
- :name 强弹珠【3】
+ :name "强弹珠【3】"
  :holes 3
  :skills ((32 4) (30 -2) ))
 (:id 83
- :name 贯通珠【1】
+ :name "贯通珠【1】"
  :holes 1
  :skills ((33 1) (30 -1) ))
 (:id 84
- :name 贯通珠【3】
+ :name "贯通珠【3】"
  :holes 3
  :skills ((33 4) (30 -2) ))
 (:id 85
- :name 散弹珠【1】
+ :name "散弹珠【1】"
  :holes 1
  :skills ((34 1) (30 -1) ))
 (:id 86
- :name 散弹珠【3】
+ :name "散弹珠【3】"
  :holes 3
  :skills ((34 4) (30 -2) ))
 (:id 87
- :name 加弾珠【1】
+ :name "加弾珠【1】"
  :holes 1
  :skills ((35 1) (29 -1) ))
 (:id 88
- :name 加弾珠【2】
+ :name "加弾珠【2】"
  :holes 2
  :skills ((35 3) (29 -1) ))
 (:id 89
- :name 加贯珠【1】
+ :name "加贯珠【1】"
  :holes 1
  :skills ((36 2) ))
 (:id 90
- :name 加散珠【1】
+ :name "加散珠【1】"
  :holes 1
  :skills ((37 2) ))
 (:id 91
- :name 加榴珠【1】
+ :name "加榴珠【1】"
  :holes 1
  :skills ((38 2) ))
 (:id 92
- :name 加扩珠【1】
+ :name "加扩珠【1】"
  :holes 1
  :skills ((39 1) (29 -1) ))
 (:id 93
- :name 加斩珠【1】
+ :name "加斩珠【1】"
  :holes 1
  :skills ((40 2) ))
 (:id 94
- :name 速射珠【1】
+ :name "速射珠【1】"
  :holes 1
  :skills ((28 1) (29 -1) ))
 (:id 95
- :name 速射珠【3】
+ :name "速射珠【3】"
  :holes 3
  :skills ((28 4) (29 -2) ))
 (:id 96
- :name 早填珠【1】
+ :name "早填珠【1】"
  :holes 1
  :skills ((29 1) (30 -1) ))
 (:id 97
- :name 早填珠【2】
+ :name "早填珠【2】"
  :holes 2
  :skills ((29 3) (30 -1) ))
 (:id 98
- :name 抑反珠【1】
+ :name "抑反珠【1】"
  :holes 1
  :skills ((30 1) (29 -1) ))
 (:id 99
- :name 抑反珠【3】
+ :name "抑反珠【3】"
  :holes 3
  :skills ((30 4) (29 -2) ))
 (:id 100
- :name 点射珠【1】
+ :name "点射珠【1】"
  :holes 1
  :skills ((31 2) ))
 (:id 101
- :name 痹瓶珠【1】
+ :name "痹瓶珠【1】"
  :holes 1
  :skills ((41 1) (1 -1) ))
 (:id 102
- :name 痹瓶珠【2】
+ :name "痹瓶珠【2】"
  :holes 2
  :skills ((41 3) (1 -1) ))
 (:id 103
- :name 眠瓶珠【1】
+ :name "眠瓶珠【1】"
  :holes 1
  :skills ((42 2) ))
 (:id 104
- :name 毒瓶珠【1】
+ :name "毒瓶珠【1】"
  :holes 1
  :skills ((43 2) ))
 (:id 105
- :name 强瓶珠【1】
+ :name "强瓶珠【1】"
  :holes 1
  :skills ((44 1) (51 -1) ))
 (:id 106
- :name 强瓶珠【2】
+ :name "强瓶珠【2】"
  :holes 2
  :skills ((44 3) (51 -1) ))
 (:id 107
- :name 接瓶珠【1】
+ :name "接瓶珠【1】"
  :holes 1
  :skills ((45 2) ))
 (:id 108
- :name 减瓶珠【1】
+ :name "减瓶珠【1】"
  :holes 1
  :skills ((46 2) ))
 (:id 109
- :name 回避珠【1】
+ :name "回避珠【1】"
  :holes 1
  :skills ((48 1) (0 -1) ))
 (:id 110
- :name 回避珠【2】
+ :name "回避珠【2】"
  :holes 2
  :skills ((48 3) (0 -1) ))
 (:id 111
- :name 跳跃珠【1】
+ :name "跳跃珠【1】"
  :holes 1
  :skills ((49 1) (0 -1) ))
 (:id 112
- :name 跳跃珠【3】
+ :name "跳跃珠【3】"
  :holes 3
  :skills ((49 4) (0 -2) ))
 (:id 113
- :name 速纳珠【1】
+ :name "速纳珠【1】"
  :holes 1
  :skills ((50 1) (27 -1) ))
 (:id 114
- :name 速纳珠【2】
+ :name "速纳珠【2】"
  :holes 2
  :skills ((50 3) (27 -1) ))
 (:id 115
- :name 罠师珠【1】
+ :name "罠师珠【1】"
  :holes 1
  :skills ((88 2) ))
 (:id 116
- :name 早食珠【1】
+ :name "早食珠【1】"
  :holes 1
  :skills ((89 1) (83 -1) ))
 (:id 117
- :name 早食珠【3】
+ :name "早食珠【3】"
  :holes 3
  :skills ((89 4) (83 -2) ))
 (:id 118
- :name 耐绝珠【1】
+ :name "耐绝珠【1】"
  :holes 1
  :skills ((12 1) (10 -1) ))
 (:id 119
- :name 制绝珠【1】
+ :name "制绝珠【1】"
  :holes 1
  :skills ((12 2) ))
 (:id 120
- :name 耐麻珠【1】
+ :name "耐麻珠【1】"
  :holes 1
  :skills ((10 1) (9 -1) ))
 (:id 121
- :name 耐麻珠【2】
+ :name "耐麻珠【2】"
  :holes 2
  :skills ((10 3) (9 -1) ))
 (:id 122
- :name 耐眠珠【1】
+ :name "耐眠珠【1】"
  :holes 1
  :skills ((11 1) (13 -1) ))
 (:id 123
- :name 耐眠珠【2】
+ :name "耐眠珠【2】"
  :holes 2
  :skills ((11 3) (13 -1) ))
 (:id 124
- :name 耐毒珠【1】
+ :name "耐毒珠【1】"
  :holes 1
  :skills ((9 1) (12 -1) ))
 (:id 125
- :name 耐毒珠【2】
+ :name "耐毒珠【2】"
  :holes 2
  :skills ((9 3) (12 -1) ))
 (:id 126
- :name 耐防珠【1】
+ :name "耐防珠【1】"
  :holes 1
  :skills ((10 2) ))
 (:id 127
- :name 防盗珠【1】
+ :name "防盗珠【1】"
  :holes 1
  :skills ((17 2) ))
 (:id 128
- :name 耐粘珠【1】
+ :name "耐粘珠【1】"
  :holes 1
  :skills ((13 1) (11 -1) ))
 (:id 129
- :name 抗粘珠【1】
+ :name "抗粘珠【1】"
  :holes 1
  :skills ((13 2) ))
 (:id 130
- :name 耐菌珠【1】
+ :name "耐菌珠【1】"
  :holes 1
  :skills ((16 1) (73 -1) ))
 (:id 131
- :name 抗菌珠【1】
+ :name "抗菌珠【1】"
  :holes 1
  :skills ((16 2) ))
 (:id 132
- :name 耐震珠【1】
+ :name "耐震珠【1】"
  :holes 1
  :skills ((14 1) (11 -1) ))
 (:id 133
- :name 抗震珠【1】
+ :name "抗震珠【1】"
  :holes 1
  :skills ((14 2) ))
 (:id 134
- :name 耐暑珠【1】
+ :name "耐暑珠【1】"
  :holes 1
  :skills ((81 2) ))
 (:id 135
- :name 耐寒珠【1】
+ :name "耐寒珠【1】"
  :holes 1
  :skills ((82 2) ))
 (:id 136
- :name 防音珠【1】
+ :name "防音珠【1】"
  :holes 1
  :skills ((18 1) (71 -1) ))
 (:id 137
- :name 防音珠【3】
+ :name "防音珠【3】"
  :holes 3
  :skills ((18 4) (71 -2) ))
 (:id 138
- :name 防风珠【1】
+ :name "防风珠【1】"
  :holes 1
  :skills ((15 1) (75 -1) ))
 (:id 139
- :name 防风珠【2】
+ :name "防风珠【2】"
  :holes 2
  :skills ((15 3) (75 -1) ))
 (:id 140
- :name 友爱珠【1】
+ :name "友爱珠【1】"
  :holes 1
  :skills ((86 1) (73 -1) ))
 (:id 141
- :name 友爱珠【2】
+ :name "友爱珠【2】"
  :holes 2
  :skills ((86 3) (73 -1) ))
 (:id 142
- :name 忍脚珠【1】
+ :name "忍脚珠【1】"
  :holes 1
  :skills ((73 2) ))
 (:id 143
- :name 博士珠【1】
+ :name "博士珠【1】"
  :holes 1
  :skills ((96 2) ))
 (:id 144
- :name 持续珠【1】
+ :name "持续珠【1】"
  :holes 1
  :skills ((87 2) ))
 (:id 145
- :name 肥师珠【1】
+ :name "肥师珠【1】"
  :holes 1
  :skills ((74 2) ))
 (:id 146
- :name 弹制珠【1】
+ :name "弹制珠【1】"
  :holes 1
  :skills ((97 2) ))
 (:id 147
- :name 搬运珠【1】
+ :name "搬运珠【1】"
  :holes 1
  :skills ((80 2) ))
 (:id 148
- :name 采取珠【1】
+ :name "采取珠【1】"
  :holes 1
  :skills ((92 2) ))
 (:id 149
- :name 速集珠【1】
+ :name "速集珠【1】"
  :holes 1
  :skills ((93 2) ))
 (:id 150
- :name 祝福珠【1】
+ :name "祝福珠【1】"
  :holes 1
  :skills ((94 2) ))
 (:id 151
- :name 狩人珠【1】
+ :name "狩人珠【1】"
  :holes 1
  :skills ((79 2) ))
 (:id 152
- :name 千里珠【1】
+ :name "千里珠【1】"
  :holes 1
  :skills ((76 2) ))
 (:id 153
- :name 观察珠【1】
+ :name "观察珠【1】"
  :holes 1
  :skills ((77 2) ))
 (:id 154
- :name 运气珠【1】
+ :name "运气珠【1】"
  :holes 1
  :skills ((75 1) (94 -1) ))
 (:id 155
- :name 运气珠【3】
+ :name "运气珠【3】"
  :holes 3
  :skills ((75 4) (94 -2) ))
 (:id 156
- :name 捕获珠【1】
+ :name "捕获珠【1】"
  :holes 1
  :skills ((78 1) (75 -1) ))
 (:id 157
- :name 捕获珠【3】
+ :name "捕获珠【3】"
  :holes 3
  :skills ((78 4) (75 -2) ))
 (:id 158
- :name 皮剥珠【1】
+ :name "皮剥珠【1】"
  :holes 1
  :skills ((95 1) (75 -1) ))
 (:id 159
- :name 皮剥珠【3】
+ :name "皮剥珠【3】"
  :holes 3
  :skills ((95 4) (75 -2) ))

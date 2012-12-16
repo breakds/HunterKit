@@ -1,5 +1,5 @@
 (:id 0
- :name 结云袴
+ :name "结云袴"
  :rare 1
  :weapon both
  :gender both
@@ -8,7 +8,7 @@
  :holes 0
  :skills ((71 2) (94 2) (51 2) ))
 (:id 1
- :name 皮革具足
+ :name "皮革具足"
  :rare 1
  :weapon both
  :gender both
@@ -17,7 +17,7 @@
  :holes 1
  :skills ((93 2) (92 1) (94 4) ))
 (:id 2
- :name 锁链具足
+ :name "锁链具足"
  :rare 1
  :weapon both
  :gender both
@@ -26,7 +26,7 @@
  :holes 1
  :skills ((0 2) (96 2) (97 3) ))
 (:id 3
- :name 猎人重靴
+ :name "猎人重靴"
  :rare 1
  :weapon saber
  :gender both
@@ -35,7 +35,7 @@
  :holes 1
  :skills ((79 2) (76 3) (88 2) (9 -2) ))
 (:id 4
- :name 猎人轻靴
+ :name "猎人轻靴"
  :rare 1
  :weapon archer
  :gender both
@@ -44,7 +44,7 @@
  :holes 1
  :skills ((79 1) (76 3) (88 3) (9 -2) ))
 (:id 5
- :name 洛克拉克皮靴
+ :name "洛克拉克皮靴"
  :rare 1
  :weapon both
  :gender both
@@ -53,7 +53,7 @@
  :holes 1
  :skills ((80 6) (90 3) ))
 (:id 6
- :name 骨制重靴
+ :name "骨制重靴"
  :rare 1
  :weapon saber
  :gender both
@@ -62,7 +62,7 @@
  :holes 1
  :skills ((63 4) (92 3) (59 1) (11 -1) ))
 (:id 7
- :name 骨制轻靴
+ :name "骨制轻靴"
  :rare 1
  :weapon archer
  :gender both
@@ -71,7 +71,7 @@
  :holes 1
  :skills ((63 1) (92 4) (59 1) (11 -3) ))
 (:id 8
- :name 合金重靴
+ :name "合金重靴"
  :rare 1
  :weapon saber
  :gender both
@@ -80,7 +80,7 @@
  :holes 1
  :skills ((15 4) (51 2) (27 1) (92 -2) ))
 (:id 9
- :name 合金轻靴
+ :name "合金轻靴"
  :rare 1
  :weapon archer
  :gender both
@@ -89,7 +89,7 @@
  :holes 1
  :skills ((34 3) (29 1) (37 3) (92 -2) ))
 (:id 10
- :name 飞虫之靴
+ :name "飞虫之靴"
  :rare 2
  :weapon saber
  :gender both
@@ -98,7 +98,7 @@
  :holes 1
  :skills ((52 3) (50 3) (73 1) (1 -2) ))
 (:id 11
- :name 飞虫之鞋
+ :name "飞虫之鞋"
  :rare 2
  :weapon archer
  :gender both
@@ -107,7 +107,7 @@
  :holes 1
  :skills ((52 2) (50 1) (73 3) (1 -3) ))
 (:id 12
- :name 草食龙重靴
+ :name "草食龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -116,7 +116,7 @@
  :holes 1
  :skills ((85 2) (64 4) (13 1) (6 -2) ))
 (:id 13
- :name 草食龙轻靴
+ :name "草食龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -125,7 +125,7 @@
  :holes 1
  :skills ((85 1) (64 2) (31 4) (6 -2) ))
 (:id 14
- :name 狗龙重靴
+ :name "狗龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -134,7 +134,7 @@
  :holes 1
  :skills ((1 2) (77 3) (84 2) (87 -2) ))
 (:id 15
- :name 狗龙轻靴
+ :name "狗龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -143,7 +143,7 @@
  :holes 1
  :skills ((1 2) (77 2) (84 3) (87 -2) ))
 (:id 16
- :name 青熊重靴
+ :name "青熊重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -152,7 +152,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 17
- :name 青熊轻靴
+ :name "青熊轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -161,7 +161,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 18
- :name 毒狗龙重靴
+ :name "毒狗龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -170,7 +170,7 @@
  :holes 1
  :skills ((9 4) (72 2) (77 1) (12 -2) ))
 (:id 19
- :name 毒狗龙轻靴
+ :name "毒狗龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -179,7 +179,7 @@
  :holes 1
  :skills ((9 4) (72 2) (77 1) (12 -2) ))
 (:id 20
- :name 白兔重靴
+ :name "白兔重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -188,7 +188,7 @@
  :holes 1
  :skills ((82 1) (48 2) (50 4) (81 -2) ))
 (:id 21
- :name 白兔轻靴
+ :name "白兔轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -197,7 +197,7 @@
  :holes 1
  :skills ((82 2) (48 1) (50 4) (81 -2) ))
 (:id 22
- :name 彩鸟重靴
+ :name "彩鸟重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -206,7 +206,7 @@
  :holes 1
  :skills ((86 1) (83 2) (63 5) (89 -1) ))
 (:id 23
- :name 彩鸟轻靴
+ :name "彩鸟轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -215,7 +215,7 @@
  :holes 1
  :skills ((86 1) (83 1) (63 5) (89 -2) ))
 (:id 24
- :name 水兽重靴
+ :name "水兽重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -224,7 +224,7 @@
  :holes 1
  :skills ((90 3) (47 1) (66 4) (5 -1) ))
 (:id 25
- :name 水兽轻靴
+ :name "水兽轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -233,7 +233,7 @@
  :holes 1
  :skills ((90 4) (47 2) (66 1) (5 -2) ))
 (:id 26
- :name 土砂龙重靴
+ :name "土砂龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -242,7 +242,7 @@
  :holes 2
  :skills ((25 1) (1 2) (59 2) (72 -2) ))
 (:id 27
- :name 土砂龙轻靴
+ :name "土砂龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -251,7 +251,7 @@
  :holes 2
  :skills ((32 1) (1 2) (31 2) (72 -2) ))
 (:id 28
- :name 高合金重靴
+ :name "高合金重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -260,7 +260,7 @@
  :holes 2
  :skills ((27 3) (15 1) (67 1) (94 -2) ))
 (:id 29
- :name 高合金轻靴
+ :name "高合金轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -269,7 +269,7 @@
  :holes 2
  :skills ((29 3) (34 1) (67 1) (94 -2) ))
 (:id 30
- :name 眠狗龙重靴
+ :name "眠狗龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -278,7 +278,7 @@
  :holes 1
  :skills ((84 4) (1 3) (68 1) (3 -1) ))
 (:id 31
- :name 眠狗龙轻靴
+ :name "眠狗龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -287,7 +287,7 @@
  :holes 1
  :skills ((84 3) (1 3) (68 1) (3 -2) ))
 (:id 32
- :name 赤甲兽重靴
+ :name "赤甲兽重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -296,7 +296,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 33
- :name 赤甲兽轻靴
+ :name "赤甲兽轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -305,7 +305,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 34
- :name 雌火龙重靴
+ :name "雌火龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -314,7 +314,7 @@
  :holes 2
  :skills ((0 3) (71 2) (65 1) (84 -1) ))
 (:id 35
- :name 雌火龙轻靴
+ :name "雌火龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -323,7 +323,7 @@
  :holes 2
  :skills ((0 1) (71 3) (65 1) (84 -2) ))
 (:id 36
- :name 潜口龙重靴
+ :name "潜口龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -332,7 +332,7 @@
  :holes 0
  :skills ((91 2) (89 4) (66 2) (90 -3) ))
 (:id 37
- :name 潜口龙轻靴
+ :name "潜口龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -341,7 +341,7 @@
  :holes 0
  :skills ((91 3) (89 2) (66 3) (90 -3) ))
 (:id 38
- :name 毒怪龙重靴
+ :name "毒怪龙重靴"
  :rare 2
  :weapon saber
  :gender both
@@ -350,7 +350,7 @@
  :holes 1
  :skills ((12 3) (52 2) (5 2) (0 -1) ))
 (:id 39
- :name 毒怪龙轻靴
+ :name "毒怪龙轻靴"
  :rare 2
  :weapon archer
  :gender both
@@ -359,7 +359,7 @@
  :holes 1
  :skills ((12 2) (52 2) (5 3) (0 -2) ))
 (:id 40
- :name 迅龙重靴
+ :name "迅龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -368,7 +368,7 @@
  :holes 1
  :skills ((73 2) (49 4) (85 1) (1 -2) ))
 (:id 41
- :name 迅龙轻靴
+ :name "迅龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -377,7 +377,7 @@
  :holes 1
  :skills ((73 2) (49 4) (85 1) (1 -2) ))
 (:id 42
- :name 冰牙龙重靴
+ :name "冰牙龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -386,7 +386,7 @@
  :holes 2
  :skills ((47 2) (72 2) (68 1) (85 -2) ))
 (:id 43
- :name 冰牙龙轻靴
+ :name "冰牙龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -395,7 +395,7 @@
  :holes 2
  :skills ((47 1) (72 2) (68 1) (85 -3) ))
 (:id 44
- :name 雄火龙重靴
+ :name "雄火龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -404,7 +404,7 @@
  :holes 1
  :skills ((1 1) (65 5) (53 2) (83 -1) ))
 (:id 45
- :name 雄火龙轻靴
+ :name "雄火龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -413,7 +413,7 @@
  :holes 1
  :skills ((1 4) (65 1) (53 1) (83 -3) ))
 (:id 46
- :name 爆锤龙重靴
+ :name "爆锤龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -422,7 +422,7 @@
  :holes 2
  :skills ((2 3) (3 1) (23 1) (4 -2) ))
 (:id 47
- :name 爆锤龙轻靴
+ :name "爆锤龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -431,7 +431,7 @@
  :holes 2
  :skills ((33 1) (2 2) (4 3) (3 -1) ))
 (:id 48
- :name 雷狼龙重靴
+ :name "雷狼龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -440,7 +440,7 @@
  :holes 2
  :skills ((21 1) (58 1) (67 4) (73 -1) ))
 (:id 49
- :name 雷狼龙轻靴
+ :name "雷狼龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -449,7 +449,7 @@
  :holes 2
  :skills ((32 1) (58 1) (67 2) (73 -3) ))
 (:id 50
- :name 角龙重靴
+ :name "角龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -458,7 +458,7 @@
  :holes 1
  :skills ((14 4) (22 1) (60 3) (52 -1) ))
 (:id 51
- :name 角龙轻靴
+ :name "角龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -467,7 +467,7 @@
  :holes 1
  :skills ((33 2) (32 3) (60 3) (52 -1) ))
 (:id 52
- :name 轰龙重靴
+ :name "轰龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -476,7 +476,7 @@
  :holes 2
  :skills ((91 1) (18 2) (76 3) (71 -1) ))
 (:id 53
- :name 轰龙轻靴
+ :name "轰龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -485,7 +485,7 @@
  :holes 2
  :skills ((91 1) (18 2) (76 2) (71 -2) ))
 (:id 54
- :name 炎戈龙重靴
+ :name "炎戈龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -494,7 +494,7 @@
  :holes 0
  :skills ((21 2) (51 4) (25 4) (61 -1) ))
 (:id 55
- :name 炎戈龙轻靴
+ :name "炎戈龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -503,7 +503,7 @@
  :holes 0
  :skills ((32 4) (33 2) (31 4) (61 -1) ))
 (:id 56
- :name 尾槌龙重靴
+ :name "尾槌龙重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -512,7 +512,7 @@
  :holes 1
  :skills ((1 2) (61 3) (55 3) (51 -1) ))
 (:id 57
- :name 尾槌龙轻靴
+ :name "尾槌龙轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -521,7 +521,7 @@
  :holes 1
  :skills ((30 4) (61 2) (55 2) (51 -1) ))
 (:id 58
- :name 工会精英之靴
+ :name "工会精英之靴"
  :rare 3
  :weapon saber
  :gender both
@@ -530,7 +530,7 @@
  :holes 2
  :skills ((86 1) (78 3) (77 2) (75 -1) ))
 (:id 59
- :name 工会精英之鞋
+ :name "工会精英之鞋"
  :rare 3
  :weapon archer
  :gender both
@@ -539,7 +539,7 @@
  :holes 2
  :skills ((86 2) (78 2) (77 1) (75 -2) ))
 (:id 60
- :name 店员短袜
+ :name "店员短袜"
  :rare 3
  :weapon saber
  :gender both
@@ -548,7 +548,7 @@
  :holes 2
  :skills ((86 1) (78 3) (77 2) (75 -1) ))
 (:id 61
- :name 店员皮靴
+ :name "店员皮靴"
  :rare 3
  :weapon archer
  :gender both
@@ -557,7 +557,7 @@
  :holes 2
  :skills ((86 2) (78 2) (77 1) (75 -2) ))
 (:id 62
- :name 南瓜重靴
+ :name "南瓜重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -566,7 +566,7 @@
  :holes 1
  :skills ((87 3) (88 2) (57 3) (25 -1) ))
 (:id 63
- :name 南瓜重靴
+ :name "南瓜重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -575,7 +575,7 @@
  :holes 1
  :skills ((87 3) (88 2) (57 3) (25 -1) ))
 (:id 64
- :name 南瓜轻靴
+ :name "南瓜轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -584,7 +584,7 @@
  :holes 1
  :skills ((87 2) (88 3) (57 2) (31 -2) ))
 (:id 65
- :name 南瓜轻靴
+ :name "南瓜轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -593,7 +593,7 @@
  :holes 1
  :skills ((87 2) (88 3) (57 2) (31 -2) ))
 (:id 66
- :name 轻皮重靴
+ :name "轻皮重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -602,7 +602,7 @@
  :holes 1
  :skills ((84 4) (21 2) (4 2) (27 -1) ))
 (:id 67
- :name 轻皮轻靴
+ :name "轻皮轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -611,7 +611,7 @@
  :holes 1
  :skills ((84 3) (32 3) (4 2) (29 -1) ))
 (:id 68
- :name 昆虫重靴
+ :name "昆虫重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -620,7 +620,7 @@
  :holes 2
  :skills ((51 1) (18 1) (5 3) (71 -2) ))
 (:id 69
- :name 昆虫轻靴
+ :name "昆虫轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -629,7 +629,7 @@
  :holes 2
  :skills ((51 2) (18 1) (5 2) (71 -2) ))
 (:id 70
- :name 蝴蝶重靴
+ :name "蝴蝶重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -638,7 +638,7 @@
  :holes 2
  :skills ((51 1) (18 1) (5 3) (71 -2) ))
 (:id 71
- :name 蝴蝶轻靴
+ :name "蝴蝶轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -647,7 +647,7 @@
  :holes 2
  :skills ((51 2) (18 1) (5 2) (71 -2) ))
 (:id 72
- :name 神秘重靴
+ :name "神秘重靴"
  :rare 3
  :weapon saber
  :gender both
@@ -656,7 +656,7 @@
  :holes 0
  :skills ((20 4) (26 5) (27 -2) ))
 (:id 73
- :name 神秘轻靴
+ :name "神秘轻靴"
  :rare 3
  :weapon archer
  :gender both
@@ -665,7 +665,7 @@
  :holes 0
  :skills ((30 5) (28 4) (29 -2) ))
 (:id 74
- :name 大和【具足】
+ :name "大和【具足】"
  :rare 3
  :weapon saber
  :gender both
@@ -674,7 +674,7 @@
  :holes 1
  :skills ((19 3) (51 1) (57 3) (21 -2) ))
 (:id 75
- :name 陆奥【具足】
+ :name "陆奥【具足】"
  :rare 3
  :weapon archer
  :gender both
@@ -683,7 +683,7 @@
  :holes 1
  :skills ((51 1) (56 4) (57 1) (30 -3) ))
 (:id 76
- :name 日向【袴】
+ :name "日向【袴】"
  :rare 3
  :weapon saber
  :gender both
@@ -692,7 +692,7 @@
  :holes 1
  :skills ((19 3) (51 1) (57 3) (21 -2) ))
 (:id 77
- :name 天城【袴】
+ :name "天城【袴】"
  :rare 3
  :weapon archer
  :gender both
@@ -701,7 +701,7 @@
  :holes 1
  :skills ((51 1) (56 4) (57 1) (30 -3) ))
 (:id 78
- :name 温泉拖鞋
+ :name "温泉拖鞋"
  :rare 3
  :weapon both
  :gender both
@@ -710,7 +710,7 @@
  :holes 1
  :skills ((75 3) (87 3) (1 -3) ))
 (:id 79
- :name 结云袴·天
+ :name "结云袴·天"
  :rare 4
  :weapon saber
  :gender both
@@ -719,7 +719,7 @@
  :holes 2
  :skills ((27 1) (71 2) (94 4) (83 2) ))
 (:id 80
- :name 结云袴·地
+ :name "结云袴·地"
  :rare 4
  :weapon archer
  :gender both
@@ -728,7 +728,7 @@
  :holes 2
  :skills ((71 2) (94 4) (83 2) (31 1) ))
 (:id 81
- :name 皮革S重靴
+ :name "皮革S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -737,7 +737,7 @@
  :holes 1
  :skills ((90 3) (92 4) (93 2) (94 2) ))
 (:id 82
- :name 皮革S轻靴
+ :name "皮革S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -746,7 +746,7 @@
  :holes 1
  :skills ((90 2) (92 4) (93 2) (94 1) ))
 (:id 83
- :name 锁链S重靴
+ :name "锁链S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -755,7 +755,7 @@
  :holes 2
  :skills ((0 4) (96 4) (23 1) ))
 (:id 84
- :name 锁链S轻靴
+ :name "锁链S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -764,7 +764,7 @@
  :holes 2
  :skills ((0 4) (96 4) (97 1) ))
 (:id 85
- :name 猎人S重靴
+ :name "猎人S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -773,7 +773,7 @@
  :holes 1
  :skills ((76 5) (88 2) (79 2) (9 -2) ))
 (:id 86
- :name 猎人S轻靴
+ :name "猎人S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -782,7 +782,7 @@
  :holes 1
  :skills ((76 4) (88 3) (79 2) (9 -2) ))
 (:id 87
- :name 洛克拉克S皮靴
+ :name "洛克拉克S皮靴"
  :rare 4
  :weapon saber
  :gender both
@@ -791,7 +791,7 @@
  :holes 2
  :skills ((80 4) (76 5) ))
 (:id 88
- :name 洛克拉克S之鞋
+ :name "洛克拉克S之鞋"
  :rare 4
  :weapon archer
  :gender both
@@ -800,7 +800,7 @@
  :holes 2
  :skills ((80 4) (76 5) ))
 (:id 89
- :name 骨制S重靴
+ :name "骨制S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -809,7 +809,7 @@
  :holes 1
  :skills ((92 4) (83 1) (63 4) (11 -2) ))
 (:id 90
- :name 骨制S轻靴
+ :name "骨制S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -818,7 +818,7 @@
  :holes 1
  :skills ((92 2) (83 2) (63 4) (11 -3) ))
 (:id 91
- :name 合金S重靴
+ :name "合金S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -827,7 +827,7 @@
  :holes 1
  :skills ((51 5) (27 2) (15 2) (92 -2) ))
 (:id 92
- :name 合金S轻靴
+ :name "合金S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -836,7 +836,7 @@
  :holes 1
  :skills ((51 5) (34 2) (37 2) (92 -2) ))
 (:id 93
- :name 飞虫S之靴
+ :name "飞虫S之靴"
  :rare 4
  :weapon saber
  :gender both
@@ -845,7 +845,7 @@
  :holes 1
  :skills ((20 2) (52 2) (7 5) (1 -2) ))
 (:id 94
- :name 飞虫S之鞋
+ :name "飞虫S之鞋"
  :rare 4
  :weapon archer
  :gender both
@@ -854,7 +854,7 @@
  :holes 1
  :skills ((29 3) (52 1) (7 5) (1 -2) ))
 (:id 95
- :name 草食龙S重靴
+ :name "草食龙S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -863,7 +863,7 @@
  :holes 2
  :skills ((13 4) (64 1) (85 3) (12 -1) ))
 (:id 96
- :name 草食龙S轻靴
+ :name "草食龙S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -872,7 +872,7 @@
  :holes 2
  :skills ((31 3) (64 3) (85 1) (12 -2) ))
 (:id 97
- :name 狗龙S重靴
+ :name "狗龙S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -881,7 +881,7 @@
  :holes 1
  :skills ((84 3) (51 3) (1 4) (87 -1) ))
 (:id 98
- :name 狗龙S轻靴
+ :name "狗龙S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -890,7 +890,7 @@
  :holes 1
  :skills ((84 4) (51 2) (1 3) (87 -2) ))
 (:id 99
- :name 青熊S重靴
+ :name "青熊S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -899,7 +899,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 100
- :name 青熊S轻靴
+ :name "青熊S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -908,7 +908,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 101
- :name 毒狗龙S重靴
+ :name "毒狗龙S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -917,7 +917,7 @@
  :holes 1
  :skills ((9 5) (89 2) (72 2) (2 -2) ))
 (:id 102
- :name 毒狗龙S轻靴
+ :name "毒狗龙S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -926,7 +926,7 @@
  :holes 1
  :skills ((9 5) (89 3) (72 1) (2 -2) ))
 (:id 103
- :name 白兔S重靴
+ :name "白兔S重靴"
  :rare 4
  :weapon saber
  :gender both
@@ -935,7 +935,7 @@
  :holes 1
  :skills ((1 3) (6 4) (48 3) (3 -1) ))
 (:id 104
- :name 白兔S轻靴
+ :name "白兔S轻靴"
  :rare 4
  :weapon archer
  :gender both
@@ -944,7 +944,7 @@
  :holes 1
  :skills ((1 2) (6 5) (48 2) (3 -2) ))
 (:id 105
- :name 彩鸟S重靴
+ :name "彩鸟S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -953,7 +953,7 @@
  :holes 1
  :skills ((86 4) (76 2) (65 4) (6 -1) ))
 (:id 106
- :name 彩鸟S轻靴
+ :name "彩鸟S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -962,7 +962,7 @@
  :holes 1
  :skills ((86 3) (76 2) (65 4) (6 -2) ))
 (:id 107
- :name 水兽S重靴
+ :name "水兽S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -971,7 +971,7 @@
  :holes 1
  :skills ((47 1) (66 4) (59 4) (67 -2) ))
 (:id 108
- :name 水兽S轻靴
+ :name "水兽S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -980,7 +980,7 @@
  :holes 1
  :skills ((47 1) (66 4) (59 4) (67 -2) ))
 (:id 109
- :name 土砂龙S重靴
+ :name "土砂龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -989,7 +989,7 @@
  :holes 0
  :skills ((25 3) (61 5) (72 4) (90 -1) ))
 (:id 110
- :name 土砂龙S轻靴
+ :name "土砂龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -998,7 +998,7 @@
  :holes 0
  :skills ((30 4) (32 2) (61 5) (90 -2) ))
 (:id 111
- :name 高合金S重靴
+ :name "高合金S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1007,7 +1007,7 @@
  :holes 2
  :skills ((51 3) (15 2) (14 2) (94 -2) ))
 (:id 112
- :name 高合金S轻靴
+ :name "高合金S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1016,7 +1016,7 @@
  :holes 2
  :skills ((34 2) (36 2) (37 3) (94 -2) ))
 (:id 113
- :name 眠狗龙S重靴
+ :name "眠狗龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1025,7 +1025,7 @@
  :holes 2
  :skills ((84 2) (1 4) (83 1) (3 -2) ))
 (:id 114
- :name 眠狗龙S轻靴
+ :name "眠狗龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1034,7 +1034,7 @@
  :holes 2
  :skills ((84 2) (1 3) (83 1) (3 -3) ))
 (:id 115
- :name 赤甲兽S重靴
+ :name "赤甲兽S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1043,7 +1043,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 116
- :name 赤甲兽S轻靴
+ :name "赤甲兽S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1052,7 +1052,7 @@
  :holes 0
  :skills ((98 0) ))
 (:id 117
- :name 雌火龙S重靴
+ :name "雌火龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1061,7 +1061,7 @@
  :holes 2
  :skills ((0 5) (84 1) (65 1) (66 -2) ))
 (:id 118
- :name 雌火龙S轻靴
+ :name "雌火龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1070,7 +1070,7 @@
  :holes 2
  :skills ((0 5) (84 1) (65 1) (66 -2) ))
 (:id 119
- :name 潜口龙S重靴
+ :name "潜口龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1079,7 +1079,7 @@
  :holes 0
  :skills ((89 3) (66 5) (50 4) (67 -1) ))
 (:id 120
- :name 潜口龙S轻靴
+ :name "潜口龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1088,7 +1088,7 @@
  :holes 0
  :skills ((89 3) (66 5) (50 4) (67 -1) ))
 (:id 121
- :name 毒怪龙S重靴
+ :name "毒怪龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1097,7 +1097,7 @@
  :holes 2
  :skills ((21 1) (52 3) (90 3) (96 -2) ))
 (:id 122
- :name 毒怪龙S轻靴
+ :name "毒怪龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1106,7 +1106,7 @@
  :holes 2
  :skills ((36 1) (52 3) (90 3) (96 -2) ))
 (:id 123
- :name 迅龙S重靴
+ :name "迅龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1115,7 +1115,7 @@
  :holes 2
  :skills ((73 2) (49 4) (88 2) (47 -1) ))
 (:id 124
- :name 迅龙S轻靴
+ :name "迅龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1124,7 +1124,7 @@
  :holes 2
  :skills ((73 1) (49 4) (88 2) (47 -2) ))
 (:id 125
- :name 冰牙龙S重靴
+ :name "冰牙龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1133,7 +1133,7 @@
  :holes 1
  :skills ((48 2) (47 3) (72 4) (85 -2) ))
 (:id 126
- :name 冰牙龙S轻靴
+ :name "冰牙龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1142,7 +1142,7 @@
  :holes 1
  :skills ((48 2) (47 3) (72 4) (85 -2) ))
 (:id 127
- :name 雄火龙S重靴
+ :name "雄火龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1151,7 +1151,7 @@
  :holes 1
  :skills ((27 1) (1 5) (53 2) (83 -3) ))
 (:id 128
- :name 雄火龙S轻靴
+ :name "雄火龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1160,7 +1160,7 @@
  :holes 1
  :skills ((28 2) (1 5) (53 2) (83 -2) ))
 (:id 129
- :name 爆锤龙S重靴
+ :name "爆锤龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1169,7 +1169,7 @@
  :holes 2
  :skills ((3 4) (22 1) (23 2) (4 -2) ))
 (:id 130
- :name 爆锤龙S轻靴
+ :name "爆锤龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1178,7 +1178,7 @@
  :holes 2
  :skills ((30 1) (33 1) (3 4) (4 -3) ))
 (:id 131
- :name 远古龙重靴
+ :name "远古龙重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1187,7 +1187,7 @@
  :holes 3
  :skills ((7 4) (48 1) (69 1) (90 -1) ))
 (:id 132
- :name 远古龙轻靴
+ :name "远古龙轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1196,7 +1196,7 @@
  :holes 3
  :skills ((7 4) (48 1) (69 1) (90 -1) ))
 (:id 133
- :name 雷狼龙S重靴
+ :name "雷狼龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1205,7 +1205,7 @@
  :holes 0
  :skills ((49 5) (58 5) (67 1) (73 -2) ))
 (:id 134
- :name 雷狼龙S轻靴
+ :name "雷狼龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1214,7 +1214,7 @@
  :holes 0
  :skills ((49 5) (58 5) (67 1) (73 -2) ))
 (:id 135
- :name 角龙S重靴
+ :name "角龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1223,7 +1223,7 @@
  :holes 2
  :skills ((14 4) (22 1) (50 3) (52 -1) ))
 (:id 136
- :name 角龙S轻靴
+ :name "角龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1232,7 +1232,7 @@
  :holes 2
  :skills ((33 1) (35 5) (50 2) (52 -1) ))
 (:id 137
- :name 轰龙S重靴
+ :name "轰龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1241,7 +1241,7 @@
  :holes 0
  :skills ((91 5) (18 4) (47 2) (71 -2) ))
 (:id 138
- :name 轰龙S轻靴
+ :name "轰龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1250,7 +1250,7 @@
  :holes 0
  :skills ((91 4) (18 4) (47 3) (71 -2) ))
 (:id 139
- :name 炎戈龙S重靴
+ :name "炎戈龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1259,7 +1259,7 @@
  :holes 1
  :skills ((21 1) (72 4) (65 1) (66 -3) ))
 (:id 140
- :name 炎戈龙S轻靴
+ :name "炎戈龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1268,7 +1268,7 @@
  :holes 2
  :skills ((32 2) (31 4) (65 1) (66 -2) ))
 (:id 141
- :name 尾槌龙S重靴
+ :name "尾槌龙S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1277,7 +1277,7 @@
  :holes 1
  :skills ((1 6) (61 1) (55 2) (51 -2) ))
 (:id 142
- :name 尾槌龙S轻靴
+ :name "尾槌龙S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1286,7 +1286,7 @@
  :holes 1
  :skills ((30 6) (61 1) (55 1) (51 -3) ))
 (:id 143
- :name 彩鸟U重靴
+ :name "彩鸟U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1295,7 +1295,7 @@
  :holes 2
  :skills ((86 5) (89 1) (67 1) (68 -2) ))
 (:id 144
- :name 彩鸟U轻靴
+ :name "彩鸟U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1304,7 +1304,7 @@
  :holes 2
  :skills ((86 4) (89 1) (67 1) (68 -3) ))
 (:id 145
- :name 水兽U重靴
+ :name "水兽U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1313,7 +1313,7 @@
  :holes 1
  :skills ((52 5) (47 3) (60 2) (5 -1) ))
 (:id 146
- :name 水兽U轻靴
+ :name "水兽U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1322,7 +1322,7 @@
  :holes 1
  :skills ((4 5) (47 3) (60 2) (5 -1) ))
 (:id 147
- :name 冰碎龙U重靴
+ :name "冰碎龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1331,7 +1331,7 @@
  :holes 3
  :skills ((2 3) (59 1) (60 1) (65 -1) ))
 (:id 148
- :name 冰碎龙U轻靴
+ :name "冰碎龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1340,7 +1340,7 @@
  :holes 3
  :skills ((33 1) (2 3) (68 1) (65 -2) ))
 (:id 149
- :name 电怪龙U重靴
+ :name "电怪龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1349,7 +1349,7 @@
  :holes 1
  :skills ((57 5) (67 3) (60 2) (68 -1) ))
 (:id 150
- :name 电怪龙U轻靴
+ :name "电怪龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1358,7 +1358,7 @@
  :holes 1
  :skills ((57 2) (67 4) (60 3) (68 -2) ))
 (:id 151
- :name 绿迅龙U重靴
+ :name "绿迅龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1367,7 +1367,7 @@
  :holes 1
  :skills ((47 5) (77 2) (85 2) (72 -2) ))
 (:id 152
- :name 绿迅龙U轻靴
+ :name "绿迅龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1376,7 +1376,7 @@
  :holes 1
  :skills ((47 5) (77 3) (85 3) (72 -2) ))
 (:id 153
- :name 风牙龙U重靴
+ :name "风牙龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1385,7 +1385,7 @@
  :holes 3
  :skills ((73 2) (49 2) (72 1) (48 -2) ))
 (:id 154
- :name 风牙龙U轻靴
+ :name "风牙龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1394,7 +1394,7 @@
  :holes 3
  :skills ((73 1) (49 2) (72 1) (48 -3) ))
 (:id 155
- :name 钢锤龙U重靴
+ :name "钢锤龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1403,7 +1403,7 @@
  :holes 3
  :skills ((25 2) (62 1) (85 1) (7 -3) ))
 (:id 156
- :name 钢锤龙U轻靴
+ :name "钢锤龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1412,7 +1412,7 @@
  :holes 3
  :skills ((29 2) (34 1) (62 1) (7 -3) ))
 (:id 157
- :name 黑角龙U重靴
+ :name "黑角龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1421,7 +1421,7 @@
  :holes 3
  :skills ((23 3) (59 1) (60 1) (69 -2) ))
 (:id 158
- :name 黑角龙U轻靴
+ :name "黑角龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1430,7 +1430,7 @@
  :holes 3
  :skills ((29 1) (30 1) (35 3) (69 -2) ))
 (:id 159
- :name 黑轰龙U重靴
+ :name "黑轰龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1439,7 +1439,7 @@
  :holes 3
  :skills ((18 2) (76 2) (57 1) (71 -2) ))
 (:id 160
- :name 黑轰龙U轻靴
+ :name "黑轰龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1448,7 +1448,7 @@
  :holes 3
  :skills ((18 1) (76 3) (57 1) (71 -2) ))
 (:id 161
- :name 冻戈龙U重靴
+ :name "冻戈龙U重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1457,7 +1457,7 @@
  :holes 1
  :skills ((25 3) (26 2) (68 5) (65 -1) ))
 (:id 162
- :name 冻戈龙U轻靴
+ :name "冻戈龙U轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1466,7 +1466,7 @@
  :holes 1
  :skills ((29 2) (36 3) (68 5) (65 -1) ))
 (:id 163
- :name 金火龙重靴
+ :name "金火龙重靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1475,7 +1475,7 @@
  :holes 0
  :skills ((71 5) (75 5) (55 2) (5 -1) ))
 (:id 164
- :name 金火龙轻靴
+ :name "金火龙轻靴"
  :rare 7
  :weapon archer
  :gender both
@@ -1484,7 +1484,7 @@
  :holes 0
  :skills ((71 5) (75 4) (55 3) (5 -1) ))
 (:id 165
- :name 银火龙重靴
+ :name "银火龙重靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1493,7 +1493,7 @@
  :holes 3
  :skills ((21 2) (1 2) (53 1) (0 -2) ))
 (:id 166
- :name 银火龙轻靴
+ :name "银火龙轻靴"
  :rare 7
  :weapon archer
  :gender both
@@ -1502,7 +1502,7 @@
  :holes 3
  :skills ((32 1) (1 2) (53 2) (0 -2) ))
 (:id 167
- :name 恐暴龙重靴
+ :name "恐暴龙重靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1511,7 +1511,7 @@
  :holes 3
  :skills ((19 2) (6 1) (89 2) (21 -2) ))
 (:id 168
- :name 恐暴龙轻靴
+ :name "恐暴龙轻靴"
  :rare 7
  :weapon archer
  :gender both
@@ -1520,7 +1520,7 @@
  :holes 3
  :skills ((6 1) (56 2) (89 2) (30 -2) ))
 (:id 169
- :name 城塞游击队【足袋】
+ :name "城塞游击队【足袋】"
  :rare 5
  :weapon saber
  :gender both
@@ -1529,7 +1529,7 @@
  :holes 0
  :skills ((51 4) (83 4) (95 4) (75 -1) ))
 (:id 170
- :name 城塞弓击队【足袋】
+ :name "城塞弓击队【足袋】"
  :rare 5
  :weapon archer
  :gender both
@@ -1538,7 +1538,7 @@
  :holes 0
  :skills ((51 4) (83 3) (95 4) (75 -2) ))
 (:id 171
- :name 工会精英S之靴
+ :name "工会精英S之靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1547,7 +1547,7 @@
  :holes 0
  :skills ((86 4) (78 5) (77 3) (75 -1) ))
 (:id 172
- :name 工会精英S之鞋
+ :name "工会精英S之鞋"
  :rare 5
  :weapon archer
  :gender both
@@ -1556,7 +1556,7 @@
  :holes 0
  :skills ((86 4) (78 3) (77 4) (75 -2) ))
 (:id 173
- :name 店员S短袜
+ :name "店员S短袜"
  :rare 5
  :weapon saber
  :gender both
@@ -1565,7 +1565,7 @@
  :holes 0
  :skills ((86 4) (78 5) (77 3) (75 -1) ))
 (:id 174
- :name 店员S皮靴
+ :name "店员S皮靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1574,7 +1574,7 @@
  :holes 0
  :skills ((86 4) (78 3) (77 4) (75 -2) ))
 (:id 175
- :name 南瓜S重靴
+ :name "南瓜S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1583,7 +1583,7 @@
  :holes 2
  :skills ((48 4) (88 1) (57 2) (25 -2) ))
 (:id 176
- :name 南瓜S重靴
+ :name "南瓜S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1592,7 +1592,7 @@
  :holes 2
  :skills ((48 4) (88 1) (57 2) (25 -2) ))
 (:id 177
- :name 南瓜S轻靴
+ :name "南瓜S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1601,7 +1601,7 @@
  :holes 2
  :skills ((48 3) (88 2) (57 1) (31 -3) ))
 (:id 178
- :name 南瓜S轻靴
+ :name "南瓜S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1610,7 +1610,7 @@
  :holes 2
  :skills ((48 3) (88 2) (57 1) (31 -3) ))
 (:id 179
- :name 轻皮S重靴
+ :name "轻皮S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1619,7 +1619,7 @@
  :holes 2
  :skills ((21 1) (50 2) (84 3) (27 -3) ))
 (:id 180
- :name 轻皮S轻靴
+ :name "轻皮S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1628,7 +1628,7 @@
  :holes 2
  :skills ((32 1) (50 2) (84 3) (29 -3) ))
 (:id 181
- :name 昆虫S重靴
+ :name "昆虫S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1637,7 +1637,7 @@
  :holes 1
  :skills ((12 5) (51 4) (18 1) (71 -1) ))
 (:id 182
- :name 昆虫S轻靴
+ :name "昆虫S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1646,7 +1646,7 @@
  :holes 1
  :skills ((12 5) (51 3) (18 1) (71 -2) ))
 (:id 183
- :name 蝴蝶S重靴
+ :name "蝴蝶S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1655,7 +1655,7 @@
  :holes 1
  :skills ((12 5) (51 4) (18 1) (71 -1) ))
 (:id 184
- :name 蝴蝶S轻靴
+ :name "蝴蝶S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1664,7 +1664,7 @@
  :holes 1
  :skills ((12 5) (51 3) (18 1) (71 -2) ))
 (:id 185
- :name 神秘S重靴
+ :name "神秘S重靴"
  :rare 5
  :weapon saber
  :gender both
@@ -1673,7 +1673,7 @@
  :holes 1
  :skills ((20 4) (26 5) (27 -2) ))
 (:id 186
- :name 神秘S轻靴
+ :name "神秘S轻靴"
  :rare 5
  :weapon archer
  :gender both
@@ -1682,7 +1682,7 @@
  :holes 1
  :skills ((30 5) (28 4) (29 -2) ))
 (:id 187
- :name 抚子【球袴】
+ :name "抚子【球袴】"
  :rare 5
  :weapon saber
  :gender both
@@ -1691,7 +1691,7 @@
  :holes 1
  :skills ((86 5) (76 2) (77 2) (9 -2) ))
 (:id 188
- :name 桔梗【球袴】
+ :name "桔梗【球袴】"
  :rare 5
  :weapon archer
  :gender both
@@ -1700,7 +1700,7 @@
  :holes 1
  :skills ((86 4) (76 2) (77 2) (9 -3) ))
 (:id 189
- :name 金属镶嵌重靴
+ :name "金属镶嵌重靴"
  :rare 6
  :weapon saber
  :gender both
@@ -1709,7 +1709,7 @@
  :holes 0
  :skills ((19 4) (27 3) (67 3) (21 -3) ))
 (:id 190
- :name 金属镶嵌轻靴
+ :name "金属镶嵌轻靴"
  :rare 6
  :weapon archer
  :gender both
@@ -1718,7 +1718,7 @@
  :holes 0
  :skills ((34 4) (56 4) (67 2) (30 -3) ))
 (:id 191
- :name 大和·霸【具足】
+ :name "大和·霸【具足】"
  :rare 7
  :weapon saber
  :gender both
@@ -1727,7 +1727,7 @@
  :holes 3
  :skills ((20 1) (51 2) (57 2) (84 -2) ))
 (:id 192
- :name 陆奥·霸【具足】
+ :name "陆奥·霸【具足】"
  :rare 7
  :weapon archer
  :gender both
@@ -1736,7 +1736,7 @@
  :holes 3
  :skills ((51 2) (33 1) (57 2) (84 -2) ))
 (:id 193
- :name 日向·霸【裙甲】
+ :name "日向·霸【裙甲】"
  :rare 7
  :weapon saber
  :gender both
@@ -1745,7 +1745,7 @@
  :holes 3
  :skills ((20 1) (51 2) (57 2) (84 -2) ))
 (:id 194
- :name 天城·霸【裙甲】
+ :name "天城·霸【裙甲】"
  :rare 7
  :weapon archer
  :gender both
@@ -1754,7 +1754,7 @@
  :holes 3
  :skills ((20 2) (33 1) (57 2) (84 -2) ))
 (:id 195
- :name 霸龙重靴
+ :name "霸龙重靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1763,7 +1763,7 @@
  :holes 1
  :skills ((18 2) (65 6) (55 1) (71 -2) ))
 (:id 196
- :name 霸龙轻靴
+ :name "霸龙轻靴"
  :rare 7
  :weapon archer
  :gender both
@@ -1772,7 +1772,7 @@
  :holes 1
  :skills ((18 2) (65 6) (55 1) (71 -2) ))
 (:id 197
- :name 崩龙重靴
+ :name "崩龙重靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1781,7 +1781,7 @@
  :holes 2
  :skills ((20 3) (68 2) (53 3) (57 -1) ))
 (:id 198
- :name 崩龙轻靴
+ :name "崩龙轻靴"
  :rare 7
  :weapon archer
  :gender both
@@ -1790,7 +1790,7 @@
  :holes 2
  :skills ((28 2) (68 3) (53 2) (57 -2) ))
 (:id 199
- :name 煌黑龙之骨
+ :name "煌黑龙之骨"
  :rare 7
  :weapon saber
  :gender both
@@ -1799,7 +1799,7 @@
  :holes 3
  :skills ((70 2) (49 2) (8 1) (61 -2) ))
 (:id 200
- :name 煌黑龙之足
+ :name "煌黑龙之足"
  :rare 7
  :weapon archer
  :gender both
@@ -1808,7 +1808,7 @@
  :holes 3
  :skills ((70 2) (49 3) (8 1) (61 -1) ))
 (:id 201
- :name 荒天【袴】
+ :name "荒天【袴】"
  :rare 7
  :weapon saber
  :gender both
@@ -1817,7 +1817,7 @@
  :holes 2
  :skills ((19 5) (58 5) (66 1) (89 -2) ))
 (:id 202
- :name 苍天【袴】
+ :name "苍天【袴】"
  :rare 7
  :weapon archer
  :gender both
@@ -1826,7 +1826,7 @@
  :holes 2
  :skills ((56 5) (58 5) (66 1) (89 -2) ))
 (:id 203
- :name 高级温泉拖鞋
+ :name "高级温泉拖鞋"
  :rare 5
  :weapon both
  :gender both
@@ -1835,7 +1835,7 @@
  :holes 1
  :skills ((75 5) (87 3) (1 -3) ))
 (:id 204
- :name 三眼腰饰
+ :name "三眼腰饰"
  :rare 5
  :weapon both
  :gender both
@@ -1844,7 +1844,7 @@
  :holes 3
  :skills ())
 (:id 205
- :name 漆黑轻皮腿甲
+ :name "漆黑轻皮腿甲"
  :rare 7
  :weapon saber
  :gender both
@@ -1853,7 +1853,7 @@
  :holes 1
  :skills ((61 11) ))
 (:id 206
- :name 漆黑轻皮裤
+ :name "漆黑轻皮裤"
  :rare 7
  :weapon archer
  :gender both
@@ -1862,7 +1862,7 @@
  :holes 1
  :skills ((61 11) ))
 (:id 207
- :name 大海盗J之靴
+ :name "大海盗J之靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1871,7 +1871,7 @@
  :holes 0
  :skills ((75 4) (95 3) (78 4) (71 -2) ))
 (:id 208
- :name 大海盗J裤子
+ :name "大海盗J裤子"
  :rare 7
  :weapon archer
  :gender both
@@ -1880,7 +1880,7 @@
  :holes 0
  :skills ((75 4) (95 3) (78 2) (71 -4) ))
 (:id 209
- :name Snake之靴
+ :name "Snake之靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1889,7 +1889,7 @@
  :holes 2
  :skills ((88 2) (72 3) (57 2) (90 -2) ))
 (:id 210
- :name Snake之鞋
+ :name "Snake之鞋"
  :rare 7
  :weapon archer
  :gender both
@@ -1898,7 +1898,7 @@
  :holes 1
  :skills ((56 3) (31 3) (88 2) (90 -3) ))
 (:id 211
- :name The·Boss之靴
+ :name "The·Boss之靴"
  :rare 7
  :weapon saber
  :gender both
@@ -1907,7 +1907,7 @@
  :holes 2
  :skills ((73 2) (76 3) (57 2) (70 -2) ))
 (:id 212
- :name The·Boss之鞋
+ :name "The·Boss之鞋"
  :rare 7
  :weapon archer
  :gender both
@@ -1916,7 +1916,7 @@
  :holes 1
  :skills ((73 2) (76 3) (56 4) (70 -2) ))
 (:id 213
- :name 优衣库邮购裤
+ :name "优衣库邮购裤"
  :rare 7
  :weapon saber
  :gender both
@@ -1925,7 +1925,7 @@
  :holes 2
  :skills ((18 2) (82 2) (49 3) (89 -2) ))
 (:id 214
- :name 优衣库半截裤
+ :name "优衣库半截裤"
  :rare 7
  :weapon archer
  :gender both
@@ -1934,7 +1934,7 @@
  :holes 2
  :skills ((18 2) (82 2) (49 3) (89 -2) ))
 (:id 215
- :name 坊屋牛仔裤
+ :name "坊屋牛仔裤"
  :rare 7
  :weapon saber
  :gender both
@@ -1943,7 +1943,7 @@
  :holes 1
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 216
- :name 坊屋牛仔裤
+ :name "坊屋牛仔裤"
  :rare 7
  :weapon saber
  :gender both
@@ -1952,7 +1952,7 @@
  :holes 1
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 217
- :name 坊屋休闲裤
+ :name "坊屋休闲裤"
  :rare 7
  :weapon archer
  :gender both
@@ -1961,7 +1961,7 @@
  :holes 1
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 218
- :name 坊屋休闲裤
+ :name "坊屋休闲裤"
  :rare 7
  :weapon archer
  :gender both

@@ -62,13 +62,13 @@ def ScrawlSkill( url ) :
     with open( 'skills.lisp.data', 'w' ) as fout :
         n = 0
         for every in systems :
-            fout.write( '(%d %s (' % ( n, every[0].encode('utf-8') ) )
+            fout.write( '(%d "%s" (' % ( n, every[0].encode('utf-8') ) )
             n = n + 1
             for item in every[1] :
-                fout.write( '(%d %s %s) ' % ( item[1],
+                fout.write( '(%d "%s" "%s") ' % ( item[1],
                                               item[0].encode('utf-8'),
                                               item[2].encode('utf-8') ) )
-            fout.write( ')\n' )
+            fout.write( '))\n' )
 
 
 def ScrawlArmor( url, part ) :
@@ -182,10 +182,10 @@ def ScrawlArmor( url, part ) :
         for item in armors :
             fout.write( '(:id %d\n' % n )
             n = n + 1
-            fout.write( ' :name %s\n' % item[0].encode('utf-8') )
+            fout.write( ' :name "%s"\n' % item[0].encode('utf-8') )
             fout.write( ' :rare %d\n' % item[1] )
-            fout.write( ' :weapon %s\n' % item[2].encode('utf-8') )
-            fout.write( ' :gender %s\n' % item[3].encode('utf-8') )
+            fout.write( ' :weapon %s\n' % item[2] )
+            fout.write( ' :gender %s\n' % item[3] )
             fout.write( ' :def-min %d\n' % item[4] )
             fout.write( ' :def-max %d\n' % item[5] )
             fout.write( ' :holes %d\n' % item[6] )
@@ -237,7 +237,7 @@ def ScrawlJewel( url ) :
         for item in jewels :
             fout.write( '(:id %d\n' % n )
             n = n + 1
-            fout.write( ' :name %s\n' % item[0].encode('utf-8') )
+            fout.write( ' :name "%s"\n' % item[0].encode('utf-8') )
             fout.write( ' :holes %d\n' % item[1] )
             fout.write( ' :skills (' )
             for each in item[2] :
