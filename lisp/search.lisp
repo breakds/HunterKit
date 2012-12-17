@@ -25,7 +25,7 @@
 ;;; Structure for combination
 (defstruct combo
   (key nil)
-  (sets nil))
+  (set nil))
 
 
 
@@ -100,11 +100,106 @@
 
 ;;; ---------- Accessors ----------
 
+
+  
+
 (defun get-id-by-name (name lst)
   "find the entity with the given name in the lst"
   (find-if (lambda (x) (equal (entity-name x) name))
 	   lst))
 
+
+;;; ---------- Search ----------
+
+(defun query-skill (skill-id item)
+  (let ((res (find-if (lambda (x) (= (car x) skill-id)) 
+                      (armor-skills item))))
+    (if res
+        (cadr res)
+        0)))
+
+(defun qualify (item skill-set)
+  "if qualify return the key, otherwise nil"
+  (let ((key (loop for sk in skill-set
+                collect (query-skill sk item))))
+    (loop for ele in key
+       when (> ele 0)
+       return key)))
+  
+  
+
+
+(defun sieve (skill-set lst)
+  (let ((hash (make-hash-table :test #'equal)))
+    (loop for item in lst
+       do (let ((key (qualify item skill-set)))
+            (when key
+              (let ((obj (gethash key hash)))
+                (if obj
+                    (push item (combo-set obj))
+                    (setf (gethash key hash) (make-combo :key key
+                                                         :set (list item))))))))
+    hash))
+
+
+(defun merge-combo-set (combo-set-a combo-set-b)
+  (let ((hash (make-hash-table :test #'equal)))
+    (loop for key-a being the hash-keys of combo-set-a
+       do (loop for key-b being the hash-keys of combo-set-b
+             do (let ((key (mapcar #'+ key-a key-b)))
+                  (let ((obj (gethash key hash))
+                        (pair (list (gethash key-a combo-set-a)
+                                    (gethash key-b combo-set-b))))
+                    (if obj
+                        (push pair obj)
+                        (setf (gethash key hash) (make-combo :key key
+                                                             :set (list pair))))))))
+    hash))
+
+
+(defun list-geq (lst-a lst-b)
+  (not (loop for a in lst-a 
+          for b in lst-b
+          when (< a b)
+          return t)))
+
+
+(defun decombo (obj)
+  (loop for item in (combo-set obj)
+     append (if (armor-p item)
+                (list item)
+                (loop for armor-ele in (decombo (cadr item))
+                   append (loop for combo-ele in (decombo (car item))
+                             collect (if (listp combo-ele)
+                                         (cons armor-ele combo-ele)
+                                         (list armor-ele combo-ele)))))))
+                
+       
+
+
+
+;;; requirement-set = ((skill-id requirement)*)
+(defun search-armor (req-set)
+  "search for the set of armors that meet the requirement."
+  (let ((skill-set (mapcar (lambda (x) (car x)) req-set))
+        (thresh-set (mapcar (lambda (x) (cadr x)) req-set)))
+    (let ((potential (labels ((search-iter (k accu)
+                                (let ((merged (merge-combo-set 
+                                               accu
+                                               (sieve skill-set (aref *armor-set* k)))))
+                                  (if (= k 4)
+                                      merged
+                                      (search-iter (1+ k) merged)))))
+                       (search-iter 1 (sieve skill-set (aref *armor-set* 0))))))
+      (let ((prelim (loop for value being the hash-values of potential
+                       when (list-geq (combo-key value) thresh-set)
+                       collect value)))
+        prelim))))
+
+    
+  
+  
+  
 
 
 
