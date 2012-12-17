@@ -22,8 +22,29 @@
   (rare 0 :type fixnum)
   (gender 0 :type symbol))
 
+;;; Structure for combination
+(defstruct combo
+  (key nil)
+  (sets nil))
+
+
+
 
 (defparameter *skills* nil)
+
+(defparameter *jewels* nil)
+
+(defparameter *helms* nil)
+
+(defparameter *chests* nil)
+
+(defparameter *gloves* nil)
+
+(defparameter *belts* nil)
+
+(defparameter *boots* nil)
+
+(defparameter *armor-set* nil)
 
 (defun load-skills (file-name)
   "Load skill data from external file, creating a list of skill"
@@ -35,7 +56,7 @@
                            :tags (caddr item)))))
 
 
-(defun load-jewel (file-name)
+(defun load-jewels (file-name)
   "Load jewel data from external file, creating a list of carriable"
   (with-open-file (in file-name
                       :direction :input)
@@ -59,6 +80,31 @@
                            :gender (getf item :gender)
                            :holes (getf item :holes)
                            :skills (getf item :skills)))))
+
+(defun init ()
+  "load data from external files."
+  (setf *skills* (load-skills "../data/skills.lisp.data"))
+  (setf *jewels* (load-jewels "../data/jewel.lisp.data"))
+  (setf *helms* (load-armor-list "../data/head.lisp.data"))
+  (setf *chests* (load-armor-list "../data/chest.lisp.data"))
+  (setf *gloves* (load-armor-list "../data/hand.lisp.data"))
+  (setf *belts* (load-armor-list "../data/waist.lisp.data"))
+  (setf *boots* (load-armor-list "../data/foot.lisp.data"))
+  (setf *armor-set* (make-array 5 :initial-contents (list *helms*
+							  *chests*
+							  *gloves*
+							  *belts*
+							  *boots*)))
+  nil)
+  
+
+;;; ---------- Accessors ----------
+
+(defun get-id-by-name (name lst)
+  "find the entity with the given name in the lst"
+  (find-if (lambda (x) (equal (entity-name x) name))
+	   lst))
+
 
 
 
