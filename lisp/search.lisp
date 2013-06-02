@@ -4,11 +4,19 @@
 
 (in-package breakds.hunter-kit)
 
-;;; Structure for an mhp3 entity
-(defstruct entity (id 0 :type fixnum) (name "" :type string))
 
-;;; Structure for a skill
-(defstruct (skill (:include entity)) (tags nil))
+;;; data strcutures for Hunter Kit
+
+(defstruct entity 
+  "An entity is the super class of any objects in hunter-kit. Objects
+  can be skills, jewels, armors or stuffed-armors"
+  (id 0 :type fixnum) 
+  (name "" :type string))
+
+(defstruct (skill (:include entity)) 
+  "A skill is an entity with a list of tags, where each tag is a
+  triplet of (skill-points skill-name skill-description)"
+  (tags nil))
 
 ;;; Structure for decoration/armor which are carrriable
 ;;; This is also the structure for jewels
