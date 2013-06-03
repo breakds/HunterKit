@@ -187,7 +187,7 @@ than or equals to set-b"
 ;;; ------------------------------------------------------------
 ;;; Search Core Code
 ;;; 
-;;; concepts:
+;;; some concepts:
 ;;; 1. req-set = a set of (skill-id skill-requirement) pairs
 ;;; 2. qualify against a req-set = the sum of skill points 
 ;;;    of an item is larger or equal than the specified req-set
@@ -254,11 +254,6 @@ j-hole bundle."
   "return a vector of jewel-bundles, with holes of 0, 1, 2 and 3,
 respectively."
   (let ((bundles (make-array 4 :initial-contents '(nil nil nil nil))))
-    ;; This loop will 
-    ;; 1) filter: keep all the jewels that have a non-empty
-    ;; intersection with skill-set
-    ;; 2) push them to the corresponding list in bundles according to
-    ;; holes
     (loop for item in *jewels*
        for key = (qualify-skill-set item skill-set)
        when key ;; if the jewel hit at least one skill in the skill-set
@@ -272,8 +267,10 @@ respectively."
     bundles))
 
 
+
+
 (defun embed (item bundle)
-  "embed a jewel into an armor"
+  "embed a jewel into an armor, the result will be a stuffed-armor"
   (make-stuffed-armor :id (armor-id item)
 		      :name (armor-name item)
 		      :rare (armor-rare item)
@@ -287,16 +284,20 @@ respectively."
 					 
 
 (defun sieve (skill-set lst bundles &optional (weapon 'both))
-  (let ((hash (make-hash-table :test #'equal)))
+  (let ((hash (make-hash-table :test #'equal))) 
     (loop for item in lst
        do (let ((key (qualify-skill-set item skill-set weapon)))
-	    (when key
+	    (when key ;; if the item hits at least one of the specified skills
 	      (let ((obj (gethash key hash)))
+                ;; if the combo exists in the hash table
+                ;; let the existing combo absorb it
+                ;; otherwise make it the first in the combo
 		(if obj
 		    (push item (combo-set obj))
 		    (setf (gethash key hash) 
 			  (make-combo :key key
 				      :set (list item)))))
+              ;; try embeding the jewels (combos)
 	      (loop for hole from 1 to (armor-holes item) 
 		 do (loop for bundle in (aref bundles hole)
 		       do (let ((key-1 (mapcar #'+ key 
@@ -337,15 +338,14 @@ respectively."
                              collect (if (listp combo-ele)
                                          (cons armor-ele combo-ele)
                                          (list armor-ele combo-ele)))))))
-                
-       
 
 
 
 (defun search-armor (req-set &optional (weapon 'both))
-  "search for the set of armors that meet the requirement."
+  "search for the set of armors that meets the req-set"
   (multiple-value-bind (skill-set thresh-set) (unzip-pair-list req-set)
     (let ((bundles (generate-jewel-bundles skill-set)))
+      ;; search-iter returns a hash table of resulting combos
       (let ((potential (labels ((search-iter (k accu)
 				  (let ((merged (merge-combo-set 
 						 accu
@@ -357,11 +357,11 @@ respectively."
 					merged
 					(search-iter (1+ k) merged)))))
 			 (search-iter 1 (sieve skill-set 
-					       (aref *armor-set* 0)
+					       (aref *armor-set* 0) ;; all the helms
 					       bundles
 					       weapon)))))
 	(let ((prelim (loop for value being the hash-values of potential
-			 when (set-geq (combo-key value) thresh-set)
+			 when (set-geq (combo-key value) thresh-set) ;; if meet the requirement
 			 collect value)))
 	  prelim)))))
 
