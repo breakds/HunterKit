@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><!-- TMPL_VAR title --></title>
+
+    <!-- CSS Files -->
+    <!-- TMPL_LOOP css -->
+    <link href="<!-- TMPL_VAR url -->" rel="stylesheet">
+    <!-- /TMPL_LOOP -->
+    <style>
+      body {
+      padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+    
+    <!-- JavaScript Libraries -->
+    <!-- TMPL_LOOP libs -->
+    <script src="<!--TMPL_VAR url -->"></script>
+    <!-- /TMPL_LOOP -->
+    
+    
+    <script>
+      <!-- TMPL_VAR javascript -->
+    </script>
+  </head>
+  
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner" id="navigation">
+        <a class="brand" href="#"><!-- TMPL_VAR title --></a>
+      </div>
+    </div>
+    
+    <div class="container-fluid" id="content">
+      
+    </div>
+
+    
+  </body>
+</html>
