@@ -4,7 +4,8 @@
 (defpackage #:breakds.hunter-kit
   (:nicknames #:hunter-kit)
   (:use #:cl
-        #:lazy-bone)
+        #:lazy-bone
+        #:hunchentoot)
   (:import-from #:parenscript #:ps* #:ps #:create
                 #:chain #:defpsmacro #:new #:getprop #:@ #:for-in)
   (:export *skills*
@@ -23,6 +24,7 @@
            start-server
            stop-server
            ;;; debug
+           *toot-output*
            make-skill-group
            make-skill-group-row
            make-skill-group-all

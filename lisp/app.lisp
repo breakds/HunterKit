@@ -60,6 +60,14 @@
 
 (init) ;; initialize the system
 
+(def-model toy-model
+    (('defaults '(lambda () (create a 1 b 2)))
+     ('url "/testa")))
+
+(def-collection toy-collection
+    (('model 'toy-model)
+     ('url "/testa")))
+
 (def-router web-app-router
     (('initialize `(lambda (args)
 
@@ -89,6 +97,23 @@
                                                                          caption caption
                                                                          description description)))))))))
                       this)
+
+                     ;; test code
+                     ;; (setf (@ this toys) (new (toy-collection (create model-list (make-array)))))
+                     (setf (@ this toy) (new (toy-model (create))))
+                     ;; (setf (@ this toys list url) "/testa")
+                     ((@ this vent on) "dosearch"
+                      (lambda (args)
+                        ((@ this toy fetch)
+                         (create 
+                          type "post"
+                          data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
+                          success (lambda (model response options)
+                                           (trace response)
+                                           (trace (+ "a: " ((@ model get) "a") " b: " ((@ model get) "b")))))))
+                      this)
+
+
                      
                      ;; app status variables 
                      (setf (@ this page) undefined)
@@ -159,7 +184,7 @@
 		   ;; underscore.js from cdnjs
 		   "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"
 		   ;; backbone.js from cdnjs
-		   "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.10/backbone-min.js"
+                   "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"
                    ;; bootstrap
                    "libs/bootstrap/js/bootstrap.min.js"))
   '(defvar app (new (web-app-router)))

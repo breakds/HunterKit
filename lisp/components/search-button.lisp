@@ -20,6 +20,8 @@
                 ((@ this $el add-class) "btn btn-info")
                 this))
      ('on-click '(lambda ()
+                  (@. this model (get "vent") 
+                   (trigger "dosearch" (create)))
                   nil))))
 
                                    

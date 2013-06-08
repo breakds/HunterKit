@@ -4,6 +4,7 @@
     :serial t
     :depends-on (#:hunchentoot
                  #:html-template
+                 #:jsown
                  #:lazy-bone)
     :components ((:file "lisp/package")
 		 (:file "lisp/search")
@@ -13,6 +14,7 @@
                  (:file "lisp/components/skill-panel")
                  (:file "lisp/components/active-list")
                  (:file "lisp/components/search-button")
+                 (:file "lisp/server")
                  (:file "lisp/app")))
 
     
