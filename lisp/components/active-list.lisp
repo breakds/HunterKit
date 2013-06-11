@@ -7,6 +7,7 @@
 
 (def-model single-active-model
     (('defaults '(lambda () (create 
+                             points 0
                              caption ""
                              description "")))))
 

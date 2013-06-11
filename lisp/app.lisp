@@ -12,7 +12,7 @@
                  (if (null rest)
                      (nreverse accu)
                      (rec (nthcdr n rest)
-                          (cons (if (>= (length rest) n) 
+                          (cons (if (>= (length rest) n)
                                     (subseq rest 0 n)
                                     rest)
                                 accu)))))
@@ -87,12 +87,14 @@
                                       ((@ active-skills remove) obj)
                                       ((@ active-skills add) (new (single-active-model
                                                                (create id skill-id
+                                                                       points points
                                                                        caption caption
                                                                        description description))))))
                                 
                                 (if (> points 0)
                                     ((@ active-skills add) (new (single-active-model
                                                                  (create id skill-id
+                                                                         points points
                                                                          caption caption
                                                                          description description)))))))))
                       this)
@@ -135,7 +137,7 @@
                      
                      
                      ;; armor set list
-                     (setf (@ this result-list) (new (armor-sets (create url "/testb"))))
+                     (setf (@ this result-list) (new (armor-sets (create url "/search"))))
                      ((@ this vent on) "dosearch"
                       (lambda (args)
                         ((@ this result-list list fetch)

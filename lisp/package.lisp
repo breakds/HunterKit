@@ -7,7 +7,7 @@
         #:lazy-bone
         #:hunchentoot)
   (:import-from #:parenscript #:ps* #:ps #:create
-                #:chain #:defpsmacro #:new #:getprop #:@ #:for-in)
+                #:chain #:defpsmacro #:new #:getprop #:@ #:for-in #:eql)
   (:export *skills*
 	   *jewels*
 	   *helms*
@@ -24,6 +24,7 @@
            start-server
            stop-server
            ;;; debug
+           decombo
            *toot-output*
            make-skill-group
            make-skill-group-row

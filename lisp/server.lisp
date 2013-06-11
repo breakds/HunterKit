@@ -51,6 +51,45 @@
                         ("chest" "萌猫儿胸甲")
                         ("waist" "萌猫儿超短裙")
                         ("foot" "萌猫儿长靴")))))))
+
+(define-easy-handler (search-handler :uri "/search") ()
+    (setf (content-type*) "application/json")
+    (setf *output* (raw-post-data :force-text t))
+    (let ((json-obj (jsown:parse (raw-post-data :force-text t))))
+      (acceptor-log-message *acceptor* :info "~a~%" json-obj)
+      (jsown:to-json '((:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))))))
+
+  
+
                         
                         
 

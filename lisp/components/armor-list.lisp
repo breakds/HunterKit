@@ -8,26 +8,59 @@
 (def-model single-armor-set-model
     (('defaults '(lambda ()
                   (create 
+                   defense 0
                    head ""
-                   head-jewel "灵猫珠 萌神珠"
+                   head-jewels ""
                    chest ""
-                   chest-jewel ""
+                   chest-jewels ""
                    hand ""
-                   hand-jewel ""
+                   hand-jewels ""
                    waist ""
-                   waist-jewel ""
+                   waist-jewels ""
                    foot ""
-                   foot-jewel "")))))
+                   foot-jewels "")))))
 
 (def-view single-armor-set
     (('tag-name "tr")
-     ('template #.(read-tmpl "single-armor-set.tmpl"))
+     ('template `,(read-tmpl "single-armor-set.tmpl"))
      ('initialize '(lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                     nil))
      ('render '(lambda ()
                 (render-from-model)
-                (@. this ($ "jewels") (tooltip (create animation true placement "top")))
+                
+                (trace ((@ this model get) "headJewels"))
+
+                (if (eql ((@ this model get) "headJewels") "")
+                    (@. this ($ ".head-slot") (add-class "btn-primary disabled"))
+                    (progn
+                      (@. this ($ ".head-slot") (popover))
+                      (@. this ($ ".head-slot") (add-class "btn-success"))))
+
+                (if (eql ((@ this model get) "chestJewels") "")
+                    (@. this ($ ".chest-slot") (add-class "btn-primary disabled"))
+                    (progn
+                      (@. this ($ ".chest-slot") (popover))
+                      (@. this ($ ".chest-slot") (add-class "btn-success"))))
+
+                (if (eql ((@ this model get) "handJewels") "")
+                    (@. this ($ ".hand-slot") (add-class "btn-primary disabled"))
+                    (progn
+                      (@. this ($ ".hand-slot") (popover))
+                      (@. this ($ ".hand-slot") (add-class "btn-success"))))
+                
+                (if (eql ((@ this model get) "waistJewels") "")
+                    (@. this ($ ".waist-slot") (add-class "btn-primary disabled"))
+                    (progn
+                      (@. this ($ ".waist-slot") (popover))
+                      (@. this ($ ".waist-slot") (add-class "btn-success"))))
+
+                (if (eql ((@ this model get) "footJewels") "")
+                    (@. this ($ ".foot-slot") (add-class "btn-primary disabled"))
+                    (progn
+                      (@. this ($ ".foot-slot") (popover))
+                      (@. this ($ ".foot-slot") (add-class "btn-success"))))
+                
                 this))))
 
 (def-collection armor-sets
@@ -42,8 +75,8 @@
      ('model 'single-armor-set-model)))
 
 (def-collection-view armor-sets-table
-    (('tag-name "table")
-     ('template #.(read-tmpl "armor-sets-table.tmpl"))
+    (('tag-name "div")
+     ('template `,(read-tmpl "armor-sets-table.tmpl"))
      ('sub-view 'single-armor-set)
      ('initialize '(lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
@@ -51,8 +84,8 @@
                     nil))
      ('render '(lambda ()
                 (render-from-model)
-                ((@ this $el add-class) "table table-hover")
-                this))))
+                this))
+     ('entry-point ".table")))
 
 
 

@@ -369,7 +369,7 @@ respectively."
 (defun print-set (prelim)
   (let ((count 0))
     (loop for sets in prelim
-	   do 
+       do 
 	 (let ((decomboed (decombo sets)))
 	   (incf count (length decomboed))
 	   (loop for set in decomboed
@@ -386,3 +386,7 @@ respectively."
 						       item))))
 		     (fresh-line)))))
     count))
+
+(defun get-armor-list (prelim)
+  (mapcan (lambda (x) (decombo x)) prelim))
+         
