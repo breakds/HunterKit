@@ -65,8 +65,7 @@
      ('url "/testa")))
 
 (def-collection toy-collection
-    (('model 'toy-model)
-     ('url "/testa")))
+    (('model 'toy-model)))
 
 (def-router web-app-router
     (('initialize `(lambda (args)
@@ -99,21 +98,56 @@
                       this)
 
                      ;; test code
-                     ;; (setf (@ this toys) (new (toy-collection (create model-list (make-array)))))
-                     (setf (@ this toy) (new (toy-model (create))))
+
+                     ;; (setf (@ this toy) (new (toy-model (create))))
+                     ;; ((@ this vent on) "dosearch"
+                     ;;  (lambda (args)
+                     ;;    ((@ this toy fetch)
+                     ;;     (create 
+                     ;;      type "post"
+                     ;;      data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
+                     ;;      success (lambda (model response options)
+                     ;;                       (trace response)
+                     ;;                       (trace (+ "a: " ((@ model get) "a") " b: " ((@ model get) "b")))))))
+                     ;;  this)
+
+                     ;; (setf toy-a (new (toy-model (create a 1 b 2))))
+                     ;; (setf toy-b (new (toy-model (create a 3 b 4))))
+                     ;; (setf toy-c (new (toy-model (create a 5 b 6))))
+                     
+                     ;; (setf (@ this toys) (new (toy-collection
+                     ;;                           (create 
+                     ;;                            model-list (array toy-a toy-b toy-c)))))
                      ;; (setf (@ this toys list url) "/testa")
+                     
+                     ;; ((@ this vent on) "dosearch"
+                     ;;  (lambda (args)
+                     ;;    ((@ this toys list fetch)
+                     ;;     (create 
+                     ;;      type "post"
+                     ;;      data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
+                     ;;      success (lambda (collection response options)
+                     ;;                ((@ collection each)
+                     ;;                 (lambda (x)
+                     ;;                   (trace (+ "a: " ((@ x get) "a") " b:" ((@ x get) "b")))))))))
+                     ;;  this)
+                        
+                     
+                     
+                     ;; armor set list
+                     (setf (@ this result-list) (new (armor-sets (create url "/testb"))))
                      ((@ this vent on) "dosearch"
                       (lambda (args)
-                        ((@ this toy fetch)
+                        ((@ this result-list list fetch)
                          (create 
                           type "post"
-                          data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
-                          success (lambda (model response options)
-                                           (trace response)
-                                           (trace (+ "a: " ((@ model get) "a") " b: " ((@ model get) "b")))))))
+                          data ((@ *json* stringify) (create val 12))
+                          success (lambda (collection response options)
+                                    ((@ collection each)
+                                     (lambda (x)
+                                       (trace (+ "head: " ((@ x get) "head")))))))))
                       this)
-
-
+                     
                      
                      ;; app status variables 
                      (setf (@ this page) undefined)
@@ -164,7 +198,8 @@
                      ((@ this page terminate)))
                    (setf (@ this page) (new (page
                                              (create parent-node
-                                                     ($ "#content")))))))))
+                                                     ($ "#content")))))
+                   ((@ this page append-view) armor-sets-table (create model (@ this result-list)))))))
 
 
 

@@ -14,6 +14,7 @@
                  (:file "lisp/components/skill-panel")
                  (:file "lisp/components/active-list")
                  (:file "lisp/components/search-button")
+                 (:file "lisp/components/armor-list")
                  (:file "lisp/server")
                  (:file "lisp/app")))
 

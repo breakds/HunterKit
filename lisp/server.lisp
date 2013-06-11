@@ -11,4 +11,46 @@
   (let ((json-obj (jsown:parse (raw-post-data :force-text t))))
     (let ((s (start-session)))
       (acceptor-log-message *acceptor* :info "session id: ~a~%" (session-id s))
-      (jsown:to-json '(:obj ("a" 12) ("b" 25))))))
+      (jsown:to-json '((:obj ("a" 1) ("b" 12)) (:obj ("a" 1234) ("b" 12345)))))))
+
+
+
+(define-easy-handler (test-handler-b :uri "/testb") ()
+  (setf (content-type*) "application/json")
+  (setf *output* (raw-post-data :force-text t))
+  (let ((json-obj (jsown:parse (raw-post-data :force-text t))))
+    (let ((s (start-session)))
+      (acceptor-log-message *acceptor* :info "session id: ~a~%" (session-id s))
+      (jsown:to-json '((:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴"))
+                       (:obj 
+                        ("head" "萌猫儿头盔") 
+                        ("hand" "萌猫儿手套")
+                        ("chest" "萌猫儿胸甲")
+                        ("waist" "萌猫儿超短裙")
+                        ("foot" "萌猫儿长靴")))))))
+                        
+                        
+
