@@ -60,13 +60,6 @@
 
 (init) ;; initialize the system
 
-(def-model toy-model
-    (('defaults '(lambda () (create a 1 b 2)))
-     ('url "/testa")))
-
-(def-collection toy-collection
-    (('model 'toy-model)))
-
 (def-router web-app-router
     (('initialize `(lambda (args)
 
@@ -107,12 +100,12 @@
                       this)
                      
                      ;; armor set list
-                     (setf (@ this result-list) (new (armor-sets (create url "/search"
+                     (setf (@ this result-list) (new (armor-sets (create url "/hunterkit/search"
                                                                          vent (@ this vent)))))
                                                                  
                      ((@ this vent on) "dosearch"
                       (lambda (args)
-                        (setf (@ this result-list list url) "/search")
+                        (setf (@ this result-list list url) "/hunterkit/search")
                         ((@ this result-list set) "page" 0)
                         ((@ this result-list list fetch)
                          (create 
@@ -124,7 +117,7 @@
                                                              (create id ((@ x get) "id")
                                                                      points ((@ x get) "points"))))))
                           success (lambda (collection response options)
-                                    (setf (@ collection parent-model url) "/meta")
+                                    (setf (@ collection parent-model url) "/hunterkit/meta")
                                     ((@ collection parent-model fetch)
                                      (create
                                       type "post"
@@ -139,7 +132,7 @@
 
                      ((@ this vent on) "getpage"
                       (lambda (args)
-                        (setf (@ this result-list list url) "/page")
+                        (setf (@ this result-list list url) "/hunterkit/page")
                         ((@ this result-list list fetch)
                          (create 
                           type "post"
@@ -225,6 +218,7 @@
                    ;; bootstrap
                    "libs/bootstrap/js/bootstrap.min.js"))
   '(defvar app (new (web-app-router)))
-  '((@ *backbone history start)))
+  '((@ *backbone history start))
+  '((@ app navigate) "search" true))
 
 
