@@ -60,13 +60,13 @@
           (s (start-session)))
       ;; (acceptor-log-message *acceptor* :info "~a~%" json-obj)
       (setf (session-value 'time) (get-internal-real-time))
-      (setf (session-value 'result s)
-            (group 
-             (get-armor-list 
-              (search-armor (mapcar (lambda (x) (list (jsown:val x "id")
-                                                      (jsown:val x "points")))
-                                    (jsown:val json-obj "req"))))
-             (jsown:val json-obj "perPage")))
+      (let ((ungrouped (get-armor-list 
+                        (search-armor (mapcar (lambda (x) (list (jsown:val x "id")
+                                                                (jsown:val x "points")))
+                                              (jsown:val json-obj "req"))))))
+        (setf (session-value 'total-entries) (length ungrouped))
+        (setf (session-value 'result s)
+              (group ungrouped (jsown:val json-obj "perPage"))))
       (setf (session-value 'time) (- (get-internal-real-time)
                                      (session-value 'time)))
       (setf (session-value 'per-page s) (jsown:val json-obj "perPage"))
@@ -83,6 +83,18 @@
                                                (list "headJewels" (get-jewels (nth 4 x)))
                                                (list "defense" (get-defense-sum x))))
                              (car (session-value 'result))))))
+
+(define-easy-handler (meta-handler :uri "/meta") ()
+  (setf (content-type*) "application/json")
+  (setf *output* (raw-post-data :force-text t))
+  (let ((s (start-session)))
+    (jsown:to-json (list :obj
+                         (list "totalPage" (length (session-value 'result)))
+                         (list "page" 0)
+                         (list "totalEntries" (session-value 'total-entries))
+                         (list "perPage" (session-value 'per-page))
+                         (list "timeConsumption" (/ (session-value 'time) 1000.0))))))
+
 
 (define-easy-handler (page-handler :uri "/page") ()
     (setf (content-type*) "application/json")

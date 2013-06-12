@@ -99,42 +99,12 @@
                                                                          description description)))))))))
                       this)
 
-                     ;; test code
-
-                     ;; (setf (@ this toy) (new (toy-model (create))))
-                     ;; ((@ this vent on) "dosearch"
-                     ;;  (lambda (args)
-                     ;;    ((@ this toy fetch)
-                     ;;     (create 
-                     ;;      type "post"
-                     ;;      data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
-                     ;;      success (lambda (model response options)
-                     ;;                       (trace response)
-                     ;;                       (trace (+ "a: " ((@ model get) "a") " b: " ((@ model get) "b")))))))
-                     ;;  this)
-
-                     ;; (setf toy-a (new (toy-model (create a 1 b 2))))
-                     ;; (setf toy-b (new (toy-model (create a 3 b 4))))
-                     ;; (setf toy-c (new (toy-model (create a 5 b 6))))
-                     
-                     ;; (setf (@ this toys) (new (toy-collection
-                     ;;                           (create 
-                     ;;                            model-list (array toy-a toy-b toy-c)))))
-                     ;; (setf (@ this toys list url) "/testa")
-                     
-                     ;; ((@ this vent on) "dosearch"
-                     ;;  (lambda (args)
-                     ;;    ((@ this toys list fetch)
-                     ;;     (create 
-                     ;;      type "post"
-                     ;;      data ((@ *json* stringify) (create val 12 the-data (create a 1 b 2)))
-                     ;;      success (lambda (collection response options)
-                     ;;                ((@ collection each)
-                     ;;                 (lambda (x)
-                     ;;                   (trace (+ "a: " ((@ x get) "a") " b:" ((@ x get) "b")))))))))
-                     ;;  this)
                         
-                     
+                     ;; passively switch tab
+                     ((@ this vent on) "toresult"
+                      (lambda (args)
+                        ((@ this navigate) "result" true))
+                      this)
                      
                      ;; armor set list
                      (setf (@ this result-list) (new (armor-sets (create url "/search"
@@ -148,16 +118,23 @@
                          (create 
                           type "post"
                           data ((@ *json* stringify) (create 
-                                                      per-page ((@ this result-list get) "maxEntries")
+                                                      per-page ((@ this result-list get) "perPage")
                                                       req ((@ this active-skills list collect) 
                                                            (lambda (x)
                                                              (create id ((@ x get) "id")
                                                                      points ((@ x get) "points"))))))
                           success (lambda (collection response options)
-                                    ((@ collection each)
-                                     (lambda (x)
-                                       (trace (+ "head: " ((@ x get) "head"))))))))
-                        ((@ this navigate) "result" true))
+                                    (setf (@ collection parent-model url) "/meta")
+                                    ((@ collection parent-model fetch)
+                                     (create
+                                      type "post"
+                                      success (lambda (model response options)
+                                                ((@ model set) "page" (*number ((@ model get) "page")))
+                                                ((@ model set) "totalPage" (*number ((@ model get) "totalPage")))
+                                                ((@ model set) "perPage" (*number ((@ model get) "perPage")))
+                                                (@. model (get "vent") (trigger
+                                                                        "toresult"
+                                                                        (create))))))))))
                       this)
 
                      ((@ this vent on) "getpage"
@@ -166,11 +143,7 @@
                         ((@ this result-list list fetch)
                          (create 
                           type "post"
-                          data ((@ *json* stringify) (create page ((@ args sets get) "page")))
-                          success (lambda (collection response options)
-                                    ((@ collection each)
-                                     (lambda (x)
-                                       (trace (+ "head: " ((@ x get) "head")))))))))
+                          data ((@ *json* stringify) (create page ((@ args sets get) "page"))))))
                       this)
                      
                      
@@ -195,14 +168,16 @@
                      (setf (@ this navigation)
                            (new (navigation (create model (new (tab-collection (create)))
                                                     parent-node ($ "#navigation")))))
-                     ((@ this navigation add) (create tab-name "search" tab-title "Search"))
-                     ((@ this navigation add) (create tab-name "result" tab-title "Result"))
+                     ((@ this navigation add) (create tab-name "search" tab-title "Search" id 0))
+                     ((@ this navigation add) (create tab-name "result" tab-title "Result" id 1))
                      
                      nil))
      ('routes '(create 
                 "search" "searching"
                 "result" "resulting"))
      ('searching '(lambda ()
+                   ((@ this navigation model switch-to) 
+                    (@. this navigation model list (get 0) cid))
                    (when (not (equal undefined (@ this page)))
                      ((@ this page terminate)))
                    (setf (@ this page) (new (page
@@ -219,6 +194,8 @@
                    ((@ right-sub-page append-view) search-button (create model (@ this search-btn-model)))
                    nil))
      ('resulting '(lambda ()
+                   ((@ this navigation model switch-to) 
+                    (@. this navigation model list (get 1) cid))
                    (when (not (equal undefined (@ this page)))
                      ((@ this page terminate)))
                    (setf (@ this page) (new (page
@@ -232,7 +209,7 @@
 
 
 (define-simple-app hunter-kit-app
-    (:title "The Hunter Kit" 
+    (:title "Hunter Kit v0.02" 
             :uri "/hunterkit"
             :port 9701
             :document-base (merge-pathnames "assets/" (asdf:system-source-directory 'hunter-kit))

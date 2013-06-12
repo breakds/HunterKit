@@ -29,8 +29,6 @@
      ('render '(lambda ()
                 (render-from-model)
                 
-                (trace ((@ this model get) "headJewels"))
-
                 (if (equal ((@ this model get) "headJewels") "")
                     (@. this ($ ".head-slot") (add-class "btn-primary disabled"))
                     (progn
@@ -67,9 +65,10 @@
     (('defaults '(lambda ()
                   (create 
                    page 0
-                   total 0
-                   time-consumption 0
-                   max-entries 20)))
+                   per-page 20
+                   total-page 0
+                   total-entries 0
+                   time-consumption 0)))
      ('initialize '(lazy-init
                     (setf (@ this list url) (@ args url))
                     nil))
@@ -92,18 +91,22 @@
                     nil))
      ('render '(lambda ()
                 (render-from-model)
+                (when (equal ((@ this model get) "page") 0)
+                    (@. this ($ ".prev-li") (add-class "disabled")))
                 this))
      ('entry-point ".table")
      ('prev-btn '(lambda ()
-                  ((@ this model set) "page" (1- ((@ this model get) "page")))
-                  (@. this model (get "vent") (trigger
-                                               "getpage"
-                                               (create sets (@ this model))))))
+                  (when (> ((@ this model get) "page") 0)
+                    ((@ this model set) "page" (1- ((@ this model get) "page")))
+                    (@. this model (get "vent") (trigger
+                                                 "getpage"
+                                                 (create sets (@ this model)))))))
      ('next-btn '(lambda ()
-                  ((@ this model set) "page" (1+ ((@ this model get) "page")))
-                  (@. this model (get "vent") (trigger
-                                               "getpage"
-                                               (create sets (@ this model))))))))
+                  (when (< ((@ this model get) "page") (1- ((@ this model get) "totalPage")))
+                    ((@ this model set) "page" (1+ ((@ this model get) "page")))
+                    (@. this model (get "vent") (trigger
+                                                 "getpage"
+                                                 (create sets (@ this model)))))))))
 
                   
                    
