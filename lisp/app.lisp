@@ -207,8 +207,8 @@
             :port 9701
             :document-base (merge-pathnames "assets/" (asdf:system-source-directory 'hunter-kit))
             :template (merge-pathnames "assets/main.tmpl" (asdf:system-source-directory 'hunter-kit))
-            :css ("libs/bootstrap/css/bootstrap.css"
-                  "libs/bootstrap/css/bootstrap-responsive.css")
+            :css ("hunterkit/libs/bootstrap/css/bootstrap.css"
+                  "hunterkit/libs/bootstrap/css/bootstrap-responsive.css")
             :libs (;; JQuery from Google Ajax cdn
 		   "http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"
 		   ;; underscore.js from cdnjs
@@ -216,7 +216,7 @@
 		   ;; backbone.js from cdnjs
                    "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"
                    ;; bootstrap
-                   "libs/bootstrap/js/bootstrap.min.js"))
+                   "hunterkit/libs/bootstrap/js/bootstrap.min.js"))
   '(defvar app (new (web-app-router)))
   '((@ *backbone history start))
   '((@ app navigate) "search" true))

@@ -13,7 +13,7 @@
 
 (def-view single-active
     (('tag-name "li")
-     ('template #.(read-tmpl "single-active.tmpl"))
+     ('template `,(read-tmpl "single-active.tmpl"))
      ('initialize '(lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                     nil))
