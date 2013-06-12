@@ -24,11 +24,18 @@
            start-server
            stop-server
            ;;; debug
+           stuffed-armor
+           stuffed-armor-def-max
+           armor-def-max
            decombo
            *toot-output*
+           *jewels*
+           get-jewels
            make-skill-group
            make-skill-group-row
            make-skill-group-all
+           get-armor-list
+           carriable-name
            group))
 
 

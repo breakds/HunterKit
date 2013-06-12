@@ -47,6 +47,11 @@ stuffed-armor"
   (set nil))
 
 
+(defmethod is-stuffed ((a armor)) nil)
+
+(defmethod is-stuffed ((a stuffed-armor)) t)
+
+
 
 
 
@@ -389,4 +394,16 @@ respectively."
 
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
+
+(defun get-defense-sum (armor-set)
+  (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
+          :initial-value 0))
+
+(defun get-jewels (armor-item)
+  (if (is-stuffed armor-item)
+      (format nil "~{~a ~}"
+              (mapcar (lambda (x)
+                        (carriable-name (nth x *jewels*)))
+                      (stuffed-armor-jewels armor-item)))
+      ""))
          

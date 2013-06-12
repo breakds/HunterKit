@@ -31,31 +31,31 @@
                 
                 (trace ((@ this model get) "headJewels"))
 
-                (if (eql ((@ this model get) "headJewels") "")
+                (if (equal ((@ this model get) "headJewels") "")
                     (@. this ($ ".head-slot") (add-class "btn-primary disabled"))
                     (progn
                       (@. this ($ ".head-slot") (popover))
                       (@. this ($ ".head-slot") (add-class "btn-success"))))
 
-                (if (eql ((@ this model get) "chestJewels") "")
+                (if (equal ((@ this model get) "chestJewels") "")
                     (@. this ($ ".chest-slot") (add-class "btn-primary disabled"))
                     (progn
                       (@. this ($ ".chest-slot") (popover))
                       (@. this ($ ".chest-slot") (add-class "btn-success"))))
 
-                (if (eql ((@ this model get) "handJewels") "")
+                (if (equal ((@ this model get) "handJewels") "")
                     (@. this ($ ".hand-slot") (add-class "btn-primary disabled"))
                     (progn
                       (@. this ($ ".hand-slot") (popover))
                       (@. this ($ ".hand-slot") (add-class "btn-success"))))
                 
-                (if (eql ((@ this model get) "waistJewels") "")
+                (if (equal ((@ this model get) "waistJewels") "")
                     (@. this ($ ".waist-slot") (add-class "btn-primary disabled"))
                     (progn
                       (@. this ($ ".waist-slot") (popover))
                       (@. this ($ ".waist-slot") (add-class "btn-success"))))
 
-                (if (eql ((@ this model get) "footJewels") "")
+                (if (equal ((@ this model get) "footJewels") "")
                     (@. this ($ ".foot-slot") (add-class "btn-primary disabled"))
                     (progn
                       (@. this ($ ".foot-slot") (popover))
@@ -68,6 +68,7 @@
                   (create 
                    page 0
                    total 0
+                   time-consumption 0
                    max-entries 20)))
      ('initialize '(lazy-init
                     (setf (@ this list url) (@ args url))
@@ -77,15 +78,35 @@
 (def-collection-view armor-sets-table
     (('tag-name "div")
      ('template `,(read-tmpl "armor-sets-table.tmpl"))
+     ('events '(create 
+                "click .prev-btn" "prevBtn"
+                "click .next-btn" "nextBtn"))
      ('sub-view 'single-armor-set)
      ('initialize '(lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                     ((@ this model list each) (@ this lazy-add))
+                    ((@ this listen-to)
+                     (@ this model)
+                     "change"
+                     (@ this render))
                     nil))
      ('render '(lambda ()
                 (render-from-model)
                 this))
-     ('entry-point ".table")))
+     ('entry-point ".table")
+     ('prev-btn '(lambda ()
+                  ((@ this model set) "page" (1- ((@ this model get) "page")))
+                  (@. this model (get "vent") (trigger
+                                               "getpage"
+                                               (create sets (@ this model))))))
+     ('next-btn '(lambda ()
+                  ((@ this model set) "page" (1+ ((@ this model get) "page")))
+                  (@. this model (get "vent") (trigger
+                                               "getpage"
+                                               (create sets (@ this model))))))))
+
+                  
+                   
 
 
 

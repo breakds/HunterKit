@@ -137,13 +137,36 @@
                      
                      
                      ;; armor set list
-                     (setf (@ this result-list) (new (armor-sets (create url "/search"))))
+                     (setf (@ this result-list) (new (armor-sets (create url "/search"
+                                                                         vent (@ this vent)))))
+                                                                 
                      ((@ this vent on) "dosearch"
                       (lambda (args)
+                        (setf (@ this result-list list url) "/search")
+                        ((@ this result-list set) "page" 0)
                         ((@ this result-list list fetch)
                          (create 
                           type "post"
-                          data ((@ *json* stringify) (create val 12))
+                          data ((@ *json* stringify) (create 
+                                                      per-page ((@ this result-list get) "maxEntries")
+                                                      req ((@ this active-skills list collect) 
+                                                           (lambda (x)
+                                                             (create id ((@ x get) "id")
+                                                                     points ((@ x get) "points"))))))
+                          success (lambda (collection response options)
+                                    ((@ collection each)
+                                     (lambda (x)
+                                       (trace (+ "head: " ((@ x get) "head"))))))))
+                        ((@ this navigate) "result" true))
+                      this)
+
+                     ((@ this vent on) "getpage"
+                      (lambda (args)
+                        (setf (@ this result-list list url) "/page")
+                        ((@ this result-list list fetch)
+                         (create 
+                          type "post"
+                          data ((@ *json* stringify) (create page ((@ args sets get) "page")))
                           success (lambda (collection response options)
                                     ((@ collection each)
                                      (lambda (x)
