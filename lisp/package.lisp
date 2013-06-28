@@ -9,6 +9,7 @@
   (:import-from #:parenscript #:ps* #:ps #:create
                 #:chain #:defpsmacro #:new #:getprop #:@ #:for-in #:eql)
   (:export *skills*
+           *skills-array*
 	   *jewels*
 	   *helms*
 	   *chests*

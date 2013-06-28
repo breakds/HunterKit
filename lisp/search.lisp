@@ -131,7 +131,8 @@ stuffed-armor"
                  (let ((lst-name (exmac:symb '* name '*)))
                    `(tagbody
                        (setf ,lst-name
-                             (load-skills (merge-pathnames ,path data-dir)))
+                             (,(exmac:symb 'load- name) 
+                               (merge-pathnames ,path data-dir)))
                        (setf ,(exmac:symb '* name '-array*)
                              (make-array (length ,lst-name)
                                          :adjustable nil
@@ -151,9 +152,9 @@ stuffed-armor"
       (load-list jewels "jewel.lisp.data")
       (load-list helms "head.lisp.data")
       (load-list chests "chest.lisp.data")
-      (load-list gloves "chest.lisp.data")
-      (load-list belts "chest.lisp.data")
-      (load-list boots "chest.lisp.data")
+      (load-list gloves "hand.lisp.data")
+      (load-list belts "waist.lisp.data")
+      (load-list boots "foot.lisp.data")
       (setf *armor-set* (make-array 5 :initial-contents (list *helms*
                                                               *chests*
                                                               *gloves*
