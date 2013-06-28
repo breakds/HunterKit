@@ -6,7 +6,7 @@
 ;; todo color and rare
 
 (def-model single-armor-set-model
-    (('defaults '(lambda ()
+    ((defaults (lambda ()
                   (create 
                    defense 0
                    head ""
@@ -21,12 +21,12 @@
                    foot-jewels "")))))
 
 (def-view single-armor-set
-    (('tag-name "tr")
-     ('template `,(read-tmpl "single-armor-set.tmpl"))
-     ('initialize '(lazy-init
+    ((tag-name "tr")
+     (template (tmpl-from "single-armor-set.tmpl"))
+     (initialize (lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                     nil))
-     ('render '(lambda ()
+     (render (lambda ()
                 (render-from-model)
                 
                 (if (equal ((@ this model get) "headJewels") "")
@@ -62,26 +62,26 @@
                 this))))
 
 (def-collection armor-sets
-    (('defaults '(lambda ()
+    ((defaults (lambda ()
                   (create 
                    page 0
                    per-page 20
                    total-page 0
                    total-entries 0
                    time-consumption 0)))
-     ('initialize '(lazy-init
+     (initialize (lazy-init
                     (setf (@ this list url) (@ args url))
                     nil))
-     ('model 'single-armor-set-model)))
+     (model single-armor-set-model)))
 
 (def-collection-view armor-sets-table
-    (('tag-name "div")
-     ('template `,(read-tmpl "armor-sets-table.tmpl"))
-     ('events '(create 
+    ((tag-name "div")
+     (template (tmpl-from "armor-sets-table.tmpl"))
+     (events (create 
                 "click .prev-btn" "prevBtn"
                 "click .next-btn" "nextBtn"))
-     ('sub-view 'single-armor-set)
-     ('initialize '(lazy-init
+     (sub-view single-armor-set)
+     (initialize (lazy-init
                     ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                     ((@ this model list each) (@ this lazy-add))
                     ((@ this listen-to)
@@ -89,19 +89,19 @@
                      "change"
                      (@ this render))
                     nil))
-     ('render '(lambda ()
+     (render (lambda ()
                 (render-from-model)
                 (when (equal ((@ this model get) "page") 0)
                     (@. this ($ ".prev-li") (add-class "disabled")))
                 this))
-     ('entry-point ".table")
-     ('prev-btn '(lambda ()
+     (entry-point ".table")
+     (prev-btn (lambda ()
                   (when (> ((@ this model get) "page") 0)
                     ((@ this model set) "page" (1- ((@ this model get) "page")))
                     (@. this model (get "vent") (trigger
                                                  "getpage"
                                                  (create sets (@ this model)))))))
-     ('next-btn '(lambda ()
+     (next-btn (lambda ()
                   (when (< ((@ this model get) "page") (1- ((@ this model get) "totalPage")))
                     ((@ this model set) "page" (1+ ((@ this model get) "page")))
                     (@. this model (get "vent") (trigger
