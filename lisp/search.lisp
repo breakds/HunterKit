@@ -58,18 +58,25 @@ stuffed-armor"
 ;;; global variables 
 
 (defparameter *skills* nil)
+(defparameter *skills-array* nil)
 
 (defparameter *jewels* nil)
+(defparameter *jewels-array* nil)
 
 (defparameter *helms* nil)
+(defparameter *helms-array* nil)
 
 (defparameter *chests* nil)
+(defparameter *chests-array* nil)
 
 (defparameter *gloves* nil)
+(defparameter *gloves-array* nil)
 
 (defparameter *belts* nil)
+(defparameter *belts-array* nil)
 
 (defparameter *boots* nil)
+(defparameter *boots-array* nil)
 
 (defparameter *armor-set* nil)
 
@@ -114,31 +121,44 @@ stuffed-armor"
                            :holes (getf item :holes)
                            :skills (getf item :skills)))))
 
+
+
 (defun init ()
   "load data from external files."
   (let ((data-dir (asdf:system-relative-pathname 'hunter-kit
 						 "data/")))
-    (setf *skills* (load-skills (merge-pathnames "skills.lisp.data"
-						 data-dir)))
-    (setf *jewels* (load-jewels (merge-pathnames "jewel.lisp.data"
-						 data-dir)))
-    (setf *helms* (load-armor-list (merge-pathnames "head.lisp.data"
-						    data-dir)))
-    (setf *chests* (load-armor-list (merge-pathnames "chest.lisp.data"
-						     data-dir)))
-    (setf *gloves* (load-armor-list (merge-pathnames "hand.lisp.data"
-						     data-dir)))
-    (setf *belts* (load-armor-list (merge-pathnames 
-				    "../data/waist.lisp.data"
-				    data-dir)))
-    (setf *boots* (load-armor-list (merge-pathnames 
-				    "../data/foot.lisp.data"
-				    data-dir)))
-    (setf *armor-set* (make-array 5 :initial-contents (list *helms*
-							    *chests*
-							    *gloves*
-							    *belts*
-							    *boots*)))
+    (macrolet ((load-list (name path)
+                 (let ((lst-name (exmac:symb '* name '*)))
+                   `(tagbody
+                       (setf ,lst-name
+                             (load-skills (merge-pathnames ,path data-dir)))
+                       (setf ,(exmac:symb '* name '-array*)
+                             (make-array (length ,lst-name)
+                                         :adjustable nil
+                                         :fill-pointer nil
+                                         :displaced-to nil)))))
+               (load-helms (&rest args)
+                 `(load-armor-list ,@args))
+               (load-chests (&rest args)
+                 `(load-armor-list ,@args))
+               (load-gloves (&rest args)
+                 `(load-armor-list ,@args))
+               (load-belts (&rest args)
+                 `(load-armor-list ,@args))
+               (load-boots (&rest args)
+                 `(load-armor-list ,@args)))
+      (load-list skills "skills.lisp.data")
+      (load-list jewels "jewel.lisp.data")
+      (load-list helms "head.lisp.data")
+      (load-list chests "chest.lisp.data")
+      (load-list gloves "chest.lisp.data")
+      (load-list belts "chest.lisp.data")
+      (load-list boots "chest.lisp.data")
+      (setf *armor-set* (make-array 5 :initial-contents (list *helms*
+                                                              *chests*
+                                                              *gloves*
+                                                              *belts*
+                                                              *boots*))))
     (format t "[ ok ] Initialization.~%")))
 
 
@@ -205,6 +225,7 @@ than or equals to set-b"
 (defun query-skill (skill-id item)
   "If the item (armor) has the specified skill, return the points;
   otherwise return 0"
+  #f
   (let ((res (find-if (lambda (x) (= (car x) skill-id)) 
                       (carriable-skills item))))
     (if res
@@ -215,6 +236,7 @@ than or equals to set-b"
 
 (defun qualify-skill-set (item skill-set &optional (weapon 'both))
   "if qualify return the key, otherwise nil"
+  #f
   (when (or (eq weapon 'both)
             (eq weapon (armor-weapon item)))
     (let ((key (loop for sk in skill-set
@@ -234,6 +256,7 @@ than or equals to set-b"
 ;;    of holes
 (defun merge-jewel-combo (a b)
   "merge two jewel-combos"
+  #f
   (make-jewel-combo :key (mapcar #'+ 
 				 (jewel-combo-key a) 
 				 (jewel-combo-key b))
@@ -245,6 +268,7 @@ than or equals to set-b"
 corresponds to the bundle of n holes. This function will update the
 bundle of (1+ j) holes by merging elements from 1-hole bundle and
 j-hole bundle."
+  #f
   (let ((target (+ 1 j)))
     (loop for jc-i in (aref bundles 1)
        do (loop for jc-j in (aref bundles j)
@@ -258,6 +282,7 @@ j-hole bundle."
 (defun generate-jewel-bundles (skill-set)
   "return a vector of jewel-bundles, with holes of 0, 1, 2 and 3,
 respectively."
+  #f
   (let ((bundles (make-array 4 :initial-contents '(nil nil nil nil))))
     (loop for item in *jewels*
        for key = (qualify-skill-set item skill-set)
@@ -276,6 +301,7 @@ respectively."
 
 (defun embed (item bundle)
   "embed a jewel into an armor, the result will be a stuffed-armor"
+  #f
   (make-stuffed-armor :id (armor-id item)
 		      :name (armor-name item)
 		      :rare (armor-rare item)
@@ -289,6 +315,7 @@ respectively."
 					 
 
 (defun sieve (skill-set lst bundles &optional (weapon 'both))
+  #f
   (let ((hash (make-hash-table :test #'equal))) 
     (loop for item in lst
        do (let ((key (qualify-skill-set item skill-set weapon)))
@@ -320,6 +347,7 @@ respectively."
 
 
 (defun merge-combo-set (combo-set-a combo-set-b)
+  #f
   (let ((hash (make-hash-table :test #'equal)))
     (loop for key-a being the hash-keys of combo-set-a
        do (loop for key-b being the hash-keys of combo-set-b
@@ -335,6 +363,7 @@ respectively."
 
 
 (defun decombo (obj)
+  #f
   (loop for item in (combo-set obj)
      append (if (or (armor-p item) (stuffed-armor-p item))
                 (list item)
@@ -348,10 +377,13 @@ respectively."
 
 (defun search-armor (req-set &optional (weapon 'both))
   "search for the set of armors that meets the req-set"
+  ;; (declare (optimize (speed 3) (safety 0)))
+  #f
   (multiple-value-bind (skill-set thresh-set) (unzip-pair-list req-set)
     (let ((bundles (generate-jewel-bundles skill-set)))
       ;; search-iter returns a hash table of resulting combos
       (let ((potential (labels ((search-iter (k accu)
+                                  #f
 				  (let ((merged (merge-combo-set 
 						 accu
 						 (sieve skill-set 
