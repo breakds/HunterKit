@@ -11,11 +11,17 @@
   (:export *skills*
            *skills-array*
 	   *jewels*
+           *jewels-array*
 	   *helms*
+           *helms-array*
 	   *chests*
+           *chests-array*
 	   *gloves*
+           *gloves-array*
 	   *belts*
+           *belts-array*
 	   *boots*
+           *boots-array*
 	   *armor-set*
 	   init
 	   get-id-by-name
