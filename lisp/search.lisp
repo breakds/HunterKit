@@ -165,13 +165,12 @@ stuffed-armor"
 
 
 (defun set-geq (set-a set-b)
-  "set-geq comapres two sets and returns true if set-a is greater
-than or equals to set-b"
-  ;; "set-a is greater than or equal to set-b" means that every
-  ;; element in set-a is greater or equal than every element of set-b
-  (let ((min-a (apply #'min set-a))
-        (max-b (apply #'max set-b)))
-    (>= min-a max-b)))
+  (if (null set-a)
+      t
+      (if (>= (car set-a) (car set-b))
+          (set-geq (cdr set-a) (cdr set-b))
+          nil)))
+
 
 
 
@@ -425,6 +424,7 @@ respectively."
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
 
+
 (defun get-defense-sum (armor-set)
   (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
           :initial-value 0))
@@ -436,4 +436,46 @@ respectively."
                         (carriable-name (nth x *jewels*)))
                       (stuffed-armor-jewels armor-item)))
       ""))
-         
+
+(defun gen-points-calculator (skill-id)
+  (let ((jewel-points (make-array (length *jewels*)
+                                  :adjustable nil
+                                  :displaced-to nil
+                                  :fill-pointer nil
+                                  :initial-element 0)))
+    (loop for j in *jewels*
+       do (let ((slot (find skill-id 
+                            (carriable-skills j)
+                            :key #'car)))
+            (when slot
+              (setf (aref jewel-points (carriable-id j))
+                    (cadr slot)))))
+    (lambda (armor-item)
+      (let ((slot (find skill-id 
+                        (carriable-skills armor-item)
+                        :key #'car)))
+        (+ (or (cadr slot) 0)
+           (if (is-stuffed armor-item)
+               (reduce (lambda (y x)
+                         (+ (aref jewel-points x) y))
+                       (stuffed-armor-jewels armor-item)
+                       :initial-value 0)
+               0))))))
+               
+(defun filter-armor-list (armor-list req-set)
+  (if (null req-set)
+      armor-list
+      (let ((pts-calc (gen-points-calculator (caar req-set))))
+        (filter-armor-list (remove-if (lambda (x)
+                                        (< (reduce #'+ (mapcar pts-calc x)
+                                                   :initial-value 0)
+                                           (cadar req-set)))
+                                      armor-list)
+                           (cdr req-set)))))
+
+
+(defun search-main (req-set &optional (weapon 'both))
+  (let ((armor-list (get-armor-list (search-armor req-set weapon))))
+    (if (<= (length req-set) 2)
+        armor-list
+        (filter-armor-list armor-list (cddr req-set)))))
