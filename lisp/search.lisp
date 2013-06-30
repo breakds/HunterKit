@@ -1,4 +1,4 @@
-;;;; search.lisp
+;;; search.lisp
 ;;;; Armor Searcher for Monster Hunter P3
 
 
@@ -58,25 +58,18 @@ stuffed-armor"
 ;;; global variables 
 
 (defparameter *skills* nil)
-(defparameter *skills-array* nil)
 
 (defparameter *jewels* nil)
-(defparameter *jewels-array* nil)
 
 (defparameter *helms* nil)
-(defparameter *helms-array* nil)
 
 (defparameter *chests* nil)
-(defparameter *chests-array* nil)
 
 (defparameter *gloves* nil)
-(defparameter *gloves-array* nil)
 
 (defparameter *belts* nil)
-(defparameter *belts-array* nil)
 
 (defparameter *boots* nil)
-(defparameter *boots-array* nil)
 
 (defparameter *armor-set* nil)
 
@@ -121,41 +114,31 @@ stuffed-armor"
                            :holes (getf item :holes)
                            :skills (getf item :skills)))))
 
-
-
 (defun init ()
   "load data from external files."
   (let ((data-dir (asdf:system-relative-pathname 'hunter-kit
 						 "data/")))
-    (macrolet ((load-list (name path)
-                 (let ((lst-name (exmac:symb '* name '*)))
-                   `(tagbody
-                       (setf ,lst-name
-                             (,(exmac:symb 'load- name) 
-                               (merge-pathnames ,path data-dir)))
-                       (setf ,(exmac:symb '* name '-array*)
-                             (make-array (length ,lst-name)
-                                         :adjustable nil
-                                         :fill-pointer nil
-                                         :displaced-to nil
-                                         :initial-contents ,lst-name)))))
-               (load-helms (&rest args)
-                 `(load-armor-list ,@args))
-               (load-chests (&rest args)
-                 `(load-armor-list ,@args))
-               (load-gloves (&rest args)
-                 `(load-armor-list ,@args))
-               (load-belts (&rest args)
-                 `(load-armor-list ,@args))
-               (load-boots (&rest args)
-                 `(load-armor-list ,@args)))
-      (load-list skills "skills.lisp.data")
-      (load-list jewels "jewel.lisp.data")
-      (load-list helms "head.lisp.data")
-      (load-list chests "chest.lisp.data")
-      (load-list gloves "hand.lisp.data")
-      (load-list belts "waist.lisp.data")
-      (load-list boots "foot.lisp.data"))
+    (setf *skills* (load-skills (merge-pathnames "skills.lisp.data"
+						 data-dir)))
+    (setf *jewels* (load-jewels (merge-pathnames "jewel.lisp.data"
+						 data-dir)))
+    (setf *helms* (load-armor-list (merge-pathnames "head.lisp.data"
+						    data-dir)))
+    (setf *chests* (load-armor-list (merge-pathnames "chest.lisp.data"
+						     data-dir)))
+    (setf *gloves* (load-armor-list (merge-pathnames "hand.lisp.data"
+						     data-dir)))
+    (setf *belts* (load-armor-list (merge-pathnames 
+				    "../data/waist.lisp.data"
+				    data-dir)))
+    (setf *boots* (load-armor-list (merge-pathnames 
+				    "../data/foot.lisp.data"
+				    data-dir)))
+    (setf *armor-set* (make-array 5 :initial-contents (list *helms*
+							    *chests*
+							    *gloves*
+							    *belts*
+							    *boots*)))
     (format t "[ ok ] Initialization.~%")))
 
 
@@ -164,196 +147,293 @@ stuffed-armor"
 
 
 
-;;; Search Routines and Helpers 
-
-;; data structures
-;; 1. search result are represent as combos
-;; 2. a combo is defined as either one of the following forms
-;;    - (:armor armor-id &rest jewel-ids)
-;;    - (:combo armor list)
-;;    - (&rest combos)
+;;; ------------------------------------------------------------
+;;; Accessors
+;;; 
 
 
-
-(defun gen-skill-filter (item-list)
-  (let ((inverse-map (make-array (length *skills*)
-                                 :adjustable nil
-                                 :fill-pointer nil
-                                 :displaced-to nil
-                                 :initial-element nil)))
-    (loop for item in item-list
-       do (loop for skill-descr in (carriable-skills item)
-             do (when (> (cadr skill-descr) 0)
-                  (push (carriable-id item) 
-                        (aref inverse-map (car skill-descr))))))
-    (lambda (skill-list)
-      (remove-duplicates (loop for i in skill-list
-                            append (aref inverse-map i))))))
-
-(macrolet ((create-skill-filters (&rest names)
-             `(progn
-                ,@(mapcar #`(setf (symbol-function ',(exmac:symb 'filter- x1))
-                                  (gen-skill-filter ,(exmac:symb '* x1 '*)))
-                          names))))
-  (create-skill-filters jewels helms chests gloves belts boots))
+(defun get-id-by-name (name lst)
+  "find the entity with the given name in the lst"
+  (find-if (lambda (x) (equal (entity-name x) name))
+	   lst))
 
 
 
+;;; ------------------------------------------------------------
+;;; Utilities
+;;; 
 
-(defun gen-encoder (skill-list)
+
+(defun set-geq (set-a set-b)
+  "set-geq comapres two sets and returns true if set-a is greater
+than or equals to set-b"
+  ;; "set-a is greater than or equal to set-b" means that every
+  ;; element in set-a is greater or equal than every element of set-b
+  (let ((min-a (apply #'min set-a))
+        (max-b (apply #'max set-b)))
+    (>= min-a max-b)))
+
+
+
+(defun unzip-pair-list (lst)
+  "unizp a pair-list and return a list of heads and a list of tails"
+  (labels ((unzip-iter (lst accu-head accu-tail)
+             (if (null lst)
+                 (values (nreverse accu-head)
+                         (nreverse accu-tail))
+                 (unzip-iter (rest lst)
+                             (cons (caar lst) accu-head)
+                             (cons (cadar lst) accu-tail)))))
+    (unzip-iter lst nil nil)))
+
+
+
+
+;;; ------------------------------------------------------------
+;;; Search Core Code
+;;; 
+;;; some concepts:
+;;; 1. req-set = a set of (skill-id skill-requirement) pairs
+;;; 2. qualify against a req-set = the sum of skill points 
+;;;    of an item is larger or equal than the specified req-set
+
+
+
+
+
+
+(defun query-skill (skill-id item)
+  "If the item (armor) has the specified skill, return the points;
+  otherwise return 0"
   #f
-  (let* ((n (length skill-list))
-         (mask 0))
-    (declare (type fixnum n))
-    (declare (type fixnum mask))
-    (loop for i below n
-       do (setf mask (the fixnum 
-                       (+ (ash mask 8) 32))))
-    (lambda (item)
-      #f
-      (let ((code 0))
-        (declare (type fixnum code))
-        (loop for skill-id in skill-list
-           do (setf code (the fixnum 
-                           (+ (ash code 8) 
-                              (+ 32 (or (cadr (find skill-id (carriable-skills item)
-                                                   :key #'car))
-                                        0))))))
-        (the fixnum code)))))
+  (let ((res (find-if (lambda (x) (= (car x) skill-id)) 
+                      (carriable-skills item))))
+    (if res
+        (cadr res)
+        0)))
 
 
 
-
-
-
-(defun gen-code-combiner (skill-list)
+(defun qualify-skill-set (item skill-set &optional (weapon 'both))
+  "if qualify return the key, otherwise nil"
   #f
-  (let ((n (length skill-list)))
-    (declare (type fixnum n))
-    (let ((mask 0))
-      (declare (type fixnum mask))
-      (loop for i below n 
-         do (setf mask (the fixnum (+ (ash mask 8) 32))))
-      (lambda (x y)
-        (declare (optimize (speed 3) (safety 0)))
-        (declare (type fixnum x))
-        (declare (type fixnum y))
-        (declare (type fixnum mask))
-        (the fixnum (- (+ x y) mask))))))
+  (when (or (eq weapon 'both)
+            (eq weapon (armor-weapon item)))
+    (let ((key (loop for sk in skill-set
+		  collect (query-skill sk item))))
+      (loop for ele in key
+	 when (> ele 0)
+	 return key))))
 
 
 
 
-
-
-           
-(defun init-jewel-set (combine jewel-cand)
+;; the following 3 functions deal with jewel-combos
+;;
+;; 1. a jewel-combo is a (key jewel-id-list) pair, where the key is a 
+;;    list of skill points generated by the jewel-id-list
+;; 2. a jewel-bundle is a list of jewel-combos that occupy the same number
+;;    of holes
+(defun merge-jewel-combo (a b)
+  "merge two jewel-combos"
   #f
-  (let ((jewel-set (make-array 4 
-                               :initial-element nil
-                               :adjustable nil
-                               :fill-pointer nil
-                               :displaced-to nil)))
-    (macrolet ((pure-n-hole (n)
-                 `(remove-if-not (lambda (x)
-                                   (= ,n (carriable-holes (aref *jewels-array* (cadr x)))))
-                                 jewel-cand)))
-      ;; 1 hole
-      (setf (aref jewel-set 1) (pure-n-hole 1))
-      ;; 2 holes and 3 holes
-      (macrolet ((cartesian (a b)
-                   (exmac:with-gensyms (i j)
-                     `(loop for ,i in ,a
-                         append (loop for ,j in ,b
-                                   collect (cons (funcall combine 
-                                                          (car ,i) 
-                                                          (car ,j))
-                                                 (append (cdr ,i)
-                                                         (cdr ,j))))))))
-        ;; 2 holes
-        (setf (aref jewel-set 2) 
-              (append (aref jewel-set 1)
-                      (pure-n-hole 2)
-                      (delete-if (lambda (x) (> (cadr x) (caddr x)))
-                                 (cartesian (aref jewel-set 1)
-                                            (aref jewel-set 1)))))
-        ;; 3 holes
-        (setf (aref jewel-set 3)
-              (append (aref jewel-set 1)
-                      (aref jewel-set 2)
-                      (pure-n-hole 3)
-                      (cartesian (aref jewel-set 1)
-                                 (aref jewel-set 2))))
-        jewel-set))))
-                      
-                      
-          
-                  
-  
+  (make-jewel-combo :key (mapcar #'+ 
+				 (jewel-combo-key a) 
+				 (jewel-combo-key b))
+		    :jewels (append (jewel-combo-jewels a)
+				    (jewel-combo-jewels b))))
 
-                    
+(defun merge-bundles (bundles j)
+  "input 'bundles' if a vector of bundles, whose nth element
+corresponds to the bundle of n holes. This function will update the
+bundle of (1+ j) holes by merging elements from 1-hole bundle and
+j-hole bundle."
+  #f
+  (let ((target (+ 1 j)))
+    (loop for jc-i in (aref bundles 1)
+       do (loop for jc-j in (aref bundles j)
+	     when (or (<= (car (jewel-combo-jewels jc-i))
+			  (car (jewel-combo-jewels jc-j)))
+		      (and (= (length (jewel-combo-jewels jc-j)) 1)
+			   (> j 1)))
+	     do (push (merge-jewel-combo jc-i jc-j)
+		      (aref bundles target))))))
+
+(defun generate-jewel-bundles (skill-set)
+  "return a vector of jewel-bundles, with holes of 0, 1, 2 and 3,
+respectively."
+  #f
+  (let ((bundles (make-array 4 :initial-contents '(nil nil nil nil))))
+    (loop for item in *jewels*
+       for key = (qualify-skill-set item skill-set)
+       when key ;; if the jewel hit at least one skill in the skill-set
+       do (push (make-jewel-combo :key key
+       				  :jewels (list (carriable-id item)))
+       		(aref bundles (carriable-holes item))))
+    ;; merge 1 + 1 holes -> 2
+    (merge-bundles bundles 1)
+    ;; merge 1 + 2 holes -> 3
+    (merge-bundles bundles 2)
+    bundles))
+
+
+
+
+(defun embed (item bundle)
+  "embed a jewel into an armor, the result will be a stuffed-armor"
+  #f
+  (make-stuffed-armor :id (armor-id item)
+		      :name (armor-name item)
+		      :rare (armor-rare item)
+		      :weapon (armor-weapon item)
+		      :def-min (armor-def-min item)
+		      :def-max (armor-def-max item)
+		      :gender (armor-gender item)
+		      :holes (armor-holes item)
+		      :skills (armor-skills item)
+		      :jewels (copy-list (jewel-combo-jewels bundle))))
+					 
+
+(defun head-n (lst n)
+  #f
+  (labels ((head-n-iter (lst n accu)
+             #f
+             (if (= n 0)
+                 (nreverse accu)
+                 (head-n-iter (rest lst)
+                              (- n 1)
+                              (cons (car lst) accu)))))
+    (head-n-iter lst n nil)))
+
+(defmacro cut-key (key)
+  `(head-n ,key 2))
     
-  
-  
 
 
-(defun search-armor (req-set)
-  "main search function"
-  (let* ((skill-list (mapcar #`,(car x1) req-set))
-         (encode (gen-encoder skill-list))
-         (combine (gen-code-combiner skill-list))
-         (jewel-cand (mapcar #`(,(funcall encode (aref *jewels-array* x1))
-                                 ,x1)
-                             (filter-jewels skill-list)))
-         (jewel-set (init-jewel-set combine jewel-cand)))
-    (macrolet ((prepare-armor-list (part)
-                 (exmac:with-gensyms (item-id jewel-list item item-code)
-                   `(loop for ,item-id in (,(exmac:symb 'filter- part) skill-list)
-                       append (let* ((,item (aref ,(exmac:symb '* part '-array*) ,item-id))
-                                     (,item-code (funcall encode ,item)))
-                                (cons `(,,item-code ,,item-id)
-                                      (loop for ,jewel-list in 
-                                           (aref jewel-set (carriable-holes ,item))
-                                         collect (cons (funcall combine 
-                                                                ,item-code
-                                                                (car ,jewel-list))
-                                                       (cadr ,jewel-list))))))))
-               (cascade (part from)
-                 (exmac:with-gensyms (every res candidates)
-                   `(let ((,res (make-hash-table :test #'eq))
-                          (,candidates (prepare-armor-list ,part)))
-                      (maphash (lambda (code lst)
-                                 (loop for ,every in ,candidates
-                                    do (let ((new-code (funcall combine 
-                                                                code 
-                                                                (car ,every))))
-                                         (push (list :combo
-                                                     (cdr ,every)
-                                                     lst)
-                                               (gethash new-code ,res)))))
-                               ,from)
-                      ,res))))
-      (cascade helms 
-               (cascade chests
-                        (cascade gloves
-                                 (cascade belts
-                                          (let ((res (make-hash-table :test #'eq)))
-                                            (loop for every in (prepare-armor-list boots)
-                                               do (push (cdr every)
-                                                        (gethash (car every) res)))
-                                            res))))))))
-                                             
-                                         
-                   
+  
 
-      
-    
-                 
-                                      
+(defun sieve (skill-set lst bundles &optional (weapon 'both))
+  #f
+  (let ((hash (make-hash-table :test #'equal)))
+    (loop for item in lst
+       do (let* ((key (qualify-skill-set item skill-set weapon))
+                 (true-key (cut-key key)))
+            (when key
+              (let ((obj (gethash true-key hash)))
+                (if obj
+                    (push item (combo-set obj))
+                    (setf (gethash true-key hash)
+                          (make-combo :key true-key
+                                      :set (list item)))))
+	      (loop for hole from 1 to (armor-holes item) 
+		 do (loop for bundle in (aref bundles hole)
+		       do (let* ((key-1 (mapcar #'+ key 
+                                                (jewel-combo-key bundle)))
+                                 (true-key-1 (cut-key key-1))
+                                 (obj (gethash true-key-1 hash)))
+                            (if obj
+                                (push (embed item bundle) (combo-set obj))
+                                (setf (gethash true-key-1 hash)
+                                      (make-combo :key true-key-1
+                                                  :set (list 
+                                                        (embed item
+                                                               bundle)))))))))))
+    hash))
 
-                                      
-                                      
-  
-  
-  
+
+
+
+
+(defun merge-combo-set (combo-set-a combo-set-b)
+  #f
+  (let ((hash (make-hash-table :test #'equal)))
+    (loop for key-a being the hash-keys of combo-set-a
+       do (loop for key-b being the hash-keys of combo-set-b
+             do (let ((key (mapcar #'+ key-a key-b)))
+                  (let ((obj (gethash key hash))
+                        (pair (list (gethash key-a combo-set-a)
+                                    (gethash key-b combo-set-b))))
+                    (if obj
+                        (push pair obj)
+                        (setf (gethash key hash) (make-combo :key key
+                                                             :set (list pair))))))))
+    hash))
+
+
+(defun decombo (obj)
+  #f
+  (loop for item in (combo-set obj)
+     append (if (or (armor-p item) (stuffed-armor-p item))
+                (list item)
+                (loop for armor-ele in (decombo (cadr item))
+                   append (loop for combo-ele in (decombo (car item))
+                             collect (if (listp combo-ele)
+                                         (cons armor-ele combo-ele)
+                                         (list armor-ele combo-ele)))))))
+
+
+
+(defun search-armor (req-set &optional (weapon 'both))
+  "search for the set of armors that meets the req-set"
+  ;; (declare (optimize (speed 3) (safety 0)))
+  #f
+  (multiple-value-bind (skill-set thresh-set) (unzip-pair-list req-set)
+    (let ((bundles (generate-jewel-bundles skill-set)))
+      ;; search-iter returns a hash table of resulting combos
+      (let ((potential (labels ((search-iter (k accu)
+                                  #f
+				  (let ((merged (merge-combo-set 
+						 accu
+						 (sieve skill-set 
+							(aref *armor-set* k)
+							bundles
+							weapon))))
+				    (if (= k 4)
+					merged
+					(search-iter (1+ k) merged)))))
+			 (search-iter 1 (sieve skill-set 
+					       (aref *armor-set* 0) ;; all the helms
+					       bundles
+					       weapon)))))
+	(let ((prelim (loop for value being the hash-values of potential
+			 when (set-geq (combo-key value) thresh-set) ;; if meet the requirement
+			 collect value)))
+	  prelim)))))
+
+
+(defun print-set (prelim)
+  (let ((count 0))
+    (loop for sets in prelim
+       do 
+	 (let ((decomboed (decombo sets)))
+	   (incf count (length decomboed))
+	   (loop for set in decomboed
+	      do 
+		(format t "==========~%") 
+		(loop for item in set
+		   do 
+		     (format t "~a" (armor-name item))
+		     (when (stuffed-armor-p item)
+		       (format t "( ~{~a ~})" (mapcar (lambda (x)
+							(carriable-name 
+							 (nth x *jewels*)))
+						      (stuffed-armor-jewels
+						       item))))
+		     (fresh-line)))))
+    count))
+
+(defun get-armor-list (prelim)
+  (mapcan (lambda (x) (decombo x)) prelim))
+
+(defun get-defense-sum (armor-set)
+  (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
+          :initial-value 0))
+
+(defun get-jewels (armor-item)
+  (if (is-stuffed armor-item)
+      (format nil "~{~a ~}"
+              (mapcar (lambda (x)
+                        (carriable-name (nth x *jewels*)))
+                      (stuffed-armor-jewels armor-item)))
+      ""))
          
