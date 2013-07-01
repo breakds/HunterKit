@@ -305,7 +305,8 @@ respectively."
     (head-n-iter lst n nil)))
 
 (defmacro cut-key (key)
-  `(head-n ,key 2))
+  `(head-n ,key 3))
+
     
 
 
@@ -353,7 +354,7 @@ respectively."
                         (pair (list (gethash key-a combo-set-a)
                                     (gethash key-b combo-set-b))))
                     (if obj
-                        (push pair obj)
+                        (push pair (combo-set obj))
                         (setf (gethash key hash) (make-combo :key key
                                                              :set (list pair))))))))
     hash))
@@ -476,6 +477,6 @@ respectively."
 
 (defun search-main (req-set &optional (weapon 'both))
   (let ((armor-list (get-armor-list (search-armor req-set weapon))))
-    (if (<= (length req-set) 2)
+    (if (<= (length req-set) 3)
         armor-list
-        (filter-armor-list armor-list (cddr req-set)))))
+        (filter-armor-list armor-list (cdddr req-set)))))
