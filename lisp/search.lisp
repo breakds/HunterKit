@@ -311,35 +311,19 @@ respectively."
     
 
 
-  
-
 (defun sieve (skill-set lst bundles &optional (weapon 'both))
   #f
   (let ((hash (make-hash-table :test #'equal)))
     (loop for item in lst
-       do (let* ((key (qualify-skill-set item skill-set weapon))
-                 (true-key (cut-key key)))
-            (when key
-              (let ((obj (gethash true-key hash)))
-                (if obj
-                    (push item (combo-set obj))
-                    (setf (gethash true-key hash)
-                          (make-combo :key true-key
-                                      :set (list item)))))
-	      (loop for hole from 1 to (armor-holes item) 
-		 do (loop for bundle in (aref bundles hole)
-		       do (let* ((key-1 (mapcar #'+ key 
-                                                (jewel-combo-key bundle)))
-                                 (true-key-1 (cut-key key-1))
-                                 (obj (gethash true-key-1 hash)))
-                            (if obj
-                                (push (embed item bundle) (combo-set obj))
-                                (setf (gethash true-key-1 hash)
-                                      (make-combo :key true-key-1
-                                                  :set (list 
-                                                        (embed item
-                                                               bundle)))))))))))
-    hash))
+       do (awhen (cut-key (qualify-skill-set item skill-set weapon))
+            (push item (gethash it hash))
+            (loop for hole from 1 to (armor-holes item)
+               do (let ((key (mapcar #'+ it
+                                     (jewel-combo-key bundle))))
+                    (push (embed item bundle)
+                          (gethash key hash))))))))
+
+         
 
 
 
