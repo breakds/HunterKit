@@ -217,6 +217,7 @@ stuffed-armor"
   "if qualify return the key, otherwise nil"
   #f
   (when (or (eq weapon 'both)
+            (eq (armor-weapon item) 'both)
             (eq weapon (armor-weapon item)))
     (let ((key (loop for sk in skill-set
 		  collect (query-skill sk item))))
@@ -297,7 +298,7 @@ respectively."
   #f
   (labels ((head-n-iter (lst n accu)
              #f
-             (if (= n 0)
+             (if (or (= n 0) (null lst))
                  (nreverse accu)
                  (head-n-iter (rest lst)
                               (- n 1)
@@ -360,16 +361,6 @@ respectively."
     hash))
 
 
-(defun decombo (obj)
-  #f
-  (loop for item in (combo-set obj)
-     append (if (or (armor-p item) (stuffed-armor-p item))
-                (list item)
-                (loop for armor-ele in (decombo (cadr item))
-                   append (loop for combo-ele in (decombo (car item))
-                             collect (if (listp combo-ele)
-                                         (cons armor-ele combo-ele)
-                                         (list armor-ele combo-ele)))))))
 
 
 
@@ -422,8 +413,32 @@ respectively."
 		     (fresh-line)))))
     count))
 
+(defun decombo (obj)
+  #f
+  (loop for item in (combo-set obj)
+     append (if (or (armor-p item) (stuffed-armor-p item))
+                (list item)
+                (loop for armor-ele in (decombo (cadr item))
+                   append (loop for combo-ele in (decombo (car item))
+                             collect (if (listp combo-ele)
+                                         (cons armor-ele combo-ele)
+                                         (list armor-ele combo-ele)))))))
+
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
+
+
+
+(defun decombo-count (obj)
+  #f
+  (loop for item in (combo-set obj)
+     sum (if (or (armor-p item) (stuffed-armor-p item))
+             1n
+             (* (decombo-count (cadr item))
+                (decombo-count (car item))))))
+
+(defun get-armor-count (prelim)
+  (apply #'+ (mapcar #'decombo-count prelim)))
 
 
 (defun get-defense-sum (armor-set)
@@ -473,6 +488,11 @@ respectively."
                                            (cadar req-set)))
                                       armor-list)
                            (cdr req-set)))))
+
+
+;; prelim filters (prelim -> prelim)
+  
+
 
 
 (defun search-main (req-set &optional (weapon 'both))
