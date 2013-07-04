@@ -318,36 +318,30 @@ respectively."
        do (awhen (cut-key (qualify-skill-set item skill-set weapon))
             (push item (gethash it hash))
             (loop for hole from 1 to (armor-holes item)
-               do (let ((key (mapcar #'+ it
-                                     (jewel-combo-key bundle))))
-                    (push (embed item bundle)
-                          (gethash key hash))))))))
-
-         
-
-
-
+               do (loop for bundle in (aref bundles hole)
+                     do (let ((key (mapcar #'+ it
+                                           (cut-key (jewel-combo-key bundle)))))
+                          (push (embed item bundle)
+                                (gethash key hash)))))))
+    hash))
 
 
 (defun merge-combo-set (combo-set-a combo-set-b)
   #f
   (let ((hash (make-hash-table :test #'equal)))
-    (loop for key-a being the hash-keys of combo-set-a
-       do (loop for key-b being the hash-keys of combo-set-b
-             do (let ((key (mapcar #'+ key-a key-b)))
-                  (let ((obj (gethash key hash))
-                        (pair (list (gethash key-a combo-set-a)
-                                    (gethash key-b combo-set-b))))
-                    (if obj
-                        (push pair (combo-set obj))
-                        (setf (gethash key hash) (make-combo :key key
-                                                             :set (list pair))))))))
+    (loop 
+       for key-a being the hash-keys of combo-set-a
+       for val-a being the hash-value of combo-set-a
+       do (loop 
+             for key-b being the hash-keys of combo-set-b
+             for val-b being the hash-value of combo-set-b
+             do (let ((key (mapcar #'+ key-a key-b))
+                      (pair (list val-b val-a)))
+                  (push pair (gethash key hash)))))
     hash))
 
-
-
-
-
+                  
+         
 (defun search-armor (req-set &optional (weapon 'both))
   "search for the set of armors that meets the req-set"
   ;; (declare (optimize (speed 3) (safety 0)))
@@ -370,43 +364,27 @@ respectively."
 					       (aref *armor-set* 0) ;; all the helms
 					       bundles
 					       weapon)))))
-	(let ((prelim (loop for value being the hash-values of potential
-			 when (set-geq (combo-key value) thresh-set) ;; if meet the requirement
+	(let ((prelim (loop 
+                         for key being the hash-keys of potential
+                         for value being the hash-values of potential
+			 when (set-geq key thresh-set) ;; if meet the requirement
 			 collect value)))
 	  prelim)))))
 
 
-(defun print-set (prelim)
-  (let ((count 0))
-    (loop for sets in prelim
-       do 
-	 (let ((decomboed (decombo sets)))
-	   (incf count (length decomboed))
-	   (loop for set in decomboed
-	      do 
-		(format t "==========~%") 
-		(loop for item in set
-		   do 
-		     (format t "~a" (armor-name item))
-		     (when (stuffed-armor-p item)
-		       (format t "( ~{~a ~})" (mapcar (lambda (x)
-							(carriable-name 
-							 (nth x *jewels*)))
-						      (stuffed-armor-jewels
-						       item))))
-		     (fresh-line)))))
-    count))
 
-(defun decombo (obj)
+(defun decombo (lst)
   #f
-  (loop for item in (combo-set obj)
-     append (if (or (armor-p item) (stuffed-armor-p item))
-                (list item)
-                (loop for armor-ele in (decombo (cadr item))
-                   append (loop for combo-ele in (decombo (car item))
-                             collect (if (listp combo-ele)
-                                         (cons armor-ele combo-ele)
-                                         (list armor-ele combo-ele)))))))
+  (if (consp (car lst))
+      (let (res)
+        (loop for pair in lst
+           do (let ((decomposed (decombo (cadr pair))))
+                (loop for armor-item in (car pair)
+                   do (loop for d in decomposed 
+                         do (push (cons armor-item d) res)))))
+        res)
+      lst))
+                              
 
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
