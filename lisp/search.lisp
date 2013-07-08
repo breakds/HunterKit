@@ -389,32 +389,6 @@ respectively."
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
 
-
-
-(defun decombo-count (obj)
-  #f
-  (loop for item in (combo-set obj)
-     sum (if (or (armor-p item) (stuffed-armor-p item))
-             1n
-             (* (decombo-count (cadr item))
-                (decombo-count (car item))))))
-
-(defun get-armor-count (prelim)
-  (apply #'+ (mapcar #'decombo-count prelim)))
-
-
-(defun get-defense-sum (armor-set)
-  (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
-          :initial-value 0))
-
-(defun get-jewels (armor-item)
-  (if (is-stuffed armor-item)
-      (format nil "~{~a ~}"
-              (mapcar (lambda (x)
-                        (carriable-name (nth x *jewels*)))
-                      (stuffed-armor-jewels armor-item)))
-      ""))
-
 (defun gen-points-calculator (skill-id)
   (let ((jewel-points (make-array (length *jewels*)
                                   :adjustable nil
@@ -439,7 +413,87 @@ respectively."
                        (stuffed-armor-jewels armor-item)
                        :initial-value 0)
                0))))))
-               
+
+
+
+
+
+
+(defun skill-filter (skill-id rqr-pts prelim)
+  (let ((get-pts (gen-points-calculator skill-id)))
+    (labels ((classify-armors (armor-list hash)
+               (loop for armor-item in armor-list
+                  do (push armor-item 
+                           (gethash (funcall get-pts armor-item) hash))))
+             (merge-hashes (armor-hash sub-hash res)
+               (loop 
+                  for key-a being the hash-keys of armor-hash
+                  for val-a being the hash-values of armor-hash
+                  do (loop 
+                        for key-b being the hash-keys of sub-hash
+                        for val-b being the hash-values of sub-hash
+                        do (push (list val-a val-b)
+                                 (gethash (+ key-a key-b) res)))))
+             (skill-filter-iter (lst hash)
+               (if (consp (car lst))
+                   (loop for pair in lst
+                      do (let ((sub-hash (make-hash-table)))
+                           ;; hasing sub list
+                           (skill-filter-iter (cadr pair) sub-hash)
+                           ;; hashing armors 
+                           (let ((armor-hash (make-hash-table)))
+                             (classify-armors (car pair) armor-hash)
+                             ;; (format t "~a x ~a~%" 
+                             ;;         (hash-table-count sub-hash)
+                             ;;         (hash-table-count armor-hash))
+                             (merge-hashes armor-hash sub-hash hash))))
+                   (classify-armors lst hash))))
+      (let ((new-prelim (make-hash-table)))
+        (loop for item in prelim
+           do (skill-filter-iter item new-prelim))
+        (loop 
+           for key being the hash-keys of new-prelim
+           for val being the hash-values of new-prelim
+           when (>= key rqr-pts)
+           collect val)))))
+
+  
+  
+  
+
+
+                          
+
+
+
+;; (defun decombo-count (obj)
+;;   #f
+;;   (loop for item in (combo-set obj)
+;;      sum (if (or (armor-p item) (stuffed-armor-p item))
+;;              1n
+;;              (* (decombo-count (cadr item))
+;;                 (decombo-count (car item))))))
+
+;; (defun get-armor-count (prelim)
+;;   (apply #'+ (mapcar #'decombo-count prelim)))
+
+
+
+
+
+
+(defun get-defense-sum (armor-set)
+  (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
+          :initial-value 0))
+
+(defun get-jewels (armor-item)
+  (if (is-stuffed armor-item)
+      (format nil "~{~a ~}"
+              (mapcar (lambda (x)
+                        (carriable-name (nth x *jewels*)))
+                      (stuffed-armor-jewels armor-item)))
+      ""))
+
 (defun filter-armor-list (armor-list req-set)
   (if (null req-set)
       armor-list
