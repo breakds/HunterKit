@@ -292,7 +292,7 @@ respectively."
 		      :holes (armor-holes item)
 		      :skills (armor-skills item)
 		      :jewels (copy-list (jewel-combo-jewels bundle))))
-					 
+
 
 (defun head-n (lst n)
   #f
@@ -308,7 +308,7 @@ respectively."
 (defmacro cut-key (key)
   `(head-n ,key 3))
 
-    
+
 
 
 (defun sieve (skill-set lst bundles &optional (weapon 'both))
@@ -340,21 +340,21 @@ respectively."
                   (push pair (gethash key hash)))))
     hash))
 
-                  
-         
-(defun search-armor (req-set &optional (weapon 'both))
+
+
+(defun search-armor (req-set &optional (weapon 'both) (white-list nil))
   "search for the set of armors that meets the req-set"
-  ;; (declare (optimize (speed 3) (safety 0)))
   #f
   (multiple-value-bind (skill-set thresh-set) (unzip-pair-list req-set)
-    (let ((bundles (generate-jewel-bundles skill-set)))
+    (let ((bundles (generate-jewel-bundles skill-set))
+          (armor-set (aif white-list it *armor-set*)))
       ;; search-iter returns a hash table of resulting combos
       (let ((potential (labels ((search-iter (k accu)
                                   #f
 				  (let ((merged (merge-combo-set 
 						 accu
 						 (sieve skill-set 
-							(aref *armor-set* k)
+							(aref armor-set k)
 							bundles
 							weapon))))
 				    (if (= k 4)
@@ -372,6 +372,7 @@ respectively."
 	  prelim)))))
 
 
+;;;; the following functions perform on prelims/prelim-lists
 
 (defun decombo (lst)
   #f
@@ -384,7 +385,7 @@ respectively."
                          do (push (cons armor-item d) res)))))
         res)
       lst))
-                              
+
 
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
@@ -418,73 +419,111 @@ respectively."
 
 
 
-
-(defun skill-filter (skill-id rqr-pts prelim)
-  (let ((get-pts (gen-points-calculator skill-id)))
-    (labels ((classify-armors (armor-list hash)
-               (loop for armor-item in armor-list
-                  do (push armor-item 
-                           (gethash (funcall get-pts armor-item) hash))))
-             (merge-hashes (armor-hash sub-hash res)
-               (loop 
-                  for key-a being the hash-keys of armor-hash
-                  for val-a being the hash-values of armor-hash
-                  do (loop 
-                        for key-b being the hash-keys of sub-hash
-                        for val-b being the hash-values of sub-hash
-                        do (push (list val-a val-b)
-                                 (gethash (+ key-a key-b) res)))))
-             (skill-filter-iter (lst hash)
-               (if (consp (car lst))
-                   (loop for pair in lst
-                      do (let ((sub-hash (make-hash-table)))
-                           ;; hasing sub list
-                           (skill-filter-iter (cadr pair) sub-hash)
-                           ;; hashing armors 
-                           (let ((armor-hash (make-hash-table)))
-                             (classify-armors (car pair) armor-hash)
-                             ;; (format t "~a x ~a~%" 
-                             ;;         (hash-table-count sub-hash)
-                             ;;         (hash-table-count armor-hash))
-                             (merge-hashes armor-hash sub-hash hash))))
-                   (classify-armors lst hash))))
-      (let ((new-prelim (make-hash-table)))
-        (loop for item in prelim
-           do (skill-filter-iter item new-prelim))
-        (loop 
-           for key being the hash-keys of new-prelim
-           for val being the hash-values of new-prelim
-           when (>= key rqr-pts)
-           collect val)))))
-
-  
-  
-  
-
-
-                          
-
-
-
-;; (defun decombo-count (obj)
-;;   #f
-;;   (loop for item in (combo-set obj)
-;;      sum (if (or (armor-p item) (stuffed-armor-p item))
-;;              1n
-;;              (* (decombo-count (cadr item))
-;;                 (decombo-count (car item))))))
-
-;; (defun get-armor-count (prelim)
-;;   (apply #'+ (mapcar #'decombo-count prelim)))
+(defun prelim-filter (get-val threshold prelim)
+  (labels ((classify-armors (armor-list hash)
+             #f
+             (loop for armor-item in armor-list
+                do (push armor-item 
+                         (gethash (funcall get-val armor-item) hash))))
+           (merge-hashes (armor-hash sub-hash res)
+             #f
+             (loop 
+                for key-a being the hash-keys of armor-hash
+                for val-a being the hash-values of armor-hash
+                do (loop 
+                      for key-b being the hash-keys of sub-hash
+                      for val-b being the hash-values of sub-hash
+                      do (push (list val-a val-b)
+                               (gethash (+ key-a key-b) res)))))
+           (skill-filter-iter (lst hash)
+             #f
+             (if (consp (car lst))
+                 (loop for pair in lst
+                    do (let ((sub-hash (make-hash-table)))
+                         ;; hasing sub list
+                         (skill-filter-iter (cadr pair) sub-hash)
+                         ;; hashing armors 
+                         (let ((armor-hash (make-hash-table)))
+                           (classify-armors (car pair) armor-hash)
+                           ;; (format t "~a x ~a~%" 
+                           ;;         (hash-table-count sub-hash)
+                           ;;         (hash-table-count armor-hash))
+                           (merge-hashes armor-hash sub-hash hash))))
+                 (classify-armors lst hash))))
+    (let ((new-prelim (make-hash-table)))
+      (loop for item in prelim
+         do (skill-filter-iter item new-prelim))
+      (loop 
+         for key being the hash-keys of new-prelim
+         for val being the hash-values of new-prelim
+         when (>= key threshold)
+         collect val))))
 
 
 
 
+(defun prelim-drop-armor (part-id spec-id prelim)
+  (labels ((drop-armor-iter (lst k)
+             #f
+             (if (= k part-id)
+                 (if (consp (car lst))
+                     (remove-if #`,(null (car x1))
+                                (loop for pair in lst
+                                   collect (cons (remove-if #`,(= spec-id (armor-id x1) )
+                                                            (car pair))
+                                                 (cdr pair))))
+                     (remove-if #`,(= spec-id (armor-id x1)) lst))
+                 (remove-if-not #`,(cadr x1)
+                                (mapcar (lambda (pair) (cons (car pair)
+                                                             (drop-armor-iter (cadr pair) 
+                                                                              (1- k))))
+                                        lst)))))
+    (remove-if #'null (mapcar (lambda (x) (drop-armor-iter x 4)) prelim))))
 
 
-(defun get-defense-sum (armor-set)
-  (reduce (lambda (y x) (+ y (armor-def-max x))) armor-set
-          :initial-value 0))
+
+
+
+
+
+
+
+(defun count-or-exceed (prelim-list &optional (limit nil))
+  "count the sets in a prelim list, or return nil if the count exceed
+  the limit"
+  #f
+  (let ((accu 0))
+    (block exceeded
+      (let ((check (alambda (lst multiplier)
+                     #f
+                     (if (consp (car lst))
+                         (loop for pair in lst
+                            do (self (cadr pair) 
+                                     (* multiplier (length (car pair)))))
+                         (progn
+                           (incf accu (* multiplier (length lst)))
+                           (when (and limit (> accu limit))
+                             (return-from exceeded nil)))))))
+        (loop for lst in prelim-list
+           do (funcall check lst 1)))
+      accu)))               
+
+
+
+(defun search-main (req-set &optional (def-req 0) (weapon 'both) (white-list nil))
+  #f
+  (let ((prelim (search-armor req-set weapon white-list)))
+    (let ((prelim-prime (if (> (length req-set) 3)
+                            (reduce (lambda (y x)
+                                      (prelim-filter (gen-points-calculator (car x)) (cadr x) y))
+                                    (nthcdr 3 req-set)
+                                    :initial-value prelim)
+                            prelim)))
+      (if (> def-req 0)
+          (prelim-filter #'armor-def-max def-req prelim-prime)))))
+
+
+;;; for user interfaces
 
 (defun get-jewels (armor-item)
   (if (is-stuffed armor-item)
@@ -494,25 +533,44 @@ respectively."
                       (stuffed-armor-jewels armor-item)))
       ""))
 
-(defun filter-armor-list (armor-list req-set)
-  (if (null req-set)
-      armor-list
-      (let ((pts-calc (gen-points-calculator (caar req-set))))
-        (filter-armor-list (remove-if (lambda (x)
-                                        (< (reduce #'+ (mapcar pts-calc x)
-                                                   :initial-value 0)
-                                           (cadar req-set)))
-                                      armor-list)
-                           (cdr req-set)))))
+
+(defun grow-white-list (ind-array &key (color :white))
+  (labels ((grow-iter-white (ind lst accu)
+             (if (or (null lst) (null ind))
+                 accu
+                 (if (= (armor-id (car lst)) (car ind))
+                     (grow-iter-white (cdr ind) (cdr lst) 
+                                      (cons (car lst) accu))
+                     (grow-iter-white ind (cdr lst)
+                                      accu))))
+           (grow-iter-black (ind lst accu)
+             (if (null lst)
+                 accu
+                 (if (or (null ind)
+                         (not (= (armor-id (car lst))
+                                 (car ind))))
+                     (grow-iter-black ind (cdr lst)
+                                      (cons (car lst) accu))
+                     (grow-iter-black (cdr ind) (cdr lst)
+                                      accu)))))
+    (let ((white-list (make-array 5 :initial-element nil)))
+      (loop for i below 5
+         do (setf (aref white-list i)
+                  (if (eq color :white)
+                      (grow-iter-white (aref ind-array i)
+                                       (aref *armor-set* i)
+                                       nil)
+                      (grow-iter-black (aref ind-array i)
+                                       (aref *armor-set* i)
+                                       nil))))
+      white-list)))
 
 
-;; prelim filters (prelim -> prelim)
-  
 
 
 
-(defun search-main (req-set &optional (weapon 'both))
-  (let ((armor-list (get-armor-list (search-armor req-set weapon))))
-    (if (<= (length req-set) 3)
-        armor-list
-        (filter-armor-list armor-list (cdddr req-set)))))
+
+
+
+
+
