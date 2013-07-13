@@ -384,7 +384,7 @@ respectively."
                    do (loop for d in decomposed 
                          do (push (cons armor-item d) res)))))
         res)
-      lst))
+      `(,lst)))
 
 
 (defun get-armor-list (prelim)
@@ -520,7 +520,8 @@ respectively."
                                     :initial-value prelim)
                             prelim)))
       (if (> def-req 0)
-          (prelim-filter #'armor-def-max def-req prelim-prime)))))
+          (prelim-filter #'armor-def-max def-req prelim-prime)
+          prelim-prime))))
 
 
 ;;; for user interfaces
@@ -532,6 +533,10 @@ respectively."
                         (carriable-name (nth x *jewels*)))
                       (stuffed-armor-jewels armor-item)))
       ""))
+
+(defun get-defense-sum (armor-list)
+  (reduce (lambda (y x) (+ (armor-def-max x) y))
+          armor-list :initial-value 0))
 
 
 (defun grow-white-list (ind-array &key (color :white))

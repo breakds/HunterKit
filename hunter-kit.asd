@@ -15,6 +15,7 @@
                  (:file "lisp/components/active-list")
                  (:file "lisp/components/search-button")
                  (:file "lisp/components/armor-list")
+                 (:file "lisp/components/armor-black-list")
                  (:file "lisp/server")
                  (:file "lisp/app")))
 

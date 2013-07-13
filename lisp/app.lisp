@@ -103,6 +103,43 @@
                          (duplicate armor-sets 
                                     :url "/hunterkit/search"
                                     vent (@ this vent)))
+
+
+                   ;; armor black list
+                   (let ((tmp-array (make-array)))
+                     ((@ tmp-array push) (duplicate single-colored-armor-model
+                                                    :id 0
+                                                    :name "飞天小护腿"))
+                     ((@ tmp-array push) (duplicate single-colored-armor-model
+                                                    :id 1
+                                                    :name "飞天大拳套"))
+                     ((@ tmp-array push) (duplicate single-colored-armor-model
+                                                    :id 2
+                                                    :name "飞天大葫芦"))
+                     ((@ tmp-array push) (duplicate single-colored-armor-model
+                                                    :id 3 
+                                                    :name "超人腰带"))
+                     ((@ tmp-array push) (duplicate single-colored-armor-model
+                                                    :id 4 
+                                                    :name "超人神拳"))
+                     (setf (@ this black-list)
+                           (duplicate colored-armor-list
+                                      :model-list tmp-array)))
+
+                   ;; (setf tmp-array (make-array))
+                   ;; ((@ tmp-array push) (duplicate single-colored-armor-model
+                   ;;                                :id 0
+                   ;;                                :name "飞天小护腿"))
+                   ;; ((@ tmp-array push) (duplicate single-colored-armor-model
+                   ;;                                :id 1
+                   ;;                                :name "飞天大拳套"))
+
+                   ;; (setf (@ this black-list)
+                   ;;       (duplicate colored-armor-list
+                   ;;                  :model-list tmp-array))
+                   ;; (trace (@. this black-list list (at 0) (get "caption")))
+
+
                    
                    ((@ this vent on) "dosearch"
                     (lambda (args)
@@ -166,11 +203,12 @@
                    
                    ((@ this navigation add) (create tab-name "search" tab-title "Search" id 0))
                    ((@ this navigation add) (create tab-name "result" tab-title "Result" id 1))
-                   
+                   ((@ this navigation add) (create tab-name "config" tab-title "Config" id 2))
                    nil))
      (routes (create 
               "search" "searching"
-              "result" "resulting"))
+              "result" "resulting"
+              "config" "configuring"))
      (searching (lambda ()
                   ((@ this navigation model switch-to) 
                    (@. this navigation model list (get 0) cid))
@@ -197,7 +235,19 @@
                   (setf (@ this page) 
                         (duplicate page
                                    :parent-node ($ "#content")))
-                  ((@ this page append-view) armor-sets-table (create model (@ this result-list)))))))
+                  ((@ this page append-view) armor-sets-table (create model (@ this result-list)))))
+     (configuring (lambda ()
+                    ((@ this navigation model switch-to)
+                     (@. this navigation model list (get 2) cid))
+                    (when (not (equal undefined (@ this page)))
+                      ((@ this page terminate)))
+                    (setf (@ this page)
+                          (duplicate page
+                                     :parent-node ($ "#content")))
+                    ((@ this page append-view) armor-select
+                     (create model (@ this black-list)))))))
+                     
+
 
 
 
@@ -210,8 +260,9 @@
             :port 9701
             :document-base (merge-pathnames "assets/" (asdf:system-source-directory 'hunter-kit))
             :template (merge-pathnames "assets/main.tmpl" (asdf:system-source-directory 'hunter-kit))
-            :css ("hunterkit/libs/bootstrap/css/bootstrap.css"
-                  "hunterkit/libs/bootstrap/css/bootstrap-responsive.css")
+            :css ("http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css"
+                  "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css"
+                  "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.css")
             :libs (;; JQuery from Google Ajax cdn
 		   "http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"
 		   ;; underscore.js from cdnjs
@@ -219,7 +270,9 @@
 		   ;; backbone.js from cdnjs
                    "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"
                    ;; bootstrap
-                   "hunterkit/libs/bootstrap/js/bootstrap.min.js"))
+                   "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+                   ;; selecte
+                   "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.js"))
   (defvar app (new (web-app-router)))
   ((@ *backbone history start))
   ((@ app navigate) "search" true))

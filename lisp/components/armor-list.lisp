@@ -58,7 +58,6 @@
                     (progn
                       (@. this ($ ".foot-slot") (popover))
                       (@. this ($ ".foot-slot") (add-class "btn-success"))))
-                
                 this))))
 
 (def-collection armor-sets
