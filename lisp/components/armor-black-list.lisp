@@ -5,59 +5,59 @@
 
 (def-model single-colored-armor-model
     ((defaults (lambda ()
-                 (create part-id 0
-                         id 0
-                         name ""
-                         white 1)))))
-
+                 (create id 0
+                         part-id 0
+                         caption "")))))
 
 (def-view single-armor-entry
     ((tag-name "option")
-     (template "<%=name%>")
+     (template "<%=caption%>")
      (initialize (lazy-init
                   ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                   nil))
      (render (lambda ()
                (render-from-model)
-               (@. this $el (attr "data-icon" "icon-ok"))
+               (@. this $el (attr "value" (@. this model (get "id"))))
                this))))
 
 
-(def-collection colored-armor-list
-    ((model single-colored-armor-model)))
+(def-collection colored-armor-sublist
+    ((defaults (lambda () (create label "")))
+     (model single-colored-armor-model)))
 
-
-(def-collection-view armor-black-list
-    ((tag-name "div")
-     (template (tmpl-from "armor-black-list.tmpl"))
+(def-collection-view colored-armor-optgroup
+    ((tag-name "optgroup")
      (sub-view single-armor-entry)
      (initialize (lazy-init
                   ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                   ((@ this model list each) (@ this lazy-add))
-                  ((@ this listen-to)
-                   (@ this model)
-                   "change"
-                   (@ this render))
                   nil))
      (render (lambda ()
                (render-from-model)
-               this))
-     (entry-point "select")))
+               (@. this $el (attr "label" (@. this model (get "label"))))
+               this))))
 
 
-(def-view armor-select
+(def-collection colored-armor-list
+    ((model colored-armor-sublist)))
+
+
+(def-collection-view armor-select
     ((tag-name "div")
      (events (create "change select" "report"))
+     (sub-view colored-armor-optgroup)
      (template (tmpl-from "armor-select.tmpl"))
      (initialize (lazy-init
                   ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
+                  ((@ this model list each) (@ this lazy-add))
                   nil))
      (render (lambda ()
                (render-from-model)
                (@. this ($ "select") (select2 (create placeholder "add armors to blacklist ...")))
                this))
      (report (lambda (e)
-               (trace (@ e val))))))
+               (trace (@ e val))))
+     (entry-point "select")))
 
 
      

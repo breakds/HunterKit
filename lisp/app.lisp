@@ -106,41 +106,37 @@
 
 
                    ;; armor black list
-                   (let ((tmp-array (make-array)))
-                     ((@ tmp-array push) (duplicate single-colored-armor-model
-                                                    :id 0
-                                                    :name "飞天小护腿"))
-                     ((@ tmp-array push) (duplicate single-colored-armor-model
-                                                    :id 1
-                                                    :name "飞天大拳套"))
-                     ((@ tmp-array push) (duplicate single-colored-armor-model
-                                                    :id 2
-                                                    :name "飞天大葫芦"))
-                     ((@ tmp-array push) (duplicate single-colored-armor-model
-                                                    :id 3 
-                                                    :name "超人腰带"))
-                     ((@ tmp-array push) (duplicate single-colored-armor-model
-                                                    :id 4 
-                                                    :name "超人神拳"))
-                     (setf (@ this black-list)
-                           (duplicate colored-armor-list
-                                      :model-list tmp-array)))
+                   (eval-lisp 
+                    `(let ((tmp-array (make-array)))
+                       ,@(loop 
+                            for part-set across *armor-set*
+                            for part-id from 0
+                            collect `(let ((tmp-array-1 (make-array)))
+                                       ,@(loop 
+                                            for armor-item in part-set
+                                            for id from 0
+                                            collect `((@ tmp-array-1 push)
+                                                      (duplicate single-colored-armor-model
+                                                                 :id ,id
+                                                                 :part-id ,part-id
+                                                                 :caption ,(armor-name armor-item))))
+                                       ((@ tmp-array push)
+                                        (duplicate colored-armor-sublist
+                                                   :label ,(cond 
+                                                            ((= part-id 0) "头部防具")
+                                                            ((= part-id 1) "胸部护甲")
+                                                            ((= part-id 2) "腰带")
+                                                            ((= part-id 3) "手套")
+                                                            ((= part-id 4) "足部护具"))
+                                                   :model-list tmp-array-1))))
+                       (setf (@ this armor-select-list)
+                             (duplicate colored-armor-list
+                                        :model-list tmp-array))))
 
-                   ;; (setf tmp-array (make-array))
-                   ;; ((@ tmp-array push) (duplicate single-colored-armor-model
-                   ;;                                :id 0
-                   ;;                                :name "飞天小护腿"))
-                   ;; ((@ tmp-array push) (duplicate single-colored-armor-model
-                   ;;                                :id 1
-                   ;;                                :name "飞天大拳套"))
-
-                   ;; (setf (@ this black-list)
-                   ;;       (duplicate colored-armor-list
-                   ;;                  :model-list tmp-array))
-                   ;; (trace (@. this black-list list (at 0) (get "caption")))
-
-
+                   ;; debug
+                   (trace (@ this armor-select-list))
                    
+                                            
                    ((@ this vent on) "dosearch"
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/search")
@@ -245,7 +241,7 @@
                           (duplicate page
                                      :parent-node ($ "#content")))
                     ((@ this page append-view) armor-select
-                     (create model (@ this black-list)))))))
+                     (create model (@ this armor-select-list)))))))
                      
 
 
