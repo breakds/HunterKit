@@ -131,12 +131,15 @@
                                                    :model-list tmp-array-1))))
                        (setf (@ this armor-select-list)
                              (duplicate colored-armor-list
+                                        :black (array "0,231" "0,232" "0,233" "0,234" "0,235" 
+                                                      "0,236" "0,237" "0,238" "0,239" "0,240" 
+                                                      "0,241" "0,242" "0,243" "0,244" "0,245" 
+                                                      "0,246" "0,247" "0,248" "0,249" "0,250" 
+                                                      "0,251" "0,252" "0,253" "0,254" "0,255" "0,256")
                                         :model-list tmp-array))))
 
-                   ;; debug
-                   (trace (@ this armor-select-list))
+
                    
-                                            
                    ((@ this vent on) "dosearch"
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/search")

@@ -17,7 +17,9 @@
                   nil))
      (render (lambda ()
                (render-from-model)
-               (@. this $el (attr "value" (@. this model (get "id"))))
+               (@. this $el (attr "value" (+ (@. this model (get "partId"))
+                                             ","
+                                             (@. this model (get "id")))))
                this))))
 
 
@@ -39,7 +41,9 @@
 
 
 (def-collection colored-armor-list
-    ((model colored-armor-sublist)))
+    ((defaults (lambda ()
+                (create black (make-array))))
+     (model colored-armor-sublist)))
 
 
 (def-collection-view armor-select
@@ -50,6 +54,7 @@
      (initialize (lazy-init
                   ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
                   ((@ this model list each) (@ this lazy-add))
+                  (@. this ($ "select") (val (@. this model (get "black"))) (select2))
                   nil))
      (render (lambda ()
                (render-from-model)
