@@ -15,6 +15,7 @@
      (render (lambda ()
                (render-from-model)
                ((@ this $el add-class) "modal hide fade")
+               ((@ this $el attr) "data-backdrop" "static")
                (@. this $el (modal))
                this))))
     
