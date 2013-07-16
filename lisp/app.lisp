@@ -144,6 +144,7 @@
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/search")
                       ((@ this result-list set) "page" 0)
+                      ((@ this navigate) "loading" true)
                       ((@ this result-list list fetch)
                        (create 
                         type "post"
@@ -207,7 +208,8 @@
      (routes (create 
               "search" "searching"
               "result" "resulting"
-              "config" "configuring"))
+              "config" "configuring"
+              "wait" "loading"))
      (searching (lambda ()
                   ((@ this navigation model switch-to) 
                    (@. this navigation model list (get 0) cid))
@@ -225,6 +227,7 @@
                   ((@ this page add-sub-view) right-sub-page)
                   ((@ right-sub-page append-view) active-list (create model (@ this active-skills)))
                   ((@ right-sub-page append-view) search-button (create model (@ this search-btn-model)))
+                  (@. this (navigate "loading" true))
                   nil))
      (resulting (lambda ()
                   ((@ this navigation model switch-to) 
@@ -244,7 +247,12 @@
                           (duplicate page
                                      :parent-node ($ "#content")))
                     ((@ this page append-view) armor-select
-                     (create model (@ this armor-select-list)))))))
+                     (create model (@ this armor-select-list)))))
+     (loading (lambda ()
+                ((@ this page append-view) loading-page
+                 (create model (duplicate loading-page-model
+                                          :caption "loading...")))))))                
+
                      
 
 

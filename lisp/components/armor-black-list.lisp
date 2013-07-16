@@ -58,10 +58,11 @@
                   nil))
      (render (lambda ()
                (render-from-model)
+               (@. this ($ "select") (add-class "span8 offset2"))
                (@. this ($ "select") (select2 (create placeholder "add armors to blacklist ...")))
                this))
      (report (lambda (e)
-               (trace (@ e val))))
+               (@. this model (set "black" (@ e val)))))
      (entry-point "select")))
 
 
