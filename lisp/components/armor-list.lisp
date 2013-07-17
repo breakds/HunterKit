@@ -29,42 +29,39 @@
      (render (lambda ()
                 (render-from-model)
                 
-                (if (equal ((@ this model get) "headJewels") "")
-                    (@. this ($ ".head-slot") (add-class "btn-primary disabled"))
-                    (progn
-                      (@. this ($ ".head-slot") (popover))
-                      (@. this ($ ".head-slot") (add-class "btn-success"))))
 
-                (if (equal ((@ this model get) "chestJewels") "")
-                    (@. this ($ ".chest-slot") (add-class "btn-primary disabled"))
-                    (progn
-                      (@. this ($ ".chest-slot") (popover))
-                      (@. this ($ ".chest-slot") (add-class "btn-success"))))
-
-                (if (equal ((@ this model get) "handJewels") "")
-                    (@. this ($ ".hand-slot") (add-class "btn-primary disabled"))
-                    (progn
-                      (@. this ($ ".hand-slot") (popover))
-                      (@. this ($ ".hand-slot") (add-class "btn-success"))))
-                
-                (if (equal ((@ this model get) "waistJewels") "")
-                    (@. this ($ ".waist-slot") (add-class "btn-primary disabled"))
-                    (progn
-                      (@. this ($ ".waist-slot") (popover))
-                      (@. this ($ ".waist-slot") (add-class "btn-success"))))
-
-                (if (equal ((@ this model get) "footJewels") "")
-                    (@. this ($ ".foot-slot") (add-class "btn-primary disabled"))
-                    (progn
-                      (@. this ($ ".foot-slot") (popover))
-                      (@. this ($ ".foot-slot") (add-class "btn-success"))))
+                (macrolet ((handle-part (part)
+                             `(if (equal (@. this model (get ,(exmac:mkstr part "Jewels"))) "")
+                                  (progn
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot") )
+                                        (add-class "btn-primary disabled"))
+                                    (@. this ($ ,(exmac:mkstr ".pin-" part))
+                                        (add-class "btn-primary"))
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot + .drop-armor"))
+                                        (add-class "btn-primary")))
+                                  (progn
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot - .drop-armor"))
+                                        (add-class "btn-success"))
+                                    (@. this ($ ,(exmac:mkstr ".pin-" part))
+                                        (add-class "btn-success"))
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot + .drop-armor"))
+                                        (add-class "btn-success"))
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot") )
+                                        (popover))
+                                    (@. this ($ ,(exmac:mkstr "." part "-slot") )
+                                        (add-class "btn-success"))))))
+                  (handle-part "head")
+                  (handle-part "chest")
+                  (handle-part "hand")
+                  (handle-part "waist")
+                  (handle-part "foot"))
                 this))))
 
 (def-collection armor-sets
     ((defaults (lambda ()
                   (create 
                    page 0
-                   per-page 20
+                   per-page 15
                    total-page 0
                    total-entries 0
                    time-consumption 0)))

@@ -144,7 +144,7 @@
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/search")
                       ((@ this result-list set) "page" 0)
-                      ((@ this navigate) "wait" true)
+                      (@. this loading-splash (modal "Calculating ..."))
                       ((@ this result-list list fetch)
                        (create 
                         type "post"
@@ -200,6 +200,14 @@
                          (duplicate navigation
                                     :model (duplicate tab-collection)
                                     :parent-node ($ "#navigation")))
+
+
+                   ;; loading page
+                   (setf (@ this loading-splash)
+                         (duplicate loading-page
+                                    :model (duplicate loading-page-model
+                                                      :caption "loading...")
+                                    :parent-node ($ "#loading")))
                    
                    ((@ this navigation add) (create tab-name "search" tab-title "Search" id 0))
                    ((@ this navigation add) (create tab-name "result" tab-title "Result" id 1))
@@ -208,8 +216,7 @@
      (routes (create 
               "search" "searching"
               "result" "resulting"
-              "config" "configuring"
-              "wait" "loading"))
+              "config" "configuring"))
      (searching (lambda ()
                   ((@ this navigation model switch-to) 
                    (@. this navigation model list (get 0) cid))
@@ -227,7 +234,6 @@
                   ((@ this page add-sub-view) right-sub-page)
                   ((@ right-sub-page append-view) active-list (create model (@ this active-skills)))
                   ((@ right-sub-page append-view) search-button (create model (@ this search-btn-model)))
-                  (@. this (navigate "wait" true))
                   nil))
      (resulting (lambda ()
                   ((@ this navigation model switch-to) 
@@ -237,8 +243,11 @@
                   (setf (@ this page) 
                         (duplicate page
                                    :parent-node ($ "#content")))
-                  ((@ this page append-view) armor-sets-table (create model (@ this result-list)))))
+                  ((@ this page append-view) armor-sets-table (create model (@ this result-list)))
+                  (@. this loading-splash (hide))
+                  nil))
      (configuring (lambda ()
+                    (@. this loading-splash (modal "loading black list ..."))
                     ((@ this navigation model switch-to)
                      (@. this navigation model list (get 2) cid))
                     (when (not (equal undefined (@ this page)))
@@ -247,12 +256,9 @@
                           (duplicate page
                                      :parent-node ($ "#content")))
                     ((@ this page append-view) armor-select
-                     (create model (@ this armor-select-list)))))
-     (loading (lambda ()
-                ((@ this page append-view) loading-page
-                 (create model (duplicate loading-page-model
-                                          :caption "loading...")))
-                nil))))
+                     (create model (@ this armor-select-list)))
+                    (@. this loading-splash (hide))))))
+
                  
 
                      
