@@ -387,6 +387,60 @@ respectively."
       `(,lst)))
 
 
+
+
+(defun armor-set-generator (prelim-lst)
+  "generator with continuation for armor-set-list"
+  (labels ((generator-on-lst (lst)
+             (alet ()
+               (lambda () 
+                 (funcall (alambda (lst accu cont)
+                            (block result 
+                              (if (null lst)
+                                  (funcall cont)
+                                  (if (consp (car lst))
+                                      (let ((pair (car lst)))
+                                        (if (null (car pair))
+                                            (self (cdr lst) accu cont)
+                                            (self (cadr pair)
+                                                  (cons (caar pair)
+                                                        accu)
+                                                  (lambda ()
+                                                    (self (cons (cons (cdar pair) (cdr pair))
+                                                                (cdr lst))
+                                                          accu
+                                                          cont)))))
+                                      (progn
+                                        (setq this (lambda ()
+                                                     (self (cdr lst) accu cont)))
+                                        (return-from result
+                                          (reverse (cons (car lst) accu))))))))
+                          lst nil (lambda () nil))))))
+    (if (null prelim-lst)
+        (lambda () nil)
+        (let ((gen (generator-on-lst (car prelim-lst)))
+              (current (cdr prelim-lst)))
+          (lambda ()
+            (aif (funcall gen) it
+                 (if current
+                     (progn (setf gen 
+                                  (generator-on-lst (car current)))
+                            (setf current (cdr current))
+                            (funcall gen))
+                     nil)))))))
+                   
+        
+      
+      
+
+
+                      
+                      
+                            
+                          
+  
+
+
 (defun get-armor-list (prelim)
   (mapcan (lambda (x) (decombo x)) prelim))
 
@@ -532,15 +586,6 @@ respectively."
                 (carriable-name (nth x *jewels*)))
               (stuffed-armor-jewels armor-item))
       nil))
-
-;; (defun get-jewels (armor-item)
-;;   (if (is-stuffed armor-item)
-;;       (format nil "~{~a ~}"
-;;               (mapcar (lambda (x)
-;;                         (carriable-name (nth x *jewels*)))
-;;                       (stuffed-armor-jewels armor-item)))
-;;       ""))
-
 
 (defun get-defense-sum (armor-list)
   (reduce (lambda (y x) (+ (armor-def-max x) y))

@@ -61,10 +61,9 @@
 (def-collection armor-sets
     ((defaults (lambda ()
                   (create 
-                   page 0
                    per-page 24
-                   total-page 0
                    total-entries 0
+                   remain 0
                    time-consumption 0)))
      (initialize (lazy-init
                     (setf (@ this list url) (@ args url))
@@ -76,7 +75,6 @@
      (template (tmpl-from "armor-set-exhibition.tmpl"))
      (sub-view single-armor-set)
      (entry-point ".cascade")
-     (events (create "click .continue" "continue"))
      (initialize (lazy-init
                   (setf (@ this init-push) true)
                   ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
@@ -99,13 +97,35 @@
                    view)))
      (render (lambda ()
                (render-from-model)
-                this))
+               this))))
+
+
+(def-view load-more-button
+    ((tag-name "div")
+     (template (tmpl-from "load-more.tmpl"))
+     (events (create "click .continue" "continue"))
+     (initialize (lazy-init
+                  ((@ ($ (@ this parent-node)) append) (@ ((@ this render)) el))
+                  (@. this (listen-to (@ this model)
+                                      "change"
+                                      (@ this render)))
+                  (@. this (listen-to (@ this model list)
+                                      "add"
+                                      (@ this render)))
+                  nil))
+     (render (lambda ()
+               (@. this model (set "remain"
+                                   (- (@. this model (get "totalEntries"))
+                                      (@ this model list length))))
+               (render-from-model)
+               this))
      (continue (lambda ()
                  (if (> (@ this model list length) 0)
                      (@. this model (get "vent")
                          (trigger "getpage"
                                   (create sets (@ this model)))))
                  nil))))
+
 
                   
                    

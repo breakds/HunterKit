@@ -1,4 +1,4 @@
-;;;; app.lisp
+s;;;; app.lisp
 ;;;; in hunter-kit
 
 (in-package #:hunter-kit)
@@ -143,7 +143,6 @@
                    ((@ this vent on) "dosearch"
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/search")
-                      ((@ this result-list set) "page" 0)
                       (@. this loading-splash (modal "Calculating ..."))
                       ((@ this result-list list fetch)
                        (create 
@@ -160,23 +159,22 @@
                                    (create
                                     type "post"
                                     success (lambda (model response options)
-                                              ((@ model set) "page" (*number ((@ model get) "page")))
-                                              ((@ model set) "totalPage" (*number ((@ model get) "totalPage")))
                                               ((@ model set) "perPage" (*number ((@ model get) "perPage")))
+                                              ((@ model set) "totalEntries" 
+                                               (*number ((@ model get) "totalEntries")))
                                               (@. model (get "vent") (trigger
                                                                       "toresult"
                                                                       (create)))
                                               (@. model (get "vent") (trigger "wait-finish")))))))))
                     this)
-
+                   
                    ((@ this vent on) "getpage"
                     (lambda (args)
                       (setf (@ this result-list list url) "/hunterkit/page")
                       ((@ this result-list list fetch)
                        (create 
                         type "post"
-                        remove false
-                        data ((@ *json* stringify) (create page ((@ args sets get) "page"))))))
+                        remove false)))
                     this)
 
                    ((@ this vent on) "wait-finish"
@@ -253,6 +251,7 @@
                         (duplicate page
                                    :parent-node ($ "#content")))
                   ((@ this page append-view) armor-sets-table (create model (@ this result-list)))
+                  ((@ this page append-view) load-more-button (create model (@ this result-list)))
                   nil))
      (configuring (lambda ()
                     (@. this loading-splash (modal "loading black list ..."))
