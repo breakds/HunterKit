@@ -528,11 +528,19 @@ respectively."
 
 (defun get-jewels (armor-item)
   (if (is-stuffed armor-item)
-      (format nil "~{~a ~}"
-              (mapcar (lambda (x)
-                        (carriable-name (nth x *jewels*)))
-                      (stuffed-armor-jewels armor-item)))
-      ""))
+      (mapcar (lambda (x)
+                (carriable-name (nth x *jewels*)))
+              (stuffed-armor-jewels armor-item))
+      nil))
+
+;; (defun get-jewels (armor-item)
+;;   (if (is-stuffed armor-item)
+;;       (format nil "~{~a ~}"
+;;               (mapcar (lambda (x)
+;;                         (carriable-name (nth x *jewels*)))
+;;                       (stuffed-armor-jewels armor-item)))
+;;       ""))
+
 
 (defun get-defense-sum (armor-list)
   (reduce (lambda (y x) (+ (armor-def-max x) y))

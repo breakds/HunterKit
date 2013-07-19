@@ -1,0 +1,81 @@
+
+/* ---- hero masonry ---- */
+
+.cascade {
+    background: white;
+    border-radius: 10px;
+    padding: 10px 1%;
+    margin-bottom: 20px;
+}
+
+.cascade:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.cascade .item {
+    width: 46.9%; /* juse a lil under  47 */
+    margin: 10px 1%;
+    float: left;
+    border-radius: 8px;
+}
+
+/* necessary for proper sizing with margins */
+.cascade .item {
+    position: absolute;
+}
+
+/* animation */
+
+.cascade .item {
+    -webkit-transition: all 600ms ease,
+    opacity 300ms ease;
+    -moz-transition: all 600ms ease;
+    -ms-transition: all 600ms ease,
+    opacity 300ms ease;
+    -o-transition: all 600ms ease,
+    opacity 300ms ease;
+    transition: all 600ms ease,
+    opacity 300ms ease;
+
+    -webkit-transform-origin: 0% 0%;
+    -moz-transform-origin: 0% 0%;
+    -ms-transform-origin: 0% 0%;
+    -o-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+}
+.cascade .item.past {
+    opacity: 0;
+
+    -webkit-transform-origin: 0% 100%;
+    -moz-transform-origin: 0% 100%;
+    -ms-transform-origin: 0% 100%;
+    -o-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+
+    -webkit-transform: rotateX( 80deg );
+    -moz-transform: rotateX( 80deg );
+    -ms-transform: rotateX( 80deg );
+    -o-transform: rotateX( 80deg );
+    transform: rotateX( 80deg );
+}
+.cascade .item.future {
+    opacity: 0;
+
+    -webkit-transform: rotateX( -80deg );
+    -moz-transform: rotateX( -80deg );
+    -ms-transform: rotateX( -80deg );
+    -o-transform: rotateX( -80deg );
+    transform: rotateX( -80deg );
+}
+
+
+/* enough width for 4 columns */
+@media screen and ( min-width: 720px ) {
+
+    .cascade .item {
+        width: 12.5%;
+    }
+
+}

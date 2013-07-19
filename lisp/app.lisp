@@ -138,7 +138,7 @@
                                                       "0,251" "0,252" "0,253" "0,254" "0,255" "0,256")
                                         :model-list tmp-array))))
 
-
+                   
                    
                    ((@ this vent on) "dosearch"
                     (lambda (args)
@@ -165,7 +165,8 @@
                                               ((@ model set) "perPage" (*number ((@ model get) "perPage")))
                                               (@. model (get "vent") (trigger
                                                                       "toresult"
-                                                                      (create))))))))))
+                                                                      (create)))
+                                              (@. model (get "vent") (trigger "wait-finish")))))))))
                     this)
 
                    ((@ this vent on) "getpage"
@@ -174,8 +175,16 @@
                       ((@ this result-list list fetch)
                        (create 
                         type "post"
+                        remove false
                         data ((@ *json* stringify) (create page ((@ args sets get) "page"))))))
                     this)
+
+                   ((@ this vent on) "wait-finish"
+                    (lambda (args)
+                      (@. this loading-splash (hide))
+                      nil)
+                    this)
+                                        
                    
                    
                    ;; app status variables 
@@ -244,7 +253,6 @@
                         (duplicate page
                                    :parent-node ($ "#content")))
                   ((@ this page append-view) armor-sets-table (create model (@ this result-list)))
-                  (@. this loading-splash (hide))
                   nil))
      (configuring (lambda ()
                     (@. this loading-splash (modal "loading black list ..."))
@@ -277,7 +285,8 @@
             :template (merge-pathnames "assets/main.tmpl" (asdf:system-source-directory 'hunter-kit))
             :css ("http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.css"
                   "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap-responsive.css"
-                  "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.css")
+                  "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.css"
+                  "/hunterkit/css/tiled.css")
             :libs (;; JQuery from Google Ajax cdn
 		   "http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"
 		   ;; underscore.js from cdnjs
@@ -286,6 +295,8 @@
                    "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js"
                    ;; bootstrap
                    "http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+                   ;; masonry
+                   "http://cdnjs.cloudflare.com/ajax/libs/masonry/3.0.0/masonry.pkgd.min.js"
                    ;; selecte
                    "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.js"))
   (defvar app (new (web-app-router)))
