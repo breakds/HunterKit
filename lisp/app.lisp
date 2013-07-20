@@ -1,4 +1,4 @@
-s;;;; app.lisp
+;;;; app.lisp
 ;;;; in hunter-kit
 
 (in-package #:hunter-kit)
@@ -95,7 +95,12 @@ s;;;; app.lisp
                    ;; passively tab switch
                    ((@ this vent on) "toresult"
                     (lambda (args)
-                      ((@ this navigate) "result" true))
+                      ((@ this navigate) "result" (create trigger true)))
+                    this)
+
+                   ((@ this vent on) "refreshResult"
+                    (lambda (args)
+                      (@. this (resulting)))
                     this)
                    
                    ;; armor set list
@@ -149,6 +154,9 @@ s;;;; app.lisp
                         type "post"
                         data ((@ *json* stringify) (create 
                                                     per-page ((@ this result-list get) "perPage")
+                                                    weapon (@. this search-btn-model (get "weapon"))
+                                                    black-list (@. this armor-select-list 
+                                                                   (get "black"))
                                                     req ((@ this active-skills list collect) 
                                                          (lambda (x)
                                                            (create id ((@ x get) "id")
@@ -182,7 +190,43 @@ s;;;; app.lisp
                       (@. this loading-splash (hide))
                       nil)
                     this)
-                                        
+
+                   ((@ this vent on) "refine"
+                    (lambda (args)
+                      (@. this refiner (modal (@ args title)
+                                              (@ args part-id)
+                                              (@ args id)))
+                      nil)
+                    this)
+                   
+                   ((@ this vent on) "dorefine"
+                    (lambda (args)
+                      (setf (@ this result-list list url) "/hunterkit/refine")
+                      (@. this loading-splash (modal "Refining Results ..."))
+                      ((@ this result-list list fetch)
+                       (create 
+                        type "post"
+                        data ((@ *json* stringify) (create 
+                                                    operation (@ args op)
+                                                    per-page ((@ this result-list get) "perPage")
+                                                    part-id (*number (@ args part-id))
+                                                    id (*number (@ args id))))
+                        success (lambda (collection response options)
+                                  (setf (@ collection parent-model url) "/hunterkit/meta")
+                                  ((@ collection parent-model fetch)
+                                   (create
+                                    type "post"
+                                    success (lambda (model response options)
+                                              ((@ model set) "perPage" (*number ((@ model get) "perPage")))
+                                              ((@ model set) "totalEntries" 
+                                               (*number ((@ model get) "totalEntries")))
+                                              (@. model (get "vent") (trigger
+                                                                      "refreshResult"
+                                                                      (create)))
+                                              (@. model (get "vent") (trigger "wait-finish")))))))))
+                    this)
+
+                   
                    
                    
                    ;; app status variables 
@@ -207,7 +251,7 @@ s;;;; app.lisp
                          (duplicate navigation
                                     :model (duplicate tab-collection)
                                     :parent-node ($ "#navigation")))
-
+                   
 
                    ;; loading page
                    (setf (@ this loading-splash)
@@ -215,15 +259,27 @@ s;;;; app.lisp
                                     :model (duplicate loading-page-model
                                                       :caption "loading...")
                                     :parent-node ($ "#loading")))
+
+
+                   ;; refine dialog
+                   (setf (@ this refiner)
+                         (duplicate refine-dialog
+                                    :model (duplicate refine-dialog-model
+                                                      :title "abc"
+                                                      :vent (@ this vent))
+                                    :parent-node ($ "#refining")))
+                   
                    
                    ((@ this navigation add) (create tab-name "search" tab-title "Search" id 0))
                    ((@ this navigation add) (create tab-name "result" tab-title "Result" id 1))
                    ((@ this navigation add) (create tab-name "config" tab-title "Config" id 2))
+                   ((@ this navigation add) (create tab-name "about" tab-title "About" id 3))
                    nil))
      (routes (create 
               "search" "searching"
               "result" "resulting"
-              "config" "configuring"))
+              "config" "configuring"
+              "about" "talking"))
      (searching (lambda ()
                   ((@ this navigation model switch-to) 
                    (@. this navigation model list (get 0) cid))
@@ -264,11 +320,23 @@ s;;;; app.lisp
                                      :parent-node ($ "#content")))
                     ((@ this page append-view) armor-select
                      (create model (@ this armor-select-list)))
-                    (@. this loading-splash (hide))))))
+                    (@. this loading-splash (hide))))
+     (talking (lambda ()
+                ((@ this navigation model switch-to) 
+                 (@. this navigation model list (get 3) cid))
+                (when (not (equal undefined (@ this page)))
+                  ((@ this page terminate)))
+                (setf (@ this page) 
+                      (duplicate page
+                                 :parent-node ($ "#content")))
+                ((@ this page append-view) armor-sets-table (create model (@ this result-list)))
+                ((@ this page append-view) load-more-button (create model (@ this result-list)))
+                nil))))
 
-                 
 
-                     
+
+
+
 
 
 
@@ -277,7 +345,7 @@ s;;;; app.lisp
 
 
 (define-simple-app hunter-kit-app
-    (:title "Hunter Kit v0.02" 
+    (:title "Hunter Kit v0.9" 
             :uri "/hunterkit"
             :port 9701
             :document-base (merge-pathnames "assets/" (asdf:system-source-directory 'hunter-kit))

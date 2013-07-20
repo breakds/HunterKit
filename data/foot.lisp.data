@@ -1943,24 +1943,6 @@
  :holes 1
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 216
- :name "坊屋牛仔裤"
- :rare 7
- :weapon saber
- :gender both
- :def-min 47
- :def-max 82
- :holes 1
- :skills ((1 5) (85 3) (73 -3) ))
-(:id 217
- :name "坊屋休闲裤"
- :rare 7
- :weapon archer
- :gender both
- :def-min 26
- :def-max 49
- :holes 1
- :skills ((1 5) (85 3) (73 -3) ))
-(:id 218
  :name "坊屋休闲裤"
  :rare 7
  :weapon archer

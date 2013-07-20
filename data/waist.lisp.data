@@ -1889,24 +1889,6 @@
  :holes 0
  :skills ((1 5) (85 4) (73 -4) ))
 (:id 210
- :name "坊屋腰带"
- :rare 7
- :weapon saber
- :gender both
- :def-min 47
- :def-max 82
- :holes 0
- :skills ((1 5) (85 4) (73 -4) ))
-(:id 211
- :name "坊屋裤袋"
- :rare 7
- :weapon archer
- :gender both
- :def-min 26
- :def-max 49
- :holes 0
- :skills ((1 5) (85 4) (73 -4) ))
-(:id 212
  :name "坊屋裤袋"
  :rare 7
  :weapon archer

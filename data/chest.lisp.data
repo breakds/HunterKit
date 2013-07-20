@@ -2042,33 +2042,15 @@
  :holes 0
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 227
- :name "坊屋外套"
+ :name "坊屋夹克"
  :rare 7
- :weapon saber
+ :weapon archer
  :gender both
- :def-min 47
- :def-max 82
+ :def-min 26
+ :def-max 49
  :holes 0
  :skills ((1 5) (85 3) (73 -3) ))
 (:id 228
- :name "坊屋夹克"
- :rare 7
- :weapon archer
- :gender both
- :def-min 26
- :def-max 49
- :holes 0
- :skills ((1 5) (85 3) (73 -3) ))
-(:id 229
- :name "坊屋夹克"
- :rare 7
- :weapon archer
- :gender both
- :def-min 26
- :def-max 49
- :holes 0
- :skills ((1 5) (85 3) (73 -3) ))
-(:id 230
  :name "怪物猎人部外套"
  :rare 7
  :weapon saber
@@ -2077,7 +2059,7 @@
  :def-max 82
  :holes 0
  :skills ((79 10) ))
-(:id 231
+(:id 229
  :name "怪物猎人部外衣"
  :rare 7
  :weapon archer

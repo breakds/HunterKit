@@ -428,17 +428,17 @@ respectively."
                             (setf current (cdr current))
                             (funcall gen))
                      nil)))))))
-                   
-        
-      
-      
 
 
-                      
-                      
-                            
-                          
-  
+
+
+
+
+
+
+
+
+
 
 
 (defun get-armor-list (prelim)
@@ -529,10 +529,29 @@ respectively."
                      (remove-if #`,(= spec-id (armor-id x1)) lst))
                  (remove-if-not #`,(cadr x1)
                                 (mapcar (lambda (pair) (cons (car pair)
-                                                             (drop-armor-iter (cadr pair) 
-                                                                              (1- k))))
+                                                             (list (drop-armor-iter (cadr pair) 
+                                                                                    (1- k)))))
                                         lst)))))
     (remove-if #'null (mapcar (lambda (x) (drop-armor-iter x 4)) prelim))))
+
+
+(defun prelim-pin-armor (part-id spec-id prelim)
+  (labels ((pin-armor-iter (lst k)
+             #f
+             (if (= k part-id)
+                 (if (consp (car lst))
+                     (remove-if #`,(null (car x1))
+                                (loop for pair in lst
+                                   collect (cons (remove-if-not #`,(= spec-id (armor-id x1) )
+                                                                (car pair))
+                                                 (cdr pair))))
+                     (remove-if-not #`,(= spec-id (armor-id x1)) lst))
+                 (remove-if-not #`,(cadr x1)
+                                (mapcar (lambda (pair) (cons (car pair)
+                                                             (list (pin-armor-iter (cadr pair) 
+                                                                                   (1- k)))))
+                                        lst)))))
+    (remove-if #'null (mapcar (lambda (x) (pin-armor-iter x 4)) prelim))))
 
 
 
@@ -615,10 +634,10 @@ respectively."
       (loop for i below 5
          do (setf (aref white-list i)
                   (if (eq color :white)
-                      (grow-iter-white (aref ind-array i)
+                      (grow-iter-white (sort (aref ind-array i) #'<)
                                        (aref *armor-set* i)
                                        nil)
-                      (grow-iter-black (aref ind-array i)
+                      (grow-iter-black (sort (aref ind-array i) #'<)
                                        (aref *armor-set* i)
                                        nil))))
       white-list)))
