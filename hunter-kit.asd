@@ -18,6 +18,7 @@
                  (:file "lisp/components/armor-black-list")
                  (:file "lisp/components/loading-page")
                  (:file "lisp/components/refine-dialog")
+                 (:file "lisp/components/talking-board")
                  (:file "lisp/server")
                  (:file "lisp/app")))
 

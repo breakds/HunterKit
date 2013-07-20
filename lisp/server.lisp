@@ -47,6 +47,7 @@
                                    (grow-white-list (make-black-list 
                                                      (jsown:val json-obj "blackList"))
                                                     :color :black))))
+      
       (setf (session-value 'prelim) cur-prelim)
       (setf (session-value 'time) (- (get-internal-real-time)
                                      (session-value 'time)))

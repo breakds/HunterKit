@@ -1,4 +1,4 @@
-;;;; armor-list.lisp
+;;;; armor-cascade.lisp
 ;;;; widget: armor list 
 
 (in-package #:breakds.hunter-kit)

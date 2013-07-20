@@ -136,11 +136,12 @@
                                                    :model-list tmp-array-1))))
                        (setf (@ this armor-select-list)
                              (duplicate colored-armor-list
-                                        :black (array "0,231" "0,232" "0,233" "0,234" "0,235" 
-                                                      "0,236" "0,237" "0,238" "0,239" "0,240" 
+                                        :black (array "0,230" "0,231" "0,232" "0,233" "0,234" 
+                                                      "0,235" "0,236" "0,237" "0,238" "0,239" 
+                                                      "0,240" "0,256"
                                                       "0,241" "0,242" "0,243" "0,244" "0,245" 
                                                       "0,246" "0,247" "0,248" "0,249" "0,250" 
-                                                      "0,251" "0,252" "0,253" "0,254" "0,255" "0,256")
+                                                      "0,251" "0,252" "0,253" "0,254" "0,255")
                                         :model-list tmp-array))))
 
                    
@@ -268,6 +269,11 @@
                                                       :title "abc"
                                                       :vent (@ this vent))
                                     :parent-node ($ "#refining")))
+
+                   ;; talking board
+                   (setf (@ this about-model)
+                         (duplicate talking-board-model
+                                    :router this))
                    
                    
                    ((@ this navigation add) (create tab-name "search" tab-title "Search" id 0))
@@ -329,8 +335,7 @@
                 (setf (@ this page) 
                       (duplicate page
                                  :parent-node ($ "#content")))
-                ((@ this page append-view) armor-sets-table (create model (@ this result-list)))
-                ((@ this page append-view) load-more-button (create model (@ this result-list)))
+                ((@ this page append-view) talking-board (create model (@ this about-model)))
                 nil))))
 
 
@@ -345,7 +350,7 @@
 
 
 (define-simple-app hunter-kit-app
-    (:title "Hunter Kit v0.9" 
+    (:title "Hunter Kit v0.9 RC" 
             :uri "/hunterkit"
             :port 9701
             :document-base (merge-pathnames "assets/" (asdf:system-source-directory 'hunter-kit))
@@ -368,6 +373,6 @@
                    "http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.0/select2.min.js"))
   (defvar app (new (web-app-router)))
   ((@ *backbone history start))
-  ((@ app navigate) "search" true))
+  ((@ app navigate) "about" true))
 
 

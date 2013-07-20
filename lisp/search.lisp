@@ -361,7 +361,7 @@ respectively."
 					merged
 					(search-iter (1+ k) merged)))))
 			 (search-iter 1 (sieve skill-set 
-					       (aref *armor-set* 0) ;; all the helms
+					       (aref armor-set 0) ;; all the helms
 					       bundles
 					       weapon)))))
 	(let ((prelim (loop 
