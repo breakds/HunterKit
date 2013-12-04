@@ -6,7 +6,7 @@
   (:use #:cl
         #:lazy-bone
         #:hunchentoot
-        #:exmac)
+        #:swiss-knife)
   (:import-from #:parenscript #:ps* #:ps #:create
                 #:chain #:defpsmacro #:new #:getprop #:@ #:for-in #:eql)
   (:export *skills*

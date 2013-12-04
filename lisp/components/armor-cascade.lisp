@@ -85,16 +85,16 @@
                
                (macrolet ((handle-part (part)
                             `(progn
-                               (dolist (x (@. this model (get ,(exmac:mkstr part "Jewels"))))
-                                 (@. this ($ ,(exmac:mkstr "." part "-jewels"))
+                               (dolist (x (@. this model (get ,(mkstr part "Jewels"))))
+                                 (@. this ($ ,(mkstr "." part "-jewels"))
                                      (append (+ "<span class=\"label label-important\">"
                                                 x
                                                 "</span><br>"))))
-                               (@. this ($ ,(exmac:mkstr "." part "-slot"))
+                               (@. this ($ ,(mkstr "." part "-slot"))
                                    (add-class "btn-info"))
-                               (@. this ($ ,(exmac:mkstr "." part "-slot"))
+                               (@. this ($ ,(mkstr "." part "-slot"))
                                    (css "box-sizing" "border-box"))
-                               (@. this ($ ,(exmac:mkstr "." part "-slot"))
+                               (@. this ($ ,(mkstr "." part "-slot"))
                                    (css "width" "100%")))))
                  (handle-part "head")
                  (handle-part "chest")

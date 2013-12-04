@@ -204,7 +204,7 @@ stuffed-armor"
 (defun query-skill (skill-id item)
   "If the item (armor) has the specified skill, return the points;
   otherwise return 0"
-  #f
+  ;; #f
   (let ((res (find-if (lambda (x) (= (car x) skill-id)) 
                       (carriable-skills item))))
     (if res
@@ -215,7 +215,7 @@ stuffed-armor"
 
 (defun qualify-skill-set (item skill-set &optional (weapon 'both))
   "if qualify return the key, otherwise nil"
-  #f
+  ;; #f
   (when (or (eq weapon 'both)
             (eq (armor-weapon item) 'both)
             (eq weapon (armor-weapon item)))
@@ -236,7 +236,7 @@ stuffed-armor"
 ;;    of holes
 (defun merge-jewel-combo (a b)
   "merge two jewel-combos"
-  #f
+  ;; #f
   (make-jewel-combo :key (mapcar #'+ 
 				 (jewel-combo-key a) 
 				 (jewel-combo-key b))
@@ -248,7 +248,7 @@ stuffed-armor"
 corresponds to the bundle of n holes. This function will update the
 bundle of (1+ j) holes by merging elements from 1-hole bundle and
 j-hole bundle."
-  #f
+  ;; #f
   (let ((target (+ 1 j)))
     (loop for jc-i in (aref bundles 1)
        do (loop for jc-j in (aref bundles j)
@@ -262,7 +262,7 @@ j-hole bundle."
 (defun generate-jewel-bundles (skill-set)
   "return a vector of jewel-bundles, with holes of 0, 1, 2 and 3,
 respectively."
-  #f
+  ;; #f
   (let ((bundles (make-array 4 :initial-contents '(nil nil nil nil))))
     (loop for item in *jewels*
        for key = (qualify-skill-set item skill-set)
@@ -281,7 +281,7 @@ respectively."
 
 (defun embed (item bundle)
   "embed a jewel into an armor, the result will be a stuffed-armor"
-  #f
+  ;; #f
   (make-stuffed-armor :id (armor-id item)
 		      :name (armor-name item)
 		      :rare (armor-rare item)
@@ -295,9 +295,9 @@ respectively."
 
 
 (defun head-n (lst n)
-  #f
+  ;; #f
   (labels ((head-n-iter (lst n accu)
-             #f
+             ;; #f
              (if (or (= n 0) (null lst))
                  (nreverse accu)
                  (head-n-iter (rest lst)
@@ -312,7 +312,7 @@ respectively."
 
 
 (defun sieve (skill-set lst bundles &optional (weapon 'both))
-  #f
+  ;; #f
   (let ((hash (make-hash-table :test #'equal)))
     (loop for item in lst
        do (awhen (cut-key (qualify-skill-set item skill-set weapon))
@@ -327,7 +327,7 @@ respectively."
 
 
 (defun merge-combo-set (combo-set-a combo-set-b)
-  #f
+  ;; #f
   (let ((hash (make-hash-table :test #'equal)))
     (loop 
        for key-a being the hash-keys of combo-set-a
@@ -344,13 +344,13 @@ respectively."
 
 (defun search-armor (req-set &optional (weapon 'both) (white-list nil))
   "search for the set of armors that meets the req-set"
-  #f
+  ;; #f
   (multiple-value-bind (skill-set thresh-set) (unzip-pair-list req-set)
     (let ((bundles (generate-jewel-bundles skill-set))
           (armor-set (aif white-list it *armor-set*)))
       ;; search-iter returns a hash table of resulting combos
       (let ((potential (labels ((search-iter (k accu)
-                                  #f
+                                  ;; #f
 				  (let ((merged (merge-combo-set 
 						 accu
 						 (sieve skill-set 
@@ -375,7 +375,7 @@ respectively."
 ;;;; the following functions perform on prelims/prelim-lists
 
 (defun decombo (lst)
-  #f
+  ;; #f
   (if (consp (car lst))
       (let (res)
         (loop for pair in lst
@@ -475,12 +475,12 @@ respectively."
 
 (defun prelim-filter (get-val threshold prelim)
   (labels ((classify-armors (armor-list hash)
-             #f
+             ;; #f
              (loop for armor-item in armor-list
                 do (push armor-item 
                          (gethash (funcall get-val armor-item) hash))))
            (merge-hashes (armor-hash sub-hash res)
-             #f
+             ;; #f
              (loop 
                 for key-a being the hash-keys of armor-hash
                 for val-a being the hash-values of armor-hash
@@ -490,7 +490,7 @@ respectively."
                       do (push (list val-a val-b)
                                (gethash (+ key-a key-b) res)))))
            (skill-filter-iter (lst hash)
-             #f
+             ;; #f
              (if (consp (car lst))
                  (loop for pair in lst
                     do (let ((sub-hash (make-hash-table)))
@@ -518,7 +518,7 @@ respectively."
 
 (defun prelim-drop-armor (part-id spec-id prelim)
   (labels ((drop-armor-iter (lst k)
-             #f
+             ;; #f
              (if (= k part-id)
                  (if (consp (car lst))
                      (remove-if #`,(null (car x1))
@@ -537,7 +537,7 @@ respectively."
 
 (defun prelim-pin-armor (part-id spec-id prelim)
   (labels ((pin-armor-iter (lst k)
-             #f
+             ;; #f
              (if (= k part-id)
                  (if (consp (car lst))
                      (remove-if #`,(null (car x1))
@@ -564,11 +564,11 @@ respectively."
 (defun count-or-exceed (prelim-list &optional (limit nil))
   "count the sets in a prelim list, or return nil if the count exceed
   the limit"
-  #f
+  ;; #f
   (let ((accu 0))
     (block exceeded
       (let ((check (alambda (lst multiplier)
-                     #f
+                     ;; #f
                      (if (consp (car lst))
                          (loop for pair in lst
                             do (self (cadr pair) 
@@ -584,7 +584,7 @@ respectively."
 
 
 (defun search-main (req-set &optional (def-req 0) (weapon 'both) (white-list nil))
-  #f
+  ;; #f
   (let ((prelim (search-armor req-set weapon white-list)))
     (let ((prelim-prime (if (> (length req-set) 3)
                             (reduce (lambda (y x)
