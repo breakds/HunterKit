@@ -25,7 +25,21 @@
      collect entry))
 
 
-      
+(defun modify-req-with-stone (req stone-id stone-val)
+  (labels ((modify-iter (req-lst accu)
+             (if (null req-lst) accu
+                 (modify-iter (cdr req-lst)
+                              (if (= (caar req-lst) stone-id)
+                                  (let ((val (- (cadar req-lst)
+                                                stone-val)))
+                                    (if (> val 0)
+                                        (cons (list stone-id val) accu)
+                                        accu))
+                                  (cons (car req-lst) accu))))))
+    (modify-iter req nil)))
+                      
+
+                 
                                    
                                    
                                    
@@ -37,17 +51,27 @@
         (s (start-session)))
     (acceptor-log-message *acceptor* :info "~a~%" json-obj)
     (setf (session-value 'time) (get-internal-real-time))
-    (let ((cur-prelim (search-main (mapcar (lambda (x) (list (jsown:val x "id")
-                                                             (jsown:val x "points")))
-                                           (jsown:val json-obj "req"))
-                                   0
-                                   (if (equal (jsown:val json-obj "weapon") "saber")
-                                       'saber
-                                       'archer)
-                                   (grow-white-list (make-black-list 
-                                                     (jsown:val json-obj "blackList"))
-                                                    :color :black))))
-      
+    (let* ((req (mapcar (lambda (x) (list (jsown:val x "id")
+                                          (jsown:val x "points")))
+                        (jsown:val json-obj "req")))
+           (stone-a-id (jsown:val (jsown:val json-obj "stoneA") "id"))
+           (stone-a-val (jsown:val (jsown:val json-obj "stoneA") "points"))
+           (stone-b-id (jsown:val (jsown:val json-obj "stoneB") "id"))
+           (stone-b-val (jsown:val (jsown:val json-obj "stoneB") "points"))
+           (cur-prelim (search-main (modify-req-with-stone 
+                                     (modify-req-with-stone req 
+                                                            stone-a-id
+                                                            stone-a-val)
+                                     stone-b-id
+                                     stone-b-val)
+                                    0
+                                    (if (equal (jsown:val json-obj "weapon") "saber")
+                                        'saber
+                                        'archer)
+                                    (grow-white-list (make-black-list 
+                                                      (jsown:val json-obj "blackList"))
+                                                     :color :black))))
+
       (setf (session-value 'prelim) cur-prelim)
       (setf (session-value 'time) (- (get-internal-real-time)
                                      (session-value 'time)))

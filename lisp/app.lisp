@@ -56,6 +56,23 @@
                 (duplicate skill-set-model
                            :model-list tmp-rows))))
 
+(defun make-stone-slot (name label skills)
+  `(progn (setf tmp-array (make-array))
+          ((@ tmp-array push) 
+           (duplicate single-skill-option-model
+                      :name "None"
+                      :skill-id -1))
+          ,@(loop for skill-item in *skills*
+               collect `((@ tmp-array push)
+                         (duplicate single-skill-option-model
+                                    :name ,(skill-name skill-item)
+                                    :skill-id ,(skill-id skill-item))))
+          (setf (@ this ,name)
+                (duplicate skill-options
+                           :label ,label
+                           :selected-id -1
+                           :model-list tmp-array))))
+
 
 (init) ;; initialize the system
 
@@ -161,7 +178,15 @@
                                                     req ((@ this active-skills list collect) 
                                                          (lambda (x)
                                                            (create id ((@ x get) "id")
-                                                                   points ((@ x get) "points"))))))
+                                                                   points ((@ x get) "points"))))
+                                                    stone-a (create id (*Number (@. this stone-slot-a
+                                                                                    (get "selectedId")))
+                                                                    points (*Number (@. this stone-slot-a
+                                                                                        (get "selectedVal"))))
+                                                    stone-b (create id (*Number (@. this stone-slot-b
+                                                                                    (get "selectedId")))
+                                                                    points (*Number (@. this stone-slot-b
+                                                                                        (get "selectedVal"))))))
                         success (lambda (collection response options)
                                   (setf (@ collection parent-model url) "/hunterkit/meta")
                                   ((@ collection parent-model fetch)
@@ -242,6 +267,12 @@
                          (duplicate active-list-model
                                     :model-list (make-array)))
 
+                   ;; prepare stone slots
+                   (eval-lisp (make-stone-slot 'stone-slot-a "护石技能A" 
+                                               *skills*))
+                   (eval-lisp (make-stone-slot 'stone-slot-b "护石技能B" 
+                                               *skills*))
+                   
                    ;; prepare search button
                    (setf (@ this search-btn-model) (duplicate search-button-model
                                                               :caption "Search"
@@ -302,6 +333,10 @@
                   
                   ((@ this page add-sub-view) right-sub-page)
                   ((@ right-sub-page append-view) active-list (create model (@ this active-skills)))
+                  ((@ right-sub-page append-view) stone-skill-select-view 
+                   (create model (@ this stone-slot-a)))
+                  ((@ right-sub-page append-view) stone-skill-select-view 
+                   (create model (@ this stone-slot-b)))
                   ((@ right-sub-page append-view) search-button (create model (@ this search-btn-model)))
                   nil))
      (resulting (lambda ()

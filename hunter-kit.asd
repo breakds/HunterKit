@@ -19,6 +19,7 @@
                  (:file "lisp/components/loading-page")
                  (:file "lisp/components/refine-dialog")
                  (:file "lisp/components/talking-board")
+                 (:file "lisp/components/stone-slot")
                  (:file "lisp/server")
                  (:file "lisp/app")))
 

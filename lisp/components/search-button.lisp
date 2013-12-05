@@ -4,10 +4,10 @@
 
 (in-package #:breakds.hunter-kit)
 
+
 (def-model search-button-model
     ((defaults (lambda () (create caption "Search"
                                   weapon "saber")))))
-
 
 (def-view search-button
     ((tag-name "div")
